@@ -1,4 +1,4 @@
-<meta charset="UTF-8">
+
 
 
 <style>
@@ -8,7 +8,7 @@
         position: absolute;
 
         margin-top: 40px;
-        margin-left: 150px;
+        margin-left: 180px;
 
         border-collapse: collapse;
         background-color: white;

@@ -185,9 +185,6 @@
     }
 </style>
 
-
-    
-
     <div class="tb">
         <div class="box">
             <br>
@@ -216,6 +213,7 @@
                     <td><br>
                         <input type="text" id="text" class="width:100% center" placeholder="กรุณากรอกสังกัด" name="name" required>
                     </td>
+                </tr>
             </table>
             <br><br><br>
             <table>
