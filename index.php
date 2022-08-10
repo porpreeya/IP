@@ -13,7 +13,7 @@ if ($mm == '') {
   $page = "patent.php";
   $class3 = "active";
 } else if ($mm == '4') {
-  $page = "login.php";
+  $page = "qa.php";
   $class5 = "active";
 } else if ($mm == '6') {
   $page = "insertname.php";
@@ -187,7 +187,8 @@ if ($mm == '') {
       <div style="float:left"> <img src="../IP/img/2.png" width="69"> </div>
       <h1 class="p">ทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีเเห่งประเทศไทย (วว.)
         <div class="search-container">
-          <form class="from1">
+       
+          <form class="from1" action="search.php" method="POST">
             <input type="text" placeholder="ใส่คำค้นหา.." name="search">
 
             <button type="submit">ค้นหา <i class="fa fa-search" style="font-size:16px ; color:#f1f1f1"></i></button>
@@ -206,7 +207,7 @@ if ($mm == '') {
         <li><a href="index.php" class="<? echo $class1; ?>"><span>หน้าหลัก</span></a></li>
         <li><a href="index.php?mm=2" class="<? echo $class2; ?>"><span>ฐานข้อมูลการจดทะเบียน</span></a></li>
         <li><a href="index.php?mm=3" class="<? echo $class3; ?>"><span>ข้อมูลตัวแทน</span></a></li>
-        <li><a href="index.php?mm=4" class="<? echo $class5; ?>"><span>เข้าสู่ระบบ</span></a></li>
+        <li><a href="index.php?mm=4" class="<? echo $class5; ?>"><span>สอบถาม</span></a></li>
       </ul>
     </div>
   </div>
