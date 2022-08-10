@@ -1,6 +1,6 @@
 <? 
 
-$data = mssql_query("SELECT * FROM ques ")
+$data = mssql_query("SELECT * FROM ques ");
 ?>
 <head>
     <meta charset="utf-8">

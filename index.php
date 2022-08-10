@@ -19,6 +19,9 @@ if ($mm == '') {
   $page = "insertname.php";
   $class6 = "active";
 }
+
+// $box2 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
+// $box3 = iconv("utf-8", "tis-620", $_REQUEST["inventor"]);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -188,10 +191,13 @@ if ($mm == '') {
       <h1 class="p">ทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีเเห่งประเทศไทย (วว.)
         <div class="search-container">
        
-          <form class="from1" action="search.php" method="POST">
+        <? 
+        $data = mssql_query("SELECT * FROM tb_IP where  title like '%$box2%' ");
+        ?>
+          <form class="from1" action="index.php?mm=2" method="POST">
             <input type="text" placeholder="ใส่คำค้นหา.." name="search">
 
-            <button type="submit">ค้นหา <i class="fa fa-search" style="font-size:16px ; color:#f1f1f1"></i></button>
+            <button type="submit">ค้นหา <i class="fa fa-search" style="font-size:16px ; color:#f1f1f1" action="index.php?mm=2"></i></button>
           </form>
         </div>
       </h1>

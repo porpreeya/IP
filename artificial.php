@@ -1,31 +1,37 @@
 <?
 $box2 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
 $box3 = iconv("utf-8", "tis-620", $_REQUEST["inventor"]);
-$fromDate= iconv("utf-8", "tis-620", $_REQUEST["fromDate"]);
-$toDate= iconv("utf-8", "tis-620", $_REQUEST["toDate"]);
-$keyword= iconv("utf-8", "tis-620", $_REQUEST["keyword"]);
+$box4 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
+$box5 = iconv("utf-8", "tis-620", $_REQUEST["inventor"]);
+$fromDate = iconv("utf-8", "tis-620", $_REQUEST["fromDate"]);
+$toDate = iconv("utf-8", "tis-620", $_REQUEST["toDate"]);
+$keyword = iconv("utf-8", "tis-620", $_REQUEST["keyword"]);
+$search = iconv("utf-8", "tis-620", $_REQUEST["search"]);
 $sql = "SELECT * FROM tb_IP ";
-$key1="";
-$key2="";
-$key3="";
-if($keyword=='1'){
-    $key1="checked='true'";
-$sql.="where datenumregister >='$fromDate' and datenumregister <='$toDate'";
-} else if($keyword=='2'){
-    $key2="checked='true'";
-    $sql.=" where  title like '%$box2%'";
-}else  if($keyword=='3'){
-    $key3="checked='true'";
-    $sql.=" where inventor like '%$box3%'";
-}else{
-    $sql="";
+$key1 = "";
+$key2 = "";
+$key3 = "";
+$key4 = "";
+$key5 = "";
+if ($keyword == '1') {
+    $key1 = "checked='true'";
+    $sql .= "where datenumregister >='$fromDate' and datenumregister <='$toDate'";
+} else if ($keyword == '2') {
+    $key2 = "checked='true'";
+    $sql .= " where  title like '%$box2%'";
+} else  if ($keyword == '3') {
+    $key3 = "checked='true'";
+    $sql .= " where inventor like '%$box3%'";
+} else {
+    $sql = "";
 }
 $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
 
-if($sql!=""){
+if ($sql != "") {
     $data = mssql_query($sql);
 }
+
 
 ?>
 <style>
@@ -191,13 +197,13 @@ if($sql!=""){
                 <div class="box2">
                     <br>
                     <table>
-                     
+
                         <tr>
-                            <td><input <?php echo $key1?>  type="radio" id="html" name="keyword" value="1" >
+                            <td><input <?php echo $key1 ?> type="radio" id="html" name="keyword" value="1">
                                   <label for="html">ช่วงเวลา</label><br></td>
-                            <td><input type="date" name="fromDate" style="font-size:15px ;" value="<?php echo $_REQUEST["fromDate"]?>"></td>
+                            <td><input id="date2" type="date" name="fromDate" style="font-size:15px ;" value="<?php echo $_REQUEST["fromDate"] ?>"></td>
                             <td>ถึง</td>
-                            <td><input type="date" name="toDate" style="font-size:15px ;" value="<?php echo $_REQUEST["toDate"]?>"></td>
+                            <td><input id="date" type="date" name="toDate" style="font-size:15px ;" value="<?php echo $_REQUEST["toDate"] ?>"></td>
                         </tr>
 
                     </table>
@@ -206,12 +212,12 @@ if($sql!=""){
                     <table>
                         <tr>
                             <td>
-                                <input type="radio" id="css" <?php echo $key2?> name="keyword" value="2" >
+                                <input type="radio" id="css" <?php echo $key2 ?> name="keyword" value="2">
                                   <label for="css">ค้นหาคำสงวน(Key word) </label><br>
                             </td>
                             <td>
                                 <div class="container">
-                                    <input type="text" id="title" name="title" value="<?php echo $_REQUEST["title"]?>" style="width:500px; border: 1px solid black;" placeholder="">
+                                    <input type="text" id="title" name="title" value="<?php echo $_REQUEST["title"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
                             </td>
                         </tr>
                     </table>
@@ -219,11 +225,11 @@ if($sql!=""){
                     <br>
                     <table>
                         <tr>
-                            <td><input type="radio" id="javascript" <?php echo $key3?> value="3" name="keyword" >
+                            <td><input type="radio" id="javascript" <?php echo $key3 ?> value="3" name="keyword">
                                   <label for="javascript">ค้นหาชื่อผู้ประดิษฐ์</label></td>
                             <td>
                                 <div class="container">
-                                    <input type="text" id="inventor" name="inventor" value="<?php echo $_REQUEST["inventor"]?>" style="width:500px; border: 1px solid black;" placeholder="">
+                                    <input type="text" id="inventor" name="inventor" value="<?php echo $_REQUEST["inventor"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
                             </td>
                         </tr>
                     </table>
@@ -325,4 +331,36 @@ if($sql!=""){
 
 
     </div>
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script>
+        $('#html').click(function() {
+            var len = $(this).val();
+            if (len == "1") {
+                $("#title").attr("disabled", true);
+                $("#inventor").attr("disabled", true);
+                $("#date").attr("disabled", false);
+                $("#date2").attr("disabled", false);
+            }
+        });
+        $('#css').click(function() {
+
+            var len = $(this).val();
+            // alert(len);
+            if (len == "2") {
+                $("#title").attr("disabled", false);
+                $("#inventor").attr("disabled", true);
+                $("#date").attr("disabled", true);
+                $("#date2").attr("disabled", true);
+            }
+        });
+        $('#javascript').click(function() {
+            var len = $(this).val();
+            if (len == "3") {
+                $("#title").attr("disabled", true);
+                $("#inventor").attr("disabled", false);
+                $("#date").attr("disabled", true);
+                $("#date2").attr("disabled", true);
+            }
+        });
+    </script>
 </div>
