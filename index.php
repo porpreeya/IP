@@ -14,7 +14,7 @@ if ($mm == '') {
   $class3 = "active";
 } else if ($mm == '4') {
   $page = "qa.php";
-  $class5 = "active";
+  $class4 = "active";
 } else if ($mm == '6') {
   $page = "insertname.php";
   $class6 = "active";
@@ -42,6 +42,10 @@ if ($mm == '') {
   <!--[if IE 6]><link rel="stylesheet" href="css/ie.css" type="text/css" media="all" /><![endif]-->
 
   <style>
+    .span1{
+      font-size: 11px;
+      
+    }
     .collapsible {
       cursor: pointer;
       padding: 18px;
@@ -183,7 +187,7 @@ if ($mm == '') {
   </style>
 </head>
 
-<body>
+
   <!-- START PAGE SOURCE -->
   <div id="header">
     <div class="shell">
@@ -191,11 +195,9 @@ if ($mm == '') {
       <h1 class="p">ทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีเเห่งประเทศไทย (วว.)
         <div class="search-container">
        
-        <? 
-        $data = mssql_query("SELECT * FROM tb_IP where  title like '%$box2%' ");
-        ?>
+       
           <form class="from1" action="index.php?mm=2" method="POST">
-            <input type="text" placeholder="ใส่คำค้นหา.." name="search">
+            <input type="text" placeholder="ใส่คำค้นหา.." name="search" >
 
             <button type="submit">ค้นหา <i class="fa fa-search" style="font-size:16px ; color:#f1f1f1" action="index.php?mm=2"></i></button>
           </form>
@@ -213,20 +215,16 @@ if ($mm == '') {
         <li><a href="index.php" class="<? echo $class1; ?>"><span>หน้าหลัก</span></a></li>
         <li><a href="index.php?mm=2" class="<? echo $class2; ?>"><span>ฐานข้อมูลการจดทะเบียน</span></a></li>
         <li><a href="index.php?mm=3" class="<? echo $class3; ?>"><span>ข้อมูลตัวแทน</span></a></li>
-        <li><a href="index.php?mm=4" class="<? echo $class5; ?>"><span>สอบถาม</span></a></li>
+        <li><a href="index.php?mm=4" class="<? echo $class4; ?>"><span class="span1">ถาม-ตอบด้านทรัพย์สินทางปัญญา</span></a></li>
       </ul>
     </div>
   </div>
-
-
   <div id="intro">
     <?
     include($page);
     ?>
   </div>
-
-
-  <footer>
+  <footer >
     <div class="x">
       <div class="shell">
         <p class="lf">
@@ -239,6 +237,6 @@ if ($mm == '') {
     </div>
     <!-- END PAGE SOURCE -->
   </footer>
-</body>
+
 
 </html>

@@ -1,18 +1,22 @@
-<? 
+<?
 
-$data = mssql_query("SELECT * FROM ques ");
+$data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
 ?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {
-            font-family: 'K2D', sans-serif;
+        .body {
+            /* background-image: url(../IP/img/d.jpg); */
+            background-color: white;
+            height: 950px;
         }
 
         .input1[type=text],
         select,
-        textarea,.input1[type=mail] {
+        textarea,
+        .input1[type=mail] {
             width: 100%;
             padding: 12px;
             border: 1px solid rgb(64, 170, 216);
@@ -53,9 +57,10 @@ $data = mssql_query("SELECT * FROM ques ");
 
         .tb {
             border-collapse: collapse;
-            width: 100%;
+            width: 80%;
             justify-content: center;
             border-spacing: 30px;
+            color: #000;
         }
 
         .td1 {
@@ -63,7 +68,9 @@ $data = mssql_query("SELECT * FROM ques ");
             border: 1px solid rgb(0, 0, 0);
             padding-left: 30px;
             font-size: 16px;
-            height: 80px;
+            height: 70px;
+            width: 80%;
+            color: #000;
         }
 
         .td2 {
@@ -84,7 +91,9 @@ $data = mssql_query("SELECT * FROM ques ");
             border: 1px solid rgb(0, 0, 0);
             padding-left: 30px;
             font-size: 16px;
-            height: 80px;
+            height: 70px;
+            width: 80%;
+            color: #000;
         }
 
         .box3 {
@@ -101,14 +110,44 @@ $data = mssql_query("SELECT * FROM ques ");
         }
 
         .c {
-            height: 550px;
+            height: 330px;
             color: black;
-             background-color:blanchedalmond;
+            background-color: blanchedalmond;
             /* background-image: url(../IP/img/d1.jpg); */
+
+        }
+
+        #main3 {
+            background-color: #ffebcd;
+            margin-left: auto;
+            margin-right: auto;
+            height: 600px;
+
+        }
+
+        .pagination4 a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+
+        }
+
+        .pagination4 a.active2 {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        .pagination4 {
+            margin-top: 450px;
+            margin-left: 150%;
+            width: 100%;
 
         }
     </style>
 </head>
+<link rel="stylesheet" href="./css/style.css">
 
 <body>
     <div class="c">
@@ -119,7 +158,7 @@ $data = mssql_query("SELECT * FROM ques ");
         <div class="box3">
             <form action="../IP/question/question.php" method="post">
                 <div class="container">
-                    <h3 >สอบถาม</h3><br>
+                    <h3>สอบถาม</h3><br>
                     <label for="text">อีเมล</label>
                     <input class="input1" type="mail" name="mail" placeholder="พิมพ์อีเมล...">
                     <label for="text">คำถาม</label>
@@ -130,35 +169,95 @@ $data = mssql_query("SELECT * FROM ques ");
                 <br>
                 <br>
                 <div>
-                <?php
-        while ($info = mssql_fetch_array($data)) {
-            $question = iconv("tis-620", "utf-8", $info['question']);
-          
+                    <?php
+                    //เริ่ม
+                    $allData = array();
+                    while ($info = mssql_fetch_array($data)) {
+                        // $question = iconv("tis-620", "utf-8", $info['question']);
+                        // $date = iconv("tis-620", "utf-8", $info['date']);
 
-        ?>
-                    <table class="tb">
-                        <tr>
-                            <td class="td1">คำถาม :<a class="a1"><?php echo  $question; ?></a>
-                                <hr width="95%">
-                                <div class="ddiv">
-                                    <p>ถามเมื่อ:06/07/2565</p>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <table class="tb">
-                        <tr>
-                            <td class="td3">คำตอบ :<a class="a1"></a>
-                                <hr width="95%">
-                                <div class="ddiv">
-                                    <p>ตอบเมื่อ:06/07/2565</p>
-                                </div>
-                            </td>
-                        </tr>
-                    </table><br>
-                    <?php } ?>
-                    
+                        array_push($allData, $info);
+                    }
+                    //echo '<pre>'.var_dump($allData).'</pre>' ;
+                    $arrData = array_chunk($allData, 3);
+                    ?>
+
                 </div>
         </div>
     </div>
+    <div id="main3">
+        <br>
+
+        <div class="shell">
+
+            <div class="slider">
+                <div class="slider-holder2">
+                    <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
+                        <div class="jcarousel-clip jcarousel-clip-horizontal">
+                            <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:550px; left: 0px;">
+                                <?php for ($i = 0; $i < count($arrData); $i++) : ?>
+                                    <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
+                                        <?php
+                                        foreach ($arrData[$i] as $key => $val) {
+                                            // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+                                        ?>
+                                            <div class="box2">
+                                                <table class="td1">
+                                                    <tr>
+                                                        <th>คำถาม</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>คำถาม :<a class="a1"><?php echo iconv("tis-620", "utf-8", $val[2]) ?></a>
+                                                            <hr width="95%">
+                                                            <div class="ddiv">
+                                                                <p>วันที่สอบถาม:<?php echo  iconv("tis-620", "utf-8", $val[4]); ?></p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+
+                                                <table class="td3">
+                                                    <tr>
+                                                        <th>คำตอบ</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>คำตอบ :<a class="a1"><?php echo  iconv("tis-620", "utf-8", $val[3]); ?></a>
+                                                            <hr width="95%">
+                                                            <div class="ddiv">
+                                                                <p>วันที่ตอบ:<?php echo  iconv("tis-620", "utf-8", $val[6])  ?></p>
+                                                            </div>
+                                                            <div class="ddiv">
+                                                                <p>ผู้ตอบ:<?php echo  iconv("tis-620", "utf-8", $val[7])  ?></p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table><br>
+                                            </div>
+
+
+
+                                        <?php } ?>
+
+                                    </li>
+                                <?php endfor; ?>
+                            </ul>
+                        </div>
+                    </div>
 </body>
+<div class="slider-navigation " ">
+      <div class=" pagination4">
+    <a href="#">&laquo;</a>
+    <a href="#">1</a>
+    <a class="active2" href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">&raquo;</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- จบ -->

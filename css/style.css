@@ -7,7 +7,7 @@
 }
 body {
 	font-size:12px;
-	font-family:Arial, "Trebuchet MS", sans-serif;
+	/* font-family:Arial, "Trebuchet MS", sans-serif; */
 	color:#ffffff;
 	background:#e3e3e3;
 }
@@ -157,7 +157,7 @@ input, textarea, select {
 	float:left;
 	height:42px;
 	line-height:42px;
-	padding:0 33px 0 0;
+	padding:0 29px 0 0;
 }
 #navigation ul li a:hover, #navigation ul li a.active {
 	background:url(images/navigation-active.gif) left top no-repeat;
@@ -211,6 +211,7 @@ input, textarea, select {
 	line-height:0;
 	text-indent:-4000px;
 }
+
 .slider-navigation ul li a.active {
 	background:url(images/slider-navigation-active.png);
 }
@@ -264,7 +265,7 @@ input, textarea, select {
 	padding:10px 0 30px 0;
 	background-color: #D3D3D3;
 	padding-left:20px ;
-	height:350px;
+	height: 750px;
 	position: relative;
 	
 }
@@ -280,6 +281,7 @@ input, textarea, select {
 }
 #main .box5 {
 	width:306px;
+	min-height: 250px;
 	float:left;
 	padding-right:15px;
 	border: solid 3px black;
@@ -288,6 +290,7 @@ input, textarea, select {
 	color: #000;
 	background-color: white;
 	border-radius: 10px;
+	margin-bottom: 35px;
 	
 }
 #main .last-box {
@@ -382,7 +385,7 @@ input, textarea, select {
 	background-color: rgb(224, 204, 184);
 	padding-left:20px ;
 	position: relative;
-	height: 570px;
+	height: 600px;
 	
 	
 }
@@ -463,7 +466,7 @@ input, textarea, select {
 }
 .slider-holder2 ul li {
 	width:1300px;
-	height:300px;
+	height:700px;
 	float:left;
 	display:inline;
 }
@@ -488,6 +491,42 @@ input, textarea, select {
 	text-indent:-4000px;
 }
 .slider-navigation2 ul li a.active {
+	background:url(images/slider-navigation-active.png);
+}
+.slider3 {
+	float:left;
+}
+.slider-holder3 ul {
+	position:relative;
+	overflow:hidden;
+}
+.slider-holder3 ul li {
+	width:1300px;
+	height:100px;
+	float:left;
+	display:inline;
+}
+.slider-navigation3 {
+	position:absolute;
+	bottom:8px;
+	right:550px;
+}
+.slider-navigation3 ul {
+	list-style:none;
+}
+.slider-navigation3 ul li {
+	float:left;
+}
+.slider-navigation3 ul li a {
+	float:left;
+	width:20px;
+	height:25px;
+	background:url(images/slider-navigation-normal.png);
+	font-size:0;
+	line-height:0;
+	text-indent:-4000px;
+}
+.slider-navigation3 ul li a.active {
 	background:url(images/slider-navigation-active.png);
 }
 

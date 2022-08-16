@@ -43,6 +43,10 @@ $result7     = $db_tm->sql_query($sql7);
 $rows7       = $db_tm->sql_fetchrow($result7);
 $image7      = $rows7['img'];
 $path7       = '../IP/img/';
+
+$sql8        = "SELECT *FROM tb_IP WHERE ID_ip ='1'";
+$result8     = $db_tm->sql_query($sql8);
+$rows8       = $db_tm->sql_fetchrow($result8);
 ?>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <style>
@@ -120,18 +124,21 @@ $path7       = '../IP/img/';
     width: 100%;
 
   }
+
   .pagination3 a {
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
     transition: background-color .3s;
+    
 
   }
 
   .pagination3 a.active2 {
     background-color: dodgerblue;
     color: white;
+    
   }
 
   .pagination3 {
@@ -255,6 +262,9 @@ $path7       = '../IP/img/';
         <li><img src="<? echo $path . $image; ?> " style="width: 100%;"></li>
         <li><img src="<? echo $path2 . $image2; ?>" style="width: 100%;"></li>
         <li><img src="<? echo $path3 . $image3; ?>" style="width: 100%;"></li>
+        <li><img src="<? echo $path . $image; ?> " style="width: 100%;"></li>
+        <li><img src="<? echo $path2 . $image2; ?>" style="width: 100%;"></li>
+        <li><img src="<? echo $path3 . $image3; ?>" style="width: 100%;"></li>
       </ul>
     </div>
     <div class="slider-navigation">
@@ -262,7 +272,9 @@ $path7       = '../IP/img/';
         <li><a href="#" class="active">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
-
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
       </ul>
     </div>
   </div>
@@ -280,13 +292,79 @@ $path7       = '../IP/img/';
     <div class="slider">
       <div class="slider-holder2">
         <ul>
-          <li>
+        <li>
             <div class="box5">
               <br>
-              
+
               <div class="entry">
                 <center>
-                  <img src="<? echo $path . $image; ?> " width="60%">
+                  <img src="<? echo $path . $image; ?> " height="120px">
+
+                </center><br>
+
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path . $image; ?> " width="60%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows['news']) ?>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path2 . $image2; ?> " height="120px">
+                </center><br>
+
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil2"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil2" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path2 . $image2; ?> " width="40%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil2">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows2['news']) ?>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path3 . $image3; ?> " height="120px">
+
+                </center><br>
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows3['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil3"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil3" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path3 . $image3; ?> " width="40%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil3">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows3['news']) ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path . $image; ?> "height="120px">
 
                 </center><br>
 
@@ -305,10 +383,10 @@ $path7       = '../IP/img/';
             </div>
             <div class="box5">
               <br>
-              
+
               <div class="entry">
                 <center>
-                  <img src="<? echo $path2 . $image2; ?> " width="40%">
+                  <img src="<? echo $path2 . $image2; ?> " height="120px">
                 </center><br>
 
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil2"><span>อ่านต่อ </span></a></p>
@@ -326,10 +404,10 @@ $path7       = '../IP/img/';
             </div>
             <div class="box5">
               <br>
-              
+
               <div class="entry">
                 <center>
-                  <img src="<? echo $path3 . $image3; ?> " width="60%">
+                  <img src="<? echo $path3 . $image3; ?> " height="120px">
 
                 </center><br>
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows3['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil3"><span>อ่านต่อ </span></a></p>
@@ -344,15 +422,15 @@ $path7       = '../IP/img/';
                 </div>
               </div>
             </div>
-
+          
           </li>
           <li>
             <div class=" box5">
               <br>
-             
+
               <div class="entry">
                 <center>
-                  <img src="<? echo $path4 . $image4; ?> " width="60%">
+                  <img src="<? echo $path4 . $image4; ?> " height="120px">
 
                 </center><br>
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows4['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
@@ -361,10 +439,10 @@ $path7       = '../IP/img/';
 
             <div class="box5">
               <br>
-              
+
               <div class="entry">
                 <center>
-                  <img src="<? echo $path5 . $image5; ?> " width="60%">
+                  <img src="<? echo $path5 . $image5; ?> "height="120px">
 
                 </center><br>
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows5['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
@@ -374,20 +452,85 @@ $path7       = '../IP/img/';
 
             <div class="box5">
               <br>
-              
+
               <div class="entry">
                 <center>
-                  <img src="<? echo $path6 . $image6; ?> " width="60%">
+                  <img src="<? echo $path6 . $image6; ?> "height="120px">
 
                 </center><br>
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows6['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
               </div>
             </div>
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path . $image; ?> "height="120px">
+
+                </center><br>
+
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path . $image; ?> " width="60%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows['news']) ?>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path2 . $image2; ?> " height="120px">
+                </center><br>
+
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil2"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil2" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path2 . $image2; ?> " width="40%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil2">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows2['news']) ?>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path3 . $image3; ?> " height="120px">
+
+                </center><br>
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows3['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil3"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil3" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path3 . $image3; ?> " width="40%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil3">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows3['news']) ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            
           </li>
           <li>
             <div class="box5">
               <br>
-             
+
               <div class="entry">
                 <center>
                   <img src="<? echo $path7 . $image7; ?> " width="60%">
@@ -399,7 +542,7 @@ $path7       = '../IP/img/';
 
             <div class="box5">
               <br>
-              
+
               <div class="entry">
                 <center>
                   <img src="<? echo $path . $image; ?> " width="60%">
@@ -412,7 +555,7 @@ $path7       = '../IP/img/';
 
             <div class="box5">
               <br>
-              
+
               <div class="entry">
                 <center>
                   <img src="<? echo $path2 . $image2; ?> " width="40%">
@@ -421,30 +564,94 @@ $path7       = '../IP/img/';
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
               </div>
             </div>
+
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path . $image; ?> "height="120px">
+
+                </center><br>
+
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path . $image; ?> " width="60%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows['news']) ?>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path2 . $image2; ?> " height="120px">
+                </center><br>
+
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil2"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil2" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path2 . $image2; ?> " width="40%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil2">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows2['news']) ?>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="box5">
+              <br>
+
+              <div class="entry">
+                <center>
+                  <img src="<? echo $path3 . $image3; ?> " height="120px">
+
+                </center><br>
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows3['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil3"><span>อ่านต่อ </span></a></p>
+              </div>
+              <div id="popup_flight_travlDil3" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+                  <p class="pu"><img src="<? echo $path3 . $image3; ?> " width="40%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil3">&times;</a>
+                  <div class="content_flightht_travel_dil">
+                    <? echo iconv("tis-620", "utf-8", $rows3['news']) ?>
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
-  
-        <div class="slider-navigation " ">
+      </div>
+      <div class="slider-navigation " ">
        
       <div class=" pagination2">
 
-          <!-- <li><a href="#" class="active">1</a></li>
+        <!-- <li><a href="#" class="active">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li> -->
-          <a href="#">&laquo;</a>
-          <a href="#">1</a>
-          <a class="active2" href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">&raquo;</a>
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a class="active2" href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">&raquo;</a>
 
-        </div>
       </div>
     </div>
   </div>
+</div>
 
 
 </div>
@@ -459,354 +666,430 @@ $path7       = '../IP/img/';
     </div>
     <div class="slider">
       <div class="slider-holder2">
-      <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */"><div class="jcarousel-clip jcarousel-clip-horizontal"><ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:500px; left: 0px;">
-          <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td style="width:auto;">ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td style="width:auto;">ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <br>
+        <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
+          <div class="jcarousel-clip jcarousel-clip-horizontal">
+            <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:500px; left: 0px;">
+              <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td style="width:auto;">ชื่อเรื่อง :</td>
+                        <td class="td1"> <? echo iconv("tis-620", "utf-8", $rows8['title']) ?> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td style="width:auto;">ชื่อเรื่อง :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ชื่อเรื่อง :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <br>
 
 
 
 
-          </li>
-          <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-2 jcarousel-item-2-horizontal" jcarouselindex="2" style="">
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td style="width:auto;">ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td style="width:auto;">ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <br>
+              </li>
+              <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-2 jcarousel-item-2-horizontal" jcarouselindex="2" style="">
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td style="width:auto;">ชื่อเรื่อง :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td style="width:auto;">ชื่อเรื่อง :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ชื่อเรื่อง :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <br>
 
 
 
-          </li>
-          <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-3 jcarousel-item-3-horizontal" jcarouselindex="3" style="">
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td style="width:auto;">ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td style="width:auto;">ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <div class="box2">
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ชื่อเรื่อง :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ทรงสิทธิ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>ผู้ประดิษฐ์ :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-              <br>
-              <br>
-              <table>
-                <tbody><tr>
-                  <td>วันที่จดเลขทะเบียน :</td>
-                  <td class="td1"></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <br>
-            <br>
+              </li>
+              <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-3 jcarousel-item-3-horizontal" jcarouselindex="3" style="">
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td style="width:auto;">ชื่อเรื่อง :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td style="width:auto;">ชื่อเรื่อง :</td>
+                        <td class="td1"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class="box2">
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ชื่อเรื่อง :</td>
+                        <td class="td1"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ทรงสิทธิ์ :</td>
+                        <td class="td1"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>ผู้ประดิษฐ์ :</td>
+                        <td class="td1"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>วันที่จดเลขทะเบียน :</td>
+                        <td class="td1"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <br>
 
 
-      
-      </li>
-      </ul></div></div>
-      <br>
-      <br>
-      <br>
-      <div class="slider-navigation " ">
+
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="slider-navigation2 ">
       <div class=" pagination3">
 
-        <!-- <li><a href="#" class="active">1</a></li>
+          <!-- <li><a href="#" class="active">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li> -->
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active2" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">&raquo;</a>
+          <a href="#">&laquo;</a>
+          <a href="#">1</a>
+          <a class="active2" href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">&raquo;</a>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </div>
 </div>
@@ -814,7 +1097,7 @@ $path7       = '../IP/img/';
 
 <br>
 <br>
-<!-- <div class="box2">
+<!-- <!-- <div class="box2">
       <br>
       <table>
         <tr>
@@ -916,10 +1199,9 @@ $path7       = '../IP/img/';
       </table>
     </div>
     <br>
-    <br>
+    <br> -->
 
 
-  </div> -->
 <!-- <div class="pagination">
   <a href="#">&laquo;</a>
   <a href="#">1</a>

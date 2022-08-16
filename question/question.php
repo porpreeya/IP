@@ -5,9 +5,9 @@ $question = iconv("utf-8", "tis-620", $_POST['question']);
 
 $objDB = mssql_select_db("intelle");
 $strSQL = "INSERT INTO ques";
-$strSQL .= "(mail,response,question)";
+$strSQL .= "(mail,response,question,date)";
 $strSQL .= "VALUES";
-$strSQL .= "('" . $mail . "','" . $response . "','" . $question . "')";
+$strSQL .= "('" . $mail . "','" . $response . "','" . $question . "',GETDATE())";
 $strSQL .= mssql_query($strSQL);
 
 //upload file in folder

@@ -82,7 +82,7 @@
 
         color: black;
         text-align: center;
-        background-image: url(../IP/img/d1.jpg);
+ 
 
     }
 

@@ -1,18 +1,17 @@
 <?
 $box2 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
 $box3 = iconv("utf-8", "tis-620", $_REQUEST["inventor"]);
-$box4 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
-$box5 = iconv("utf-8", "tis-620", $_REQUEST["inventor"]);
 $fromDate = iconv("utf-8", "tis-620", $_REQUEST["fromDate"]);
 $toDate = iconv("utf-8", "tis-620", $_REQUEST["toDate"]);
 $keyword = iconv("utf-8", "tis-620", $_REQUEST["keyword"]);
+$search = iconv("utf-8", "tis-620", $_POST["search"]);
 $search = iconv("utf-8", "tis-620", $_REQUEST["search"]);
 $sql = "SELECT * FROM tb_IP ";
 $key1 = "";
 $key2 = "";
 $key3 = "";
 $key4 = "";
-$key5 = "";
+
 if ($keyword == '1') {
     $key1 = "checked='true'";
     $sql .= "where datenumregister >='$fromDate' and datenumregister <='$toDate'";
@@ -22,12 +21,15 @@ if ($keyword == '1') {
 } else  if ($keyword == '3') {
     $key3 = "checked='true'";
     $sql .= " where inventor like '%$box3%'";
+} else  if ($search != "") {
+    $key4 = "checked='true'";
+    $sql .= " where title like '%$search%' or inventor like '%$search%'";
 } else {
     $sql = "";
 }
+
 $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
-
 if ($sql != "") {
     $data = mssql_query($sql);
 }
@@ -35,6 +37,10 @@ if ($sql != "") {
 
 ?>
 <style>
+    .td1 {
+    width: 870px;
+    height: 20px;
+  }
     .body {
         /* background-image: url(../IP/img/d.jpg); */
         background-color: white;
@@ -178,6 +184,97 @@ if ($sql != "") {
         width: 100%;
 
     }
+
+    .popup_flight_travlDil {
+        margin: 70px auto;
+        padding: 20px;
+        background: #def8e8;
+        border-radius: 5px;
+        width: 20%;
+        position: relative;
+        transition: all 2s ease-in-out;
+        color: #000;
+        min-height: 252px;
+    }
+
+    .popup_flight_travlDil .close_flight_travelDl {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .popup_flight_travlDil .content_flightht_travel_dil {
+        min-height: 170px;
+        overflow: auto;
+
+    }
+
+    .pu {
+        padding-left: 140px;
+    }
+
+    .overlay_flight_traveldil {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 1;
+
+    }
+
+    .overlay_flight_traveldil:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    #myBtn {
+        position: relative;
+        background-color: #04AA6D;
+        border: none;
+        font-size: 12px;
+        color: black;
+        padding: 5px;
+        width: 50px;
+        text-align: center;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 12px;
+        margin-left: 650px;
+    }
+
+    #myBtn:after {
+        content: "";
+        /* background: #90EE90; */
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+    }
+
+    #myBtn:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+    }
 </style>
 <div class="body">
 
@@ -248,7 +345,9 @@ if ($sql != "") {
             $holdre = iconv("tis-620", "utf-8", $info['holdre']);
             $datenumregister = iconv("tis-620", "utf-8", $info['datenumregister']);
             $attachment = iconv("tis-620", "utf-8", $info['attachment']);
-
+            $status = iconv("tis-620", "utf-8", $info['status']);
+            $note = iconv("tis-620", "utf-8", $info['note']);
+            $inventor = iconv("tis-620", "utf-8", $info['inventor']);
         ?>
             <!-- <div class="slider">
                 <div class="slider-holder2">
@@ -256,12 +355,7 @@ if ($sql != "") {
                         <li> -->
             <div class="box4">
                 <table class="table">
-                    <tr>
-                        <td>
-                            <h4>ลำดับ:</h4>
-                        </td>
-                        <td class="td1"><?php echo $info['ID_ip']; ?></td>
-                    </tr>
+
 
                     <tr>
                         <td>
@@ -272,8 +366,7 @@ if ($sql != "") {
                 </table>
                 <br>
                 <br>
-                <br>
-                <br>
+               
                 <table class="table">
                     <tr>
                         <td>
@@ -303,6 +396,69 @@ if ($sql != "") {
                         <td class="td1"><?php echo $attachment; ?></td>
                     </tr>
                 </table>
+                
+                <a button id="myBtn" href="#popup_flight_travlDil<?php echo $info['ID_ip']; ?>"><span>รายละเอียดเพิ่มเติม</span></a>
+
+
+
+            </div>
+            <div id="popup_flight_travlDil<?php echo $info['ID_ip']; ?>" class="overlay_flight_traveldil">
+                <div class="popup_flight_travlDil">
+
+                    <a class="close_flight_travelDl" href="# popup_flight_travlDil<?php echo $info['ID_ip']; ?>">&times;</a>
+                    <div class="content_flightht_travel_dil">
+                    <table class="table">
+                    <tbody>
+                      <tr>
+                        <td ><h4>ลำดับ :</td>
+                        <td > <?php echo $info['ID_ip']; ?> </td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td><h4>ชื่อเรื่อง :</td>
+                       <td><?php echo $title; ?></td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td ><h4>ผู้ทรงสิทธิ์ :</td>
+                        <td><?php echo $holdre; ?></td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td><h4>ผู้ประดิษฐ์ :</td>
+                        <td><?php echo $inventor; ?></td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td><h4>วันที่จดเลขทะเบียน :</td>
+                        <td><?php echo $datenumregister; ?></td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td><h4>สถานะ :</td>
+                        <td><?php echo $status; ?></td> 
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td><h4>รายละเอียด :</td>
+                       <td><?php echo $attachment; ?></td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <td><h4>หมายเหตุ :</h4></td>
+                        <td><?php echo $note; ?></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                                    </div>
+                </div>
             </div>
         <?php } ?>
         <!-- </li>
