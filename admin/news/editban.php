@@ -9,7 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
+    <?php
+
+//ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
+$ID_ban = $_GET['ID_ban'];
+$objDB = mssql_select_db("intelle");
+$data = mssql_query("SELECT * FROM banner WHERE ID_ban='$ID_ban'")
+    or die(mssql_error());
+
+?> 
+<style>
         * {
             box-sizing: border-box;
         }
@@ -115,36 +124,35 @@
             margin-left: 150px;
         }
     </style>
+   
 </head>
 
 <body class="body">
 
-    <h2 class="glow">เพิ่มข่าวทรัพย์สินทางปัญญา</h2>
+    <h2 class="glow">เพิ่มเเบนเนอร์</h2>
 
     <div class="container">
-        <form action="news/storenews.php" method="post" enctype="multipart/form-data" class="form">
-            <h5>เพิ่มไฟล์รูป:</h5>
-            <input type="file" name="image">
-            <h5><label for="subject">เพิ่มข่าว</label></h5>
+    <?php
+        while ($info = mssql_fetch_array($data)) {
+            $image = iconv("tis-620", "utf-8", $info['image']);
+           
+        ?>
+
+        <form action="news/updateban.php=<?php echo $info['ID_ban']; ?>" method="post" enctype="multipart/form-data" class="form">
+            <div>
+        <label for="fname"><i class="fa fa-user"></i>รหัส</label><br>
+                <input  name="ID_ban" style="width:84%;"value="<?php echo  $ID_ban; ?>"/>>
+            </div>
+            <div>
+                <h5>เพิ่มไฟล์รูป:</h5>
             
-            <div class="row">
-                <div class="col-75">
-                    <textarea name="news" placeholder="รายละเอียดข่าว" style="height:200px; width:750px"></textarea>
-                </div>
-            </div>
-            <!-- <h5><label for="subject">สถานะ</label></h5>
-            <div class="col-25">
-            </div>
-            <div class="row">
-                <div class="col-75">
-                    <textarea name="status" placeholder="รายละเอียดข่าว" style="height:100px; width:750px"></textarea>
-                </div>
-            </div> -->
+            <input type="file" name="image"  multiple="true"  ></div>
             <div class="row">
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </div>
         </form>
+        <?php } ?>
     </div>
 
 </body>

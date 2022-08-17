@@ -17,12 +17,14 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             border: 0.5px solid black;
             border-collapse: collapse;
 background-color: white;
+
         }
 
         th {
             border: 1px solid black;
             border-collapse: collapse;
             background: #ed9898;
+            text-align: center;
         }
 
         table.center {
@@ -85,14 +87,14 @@ background-color: white;
         <?
         while ($info = mssql_fetch_array($data)) {
             $news = iconv("tis-620", "utf-8", $info['news']);
-            $img = iconv("tis-620", "utf-8", $info['img']);
+            $image = iconv("tis-620", "utf-8", $info['image']);
 
 
         ?>
             <tr>
                 <td style="text-align:center ;"><?php echo $info['ID']; ?></td>
                 <td><?php echo $news; ?></td>
-                <td><?php echo $img; ?></td>
+                <td><?php echo $image; ?></td>
                 <td style="text-align:center ;"><a href='#'><button type="button" class="btn btn-warning">Edit</button></a> </td>
                 <td style="text-align:center ;"><a href='news/deletenews.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
                 

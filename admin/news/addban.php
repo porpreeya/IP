@@ -119,14 +119,14 @@
     <div class="container">
    
 
-        <form action="#" method="post" enctype="multipart/form-data" class="form">
+        <form action="news/storeban.php" method="post" enctype="multipart/form-data" class="form">
         <h5>เพิ่มไฟล์รูป:</h5>
-            <input type="file" name="file_upload[]" id="file_upload" multiple="true">
-        </form><div class="row">
+            <input type="file" name="image" id="file_upload" multiple="true">
+        <div class="row">
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </div>
-       
+       </form>
     </div>
 
 </body>

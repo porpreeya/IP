@@ -12,23 +12,24 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <style>
-        table,
+        
         td {
             border: 0.5px solid black;
             border-collapse: collapse;
-background-color: white;
+           
         }
 
         th {
             border: 1px solid black;
             border-collapse: collapse;
             background: #ed9898;
+            text-align: center;
         }
 
         table.center {
             margin-left: auto;
             margin-right: auto;
-
+            background-color: white;
         }
 
         .glow {
@@ -52,7 +53,7 @@ background-color: white;
             width: 500px;
         }
 
-       
+
         p.outset {
             width: 130px;
             border-style: outset;
@@ -61,41 +62,39 @@ background-color: white;
             margin-left: 63%;
             color: black;
             height: 40px;
-    padding: 5px;
-    outline-color:red;
+            padding: 5px;
+            outline-color: red;
         }
     </style>
 </head>
 
-<body>
-    <h1 class="glow">Banner </h1>
-    <a  onclick="location. href='indexadmin.php?Menu=1&Submenu=addban';">
-        <p class="outset">เพิ่มเเบนเนอร์</p>
-    </a>
-    <table class="center">
-        <tr>
-            <th>รหัส</th>
-            <th class="th">ชื่อรูปเเบนเนอร์ </th>
-           <th>แก้ไขข้อมูล </th> 
-           <th>ลบข้อมูล </th>
-            
 
+<h1 class="glow">Banner </h1>
+<a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=1&Submenu=addban'; ">
+    <p class="outset">เพิ่มเเบนเนอร์</p>
+</a>
+<table class="center">
+    <tr>
+        <th>รหัส</th>
+        <th class="th">ชื่อรูปเเบนเนอร์ </th>
+        <th>แก้ไขข้อมูล </th>
+        <th>ลบข้อมูล </th>
+
+
+
+    </tr>
+    <?
+    while ($info = mssql_fetch_array($data)) {
+        $image = iconv("tis-620", "utf-8", $info['image']);
+
+
+    ?>
+        <tr>
+            <td style="text-align:center ;"><?php echo $info['ID_ban']; ?></td>
+            <td><?php echo $image; ?></td>
+            <td style="text-align:center ;"><a href='indexadmin.php?Menu=1&Submenu=editban'><button type="button" class="btn btn-warning">Edit</button></a> </td>
+            <td style="text-align:center ;"><a href='news/deleteban.php?ID_ban=<?php echo $info['ID_ban']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
 
         </tr>
-        <?
-        while ($info = mssql_fetch_array($data)) {
-            $img_ban = iconv("tis-620", "utf-8", $info['img_ban']);
-
-
-        ?>
-            <tr>
-                <td style="text-align:center ;"><?php echo $info['ID_ban']; ?></td>
-                <td><?php echo $img_ban; ?></td>
-                <td style="text-align:center ;"><a href='#'><button type="button" class="btn btn-warning">Edit</button></a> </td>
-                <td style="text-align:center ;"><a href='news/deleteban.php?ID_ban=<?php echo $info['ID_ban']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
-               
-            </tr>
-        <?php } ?>
-    </table>
-
-</body>
+    <?php } ?>
+</table>

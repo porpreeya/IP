@@ -17,11 +17,13 @@ $data = mssql_query("SELECT * FROM ques ");
             border-collapse: collapse;
             background-color: white;
             width: 90%;
+           
         }
         td {
             border: 0.5px solid black;
             border-collapse: collapse;
             background-color: white;
+            
             
         }
 
@@ -97,7 +99,6 @@ $data = mssql_query("SELECT * FROM ques ");
             $question = iconv("tis-620", "utf-8", $info['question']);
             $response = iconv("tis-620", "utf-8", $info['response']);
             $date = iconv("tis-620", "utf-8", $info['date']);
-            $dateans = iconv("tis-620", "utf-8", $info['dateans']);
             $nameans = iconv("tis-620", "utf-8", $info['nameans']);
             
         ?>
@@ -108,7 +109,7 @@ $data = mssql_query("SELECT * FROM ques ");
                 <td><?php echo $date; ?></td>
                 <td><?php echo $response; ?></td>
                 <td><?php echo $nameans; ?></td>
-                 <td style="text-align:center ;"><a href='#'><button type="button" class="btn btn-warning">ตอบกลับ</button></a> </td>
+                 <td style="text-align:center ;"><a href='indexadmin.php?Menu=4&Submenu=addqa&ID_q=<?php echo $info['ID_q']; ?>'><button type="button" class="btn btn-warning">ตอบกลับ</button></a> </td>
                 <td style="text-align:center ;"><a href='qa/deleteqa.php?ID_q=<?php echo $info['ID_q']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
                
             </tr>

@@ -10,6 +10,8 @@ if ($Menu == "1") {
     $Fileshow = "news/showdel.php";
   }else if ($Submenu == "addban") {
     $Fileshow = "news/addban.php";
+  }else if ($Submenu == "editban") {
+    $Fileshow = "news/editban.php";
   }
 
 } else if ($Menu == "2") {
@@ -32,11 +34,9 @@ if ($Menu == "1") {
   $selected4 = "class='selected'";
   if ($Submenu == "showqa") {
     $Fileshow = "qa/showqa.php";
-  } else if ($Submenu == "imperative") {
-    $Fileshow = "imperative.html";
-  } else if ($Submenu == "labor") {
-    $Fileshow = "labor.html";
-  }
+  } else if ($Submenu == "addqa") {
+    $Fileshow = "qa/addqa.php";
+  } 
 
 } else if ($Menu == "5") {
   $selected4 = "class='selected'";
@@ -56,7 +56,7 @@ if ($Menu == "1") {
 <html>
 
 <head>
-  <title>Addmin</title>
+  <title>Admin</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style2.css" type="text/css" media="all" />
@@ -65,7 +65,7 @@ if ($Menu == "1") {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  
+  <link rel="shortcut icon" type="image/x-icon" href="css/images/Anyt.ico" />
   <style>
     body,
     h1,
@@ -74,8 +74,10 @@ if ($Menu == "1") {
     h4,
     h5,
     h6,
-    table,p {
+    table,p,a {
       font-family: 'K2D', sans-serif;
+      text-decoration: none;
+   
     }
 
     body,
@@ -94,12 +96,23 @@ if ($Menu == "1") {
     }
 
     .w3-bar .w3-button {
-      padding: 16px;
+      padding: 15px ;
+      
     }
     .inc{
       background: #E9F8FF;
       min-height:700px;
     }
+    img {
+    vertical-align: middle;
+    border-style: none;
+    margin-left: 30px;
+   
+}
+.menu{
+  padding: 15px;
+  margin-top: 30px;
+}
   </style>
 </head>
 
@@ -108,10 +121,10 @@ if ($Menu == "1") {
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
     <div class="w3-bar w3-white w3-card" id="myNavbar">
-      <div style="float:left; margin: top 30px; "> <img src="../img/2.png" width="89" > </div>
-      <a href="indexadmin.php" class="w3-bar-item w3-button w3-wide"><h5>ฐานข้อมูลทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีเเห่งประเทศไทย</h5></a>
+      <div style="float:left; "> <img src="../img/2.png" width="95" > </div>
+      <a href="indexadmin.php" class="w3-bar-item w3-button w3-wide" ><h5>ฐานข้อมูลทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีเเห่งประเทศไทย</h5></a>
       <!-- Right-sided navbar links -->
-      <div class="w3-right w3-hide-small">
+      <div class="menu">
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=1&Submenu=showdel';"><i class='fas fa-certificate'>&nbsp</i>เเบนเนอร์</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=2&Submenu=shownews';"><i class='fas fa-book-open'>&nbsp</i>ข่าว</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=3&Submenu=showagent';"><i class='fas fa-address-card'>&nbsp</i>ข้อมูลตัวเเทน</a>
@@ -120,9 +133,9 @@ if ($Menu == "1") {
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <!-- <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
         <i class="fa fa-bars"></i>
-      </a>
+      </a> -->
     </div>
   </div>
 

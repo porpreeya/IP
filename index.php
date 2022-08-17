@@ -35,7 +35,7 @@ if ($mm == '') {
   <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
   <script type="text/javascript" src="js/jquery-func.js"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="css/images/Anyt.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="../IP/css/images/Anyt.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
