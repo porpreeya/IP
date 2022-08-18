@@ -102,10 +102,11 @@
                 margin-top: 0;
             }
         }
+
         .glow {
             font-size: 26px;
             color: black;
-            margin-left: 200px;      
+            margin-left: 200px;
             color: white;
             padding: 0.5em;
             display: inline-block;
@@ -113,13 +114,14 @@
             background: #878787;
             vertical-align: middle;
             border-radius: 25px 0px 0px 25px;
-            
+
         }
+
         .glow:before {
             content: '●';
             color: black;
             margin-right: 8px;
-}
+        }
 
         @-webkit-keyframes glow {
             from {
@@ -134,6 +136,11 @@
         .form {
             margin-left: 150px;
         }
+        button, input, select, textarea, optgroup {
+             font: inherit;
+             margin: 0;
+             margin-left: 3%;
+        }
     </style>
 
 </head>
@@ -144,16 +151,25 @@
 
     <div class="container">
 
+       
         <?php
+    //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
+    $ID_ban = $_GET['ID_ban'];
+    $objDB = mssql_select_db("intelle");
+    $data = mssql_query("SELECT * FROM banner WHERE ID_ban='$ID_ban'")
+        or die(mssql_error());
+
+    ?> <?php
         while ($info = mssql_fetch_array($data)) {
             $image = iconv("tis-620", "utf-8", $info['image']);
 
         ?>
-            <form action="news/storeban.php" method="post" enctype="multipart/form-data" class="form">
-                <label for="fname"><i class="fa fa-user" aria-hidden="true"></i>รหัส</label>
-                <input name="ID_ban" style="width:84%;" value="<?php echo $ID_ban; ?>">
-                <h5>เพิ่มไฟล์รูป:</h5>
-                <input type="file" name="image" id="file_upload" multiple="true">
+            <form action="news/updateban.php?ID_ban=<?php echo $info['ID_ban']; ?>" method="post" enctype="multipart/form-data" class="form">
+            <label for="fname"><i class="fa fa-user" aria-hidden="true"></i>รหัส</label>
+                <input name="ID" id="idnews" style="width:84%;" value="<?php echo $ID_ban; ?>">
+                <h5>เลือกไฟล์รูปเพื่อเเก้ไข:</h5>
+                <input type="file" name="image" id="addimg" onchange="loadFile(event)">
+                <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:150px; width:200px;  white;border:3px solid; border-radius: 25px;">
                 <div class="row">
                     <input type="submit" value="Submit">
                     <input type="reset" value="Reset">
@@ -163,5 +179,15 @@
     </div>
 
 </body>
+<script>
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('showimg');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
 
 </html>

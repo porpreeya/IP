@@ -26,7 +26,7 @@
         }
 
         label {
-            padding: 12px 12px 12px 0;
+            padding: 5px 5px 5px 0;
             display: inline-block;
         }
 
@@ -35,9 +35,9 @@
             color: white;
             padding: 12px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            margin-left: 250px;
+            margin-left: 300px;
             margin-top: 30px;
         }
 
@@ -46,7 +46,7 @@
             color: white;
             padding: 12px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             margin-left: 100px;
         }
@@ -128,46 +128,70 @@
         .form {
             margin-left: 10px;
         }
+        .heading{
+          
+            color: #494949;
+            background: white;
+            border-left: solid 7px #7db4e6;
+            width:11%;  
+        }
+        .heading1{
+          
+          color: #494949;
+          background: white;
+          border-left: solid 7px #7db4e6;
+          width:8%;  
+        }
+        button, input, select, textarea, optgroup {
+            font: inherit;
+            margin-left:10%;
+            margin-right: 20%;
+        }
+            
     </style>
 </head>
 
 <body class="body">
     <?
+    $image = iconv("tis-620", "utf-8", $info['image']);
     $objDB = mssql_select_db("intelle");
-    $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
+    $data = mssql_query("SELECT * FROM news ")
         or die(mssql_error()); ?>
-    <h2 class="glow">เพิ่มข่าวทรัพย์สินทางปัญญา</h2>
-
+    <h2 class="glow">เพิ่มข่าวทรัพย์สินทางปัญญา</h2><br>
+    <br>
     <div class="container">
-        <form action="news/storenews.php" method="post" enctype="multipart/form-data" class="form">
-            <h5>เพิ่มไฟล์รูป:</h5>
-            <input type="file" name="image" id="addimg" value="<?php echo $image; ?>">
-            <h5><label for="subject">เพิ่มข่าว</label></h5>
-            <!--             
+       
+            <form action="news/storenews.php" method="post" enctype="multipart/form-data" class="form">
+            <div class="heading"><h5>เพิ่มไฟล์รูป:</h5></div><br>
+                <input type="file" name="image" id="addimg"  onchange="loadFile(event)">
+                <img id="showimg" src="../uploads/<?php echo $image?>" style="height:250px; width:100;">
+                <div class="heading1"><h5><label for="subject">เพิ่มข่าว</label></h5></div><br>
+                <!--             
             <div class="row">
                 <div class="col-75">
                     <textarea name="news" placeholder="รายละเอียดข่าว" style="height:200px; width:750px"></textarea>
                 </div>
             </div> -->
 
-            <textarea name="news" id="detail" style="width:100px;"></textarea>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace('detail');
+                <textarea name="news" id="detail" style="width:100px;"></textarea>
+                <script>
+                    // Replace the <textarea id="editor1"> with a CKEditor
+                    // instance, using default configuration.
+                    CKEDITOR.replace('detail');
 
-                function CKupdate() {
-                    for (instance in CKEDITOR.instances)
-                        CKEDITOR.instances[instance].updateElement();
-                }
-            </script>
-            <div class="row">
-                <input type="submit" value="Submit">
-                <input type="reset" value="Reset">
-            </div>
-        </form>
+                    function CKupdate() {
+                        for (instance in CKEDITOR.instances)
+                            CKEDITOR.instances[instance].updateElement();
+                    }
+                </script>
+                <div class="row">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+        
     </div>
-    <script>
+    <!-- <script>
         $("#addimg").change(function(e) {
             console.log('event', $("#addimg").val());
 
@@ -177,24 +201,34 @@
             form_data.append('image', file_data);
             form_data.append('id', id);
             console.log(form_data);
-            $.ajax({
-                url: 'news/uploadimage.php', // <-- point to server-side PHP script 
-                dataType: 'text', // <-- what to expect back from the PHP script, if anything
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,
-                type: 'post',
-                success: function(php_script_response) {
-                    //('../uploads/'.php_script_response); 
-                    $('#showimg').attr('src', function(i, val) {
-                        return '../uploads/' + php_script_response;
-                    });
-                }
+             $.ajax({
+            //     url: 'news/uploadimage.php', // <-- point to server-side PHP script 
+            //     dataType: 'text', // <-- what to expect back from the PHP script, if anything
+            //     cache: false,
+            //     contentType: false,
+            //     processData: false,
+            //     data: form_data,
+            //     type: 'post',
+              success: function(php_script_response) {
+                //('../uploads/'.php_script_response); 
+                   $('#showimg').attr('src', function(i, val) {
+                    return '../uploads/' + php_script_response;
+              });
+              }
             });
 
         });
-    </script>
+    </script> -->
+    <script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('showimg');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
 </body>
 
 </html>

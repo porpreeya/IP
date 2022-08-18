@@ -147,9 +147,9 @@
                 <label for="fname"><i class="fa fa-user" aria-hidden="true"></i>รหัส</label>
                 <input name="ID" id="idnews" style="width:84%;" value="<?php echo $ID; ?>">
                 <h5>เพิ่มไฟล์รูป:</h5>
-                <input type="file" name="image" id="addimg" value="<?php echo $image; ?>">
+                <input type="file" name="image" id="addimg" onchange="loadFile(event)">
                 <img id="showimg" src="../uploads/<?php echo $image?>" style="height:50px;">
-                <h5><label for="subject">เพิ่มข่าว</label></h5>
+                <h5><label for="subject">เเก้ไขข่าว</label></h5>
 
                 <div class="row">
                     <!-- <div class="col-75">
@@ -174,34 +174,15 @@
             </form>
         <?php } ?>
     </div>
-<script>
-
-    $("#addimg").change(function(e) {
-       console.log('event',$("#addimg").val());
-       
-     var id=$('#idnews').val(); 
-    var file_data = $('#addimg').prop('files')[0];   
-    var form_data = new FormData();                  
-    form_data.append('image', file_data);
-    form_data.append('id', id);
-    console.log(form_data);                             
-    $.ajax({
-        url: 'news/uploadimage.php', // <-- point to server-side PHP script 
-        dataType: 'text',  // <-- what to expect back from the PHP script, if anything
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: form_data,                         
-        type: 'post',
-        success: function(php_script_response){
-           //('../uploads/'.php_script_response); 
-           $('#showimg').attr('src', function(i, val) {
-                 return '../uploads/'+php_script_response;
-});
-        }
-     });
-
-});
+    <script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('showimg');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
 </script>
 </body>
 

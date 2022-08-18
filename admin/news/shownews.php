@@ -47,6 +47,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             border-bottom: solid 3px black;
             width: 20%;
             margin-left:600px;
+            border-radius:10px ;
         }
 
         @-webkit-keyframes glow {

@@ -1,6 +1,6 @@
 <?
 
-$box2 = iconv("utf-8", "tis-620", $_REQUEST["agent"]);
+
 
 $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
@@ -22,6 +22,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
             -moz-border-radius:10px;
              border-radius:10px;
              color:black;   
+             padding: 10px;
         }
 
         th {
@@ -48,6 +49,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
             border-bottom: solid 3px black;
             width: 20%;
             margin-left:610px;
+            border-radius:10px ;
         }
 
         @-webkit-keyframes glow {
@@ -71,7 +73,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
             background: #c32da9;
             text-align: center;
             margin-left: 63%;
-            color: black;
+            color: white;
             height: 40px;
             padding: 5px;
             outline-color:red;
@@ -106,7 +108,9 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
     <tr>
         <th>รหัส</th>
         <th class="th">ชื่อรูปเเบนเนอร์ </th>
+        <th>ตัวอย่าง</th>
         <th>แก้ไขข้อมูล </th>
+
         <th>ลบข้อมูล </th>
 
 
@@ -121,9 +125,20 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
         <tr>
             <td style="text-align:center ;"><?php echo $info['ID_ban']; ?></td>
             <td><?php echo $image; ?></td>
+            <td> <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:150px; width:200px;  white;border:3px solid; border-radius: 25px;"></td>
             <td style="text-align:center ;"><a href='indexadmin.php?Menu=1&Submenu=editban&ID_ban=<?php echo $info['ID_ban']; ?>''><button type="button" class="btn btn-warning">Edit</button></a> </td>
             <td style="text-align:center ;"><a href='news/deleteban.php?ID_ban=<?php echo $info['ID_ban']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
 
         </tr>
     <?php } ?>
 </table>
+<script>
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('showimg');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>

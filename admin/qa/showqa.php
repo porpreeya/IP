@@ -12,32 +12,29 @@ $data = mssql_query("SELECT * FROM ques ");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <style>
-        table{
-            border: 0.5px solid black;
-            border-collapse: collapse;
-            background-color: white;
-            width: 90%;
-           
-        }
+        table, 
         td {
-            border: 0.5px solid black;
             border-collapse: collapse;
-            background-color: white;
-            
-            
+            background-color: #bebebe;
+            border-radius: 30px;
+            -webkit-border-radius:10px;
+            -moz-border-radius:10px;
+             border-radius:10px;
+             color:black;   
+             padding: 10px;
         }
 
         th {
-            border: 1px solid black;
             border-collapse: collapse;
-            background: #ed9898;
+            background:#679ceb;
             text-align: center;
+             border-radius:3px 4px 0 0;
+             padding:10px
         }
 
         table.center {
             margin-left: auto;
             margin-right: auto;
-
         }
 
         .glow {
@@ -45,6 +42,13 @@ $data = mssql_query("SELECT * FROM ques ");
             color: black;
             text-align: center;
             animation: glow 1s ease-in-out infinite alternate;
+            color: black;
+            padding: 0.5em 0;
+            border-top: solid 3px black;
+            border-bottom: solid 3px black;
+            width: 20%;
+            margin-left:600px;
+            border-radius:10px ;
         }
 
         @-webkit-keyframes glow {
@@ -62,17 +66,7 @@ $data = mssql_query("SELECT * FROM ques ");
             text-align: center;
         }
 
-        p.outset {
-            width: 130px;
-            border-style: outset;
-            background: #5cf2bf;
-            text-align: center;
-            margin-left: 63%;
-            color: black;
-            height: 40px;
-            padding: 5px;
-            outline-color: red;
-        }
+        
     </style>
 </head>
 
@@ -110,7 +104,7 @@ $data = mssql_query("SELECT * FROM ques ");
                 <td><?php echo $response; ?></td>
                 <td><?php echo $nameans; ?></td>
                  <td style="text-align:center ;"><a href='indexadmin.php?Menu=4&Submenu=addqa&ID_q=<?php echo $info['ID_q']; ?>'><button type="button" class="btn btn-warning">ตอบกลับ</button></a> </td>
-                <td style="text-align:center ;"><a href='qa/deleteqa.php?ID_q=<?php echo $info['ID_q']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
+                <td style="text-align:center ;"><a href='qa/deleteqa.php?ID_q=<?php echo $info['ID_q']; ?>'><button type="button" class="btn btn-danger">ลบ</button></a></td>
                
             </tr>
         <?php } ?>

@@ -120,26 +120,48 @@
         .form{
             margin-left: 150px;
         }
+        .heading{
+            padding: 0.25em 0.9em ;
+            color: #494949;
+            background: white;
+            border-left: solid 7px #7db4e6;
+            width:12%;  
+        }
+        
     </style>
 </head>
 
 <body class="body">
-
+<?
+    $image = iconv("tis-620", "utf-8", $info['image']);
+    $objDB = mssql_select_db("intelle");
+    $data = mssql_query("SELECT * FROM banner ")
+        or die(mssql_error()); ?>
     <h2 class="glow">เพิ่มเเบนเนอร์</h2>
 
     <div class="container">
    
-
+    <div class="heading"><h5>เพิ่มไฟล์รูป:</h5></div><br>
         <form action="news/storeban.php" method="post" enctype="multipart/form-data" class="form">
-        <h5>เพิ่มไฟล์รูป:</h5>
-            <input type="file" name="image" id="file_upload" multiple="true">
+        
+            <input type="file" name="image" id="addimg"  onchange="loadFile(event)">
+            <img id="showimg" src="../uploads/<?php echo $image?>" style="height:250px; width:100;">
         <div class="row">
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </div>
        </form>
     </div>
-
+    <script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('showimg');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
 </body>
 
 </html>

@@ -48,6 +48,7 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
             border-bottom: solid 3px black;
             width: 20%;
             margin-left:600px;
+            border-radius:10px ;
         }
 
         @-webkit-keyframes glow {
@@ -75,6 +76,7 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
             height: 40px;
             padding: 5px;
             outline-color: red;
+            border-radius:10px ;
         }
     </style>
 </head>
