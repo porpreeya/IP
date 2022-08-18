@@ -1,7 +1,7 @@
 
 
 <head>
-   
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -90,9 +90,22 @@
         .glow {
             font-size: 26px;
             color: black;
-            animation: glow 1s ease-in-out infinite alternate;
-            margin-left: 200px;
+            margin-left: 200px;      
+            color: white;
+            padding: 0.5em;
+            display: inline-block;
+            line-height: 1.3;
+            background: #878787;
+            vertical-align: middle;
+            border-radius: 25px 0px 0px 25px;
+            
         }
+        .glow:before {
+            content: '●';
+            color: black;
+            margin-right: 8px;
+        }
+
 
         @-webkit-keyframes glow {
             from {
@@ -105,7 +118,7 @@
         }
 
         .form {
-            margin-left: 150px;
+            margin-left: 10px;
         }
     </style>
       
@@ -139,10 +152,21 @@
                 <h5><label for="subject">เพิ่มข่าว</label></h5>
 
                 <div class="row">
-                    <div class="col-75">
-                        <textarea name="news" placeholder="รายละเอียดข่าว" style="height:200px; width:750px" ><?php echo $news; ?></textarea>
+                    <!-- <div class="col-75">
+                        <textarea name="news" placeholder="รายละเอียดข่าว" style="height:200px; width:750px" ></textarea>
                     </div>
-                </div>
+                </div> -->
+                <textarea name="news" id="detail" style="width:100px;"><?php echo $news; ?></textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace('detail');
+
+                function CKupdate() {
+                    for (instance in CKEDITOR.instances)
+                        CKEDITOR.instances[instance].updateElement();
+                }
+            </script>
                 <div class="row">
                     <input type="submit" value="บันทึก">
                     <input type="reset" value="ยกเลิก">

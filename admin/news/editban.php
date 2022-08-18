@@ -102,13 +102,24 @@
                 margin-top: 0;
             }
         }
-
         .glow {
             font-size: 26px;
             color: black;
-            animation: glow 1s ease-in-out infinite alternate;
-            margin-left: 200px;
+            margin-left: 200px;      
+            color: white;
+            padding: 0.5em;
+            display: inline-block;
+            line-height: 1.3;
+            background: #878787;
+            vertical-align: middle;
+            border-radius: 25px 0px 0px 25px;
+            
         }
+        .glow:before {
+            content: '●';
+            color: black;
+            margin-right: 8px;
+}
 
         @-webkit-keyframes glow {
             from {

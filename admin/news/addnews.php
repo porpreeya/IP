@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -97,8 +98,21 @@
         .glow {
             font-size: 26px;
             color: black;
-            animation: glow 1s ease-in-out infinite alternate;
             margin-left: 200px;
+            color: white;
+            padding: 0.5em;
+            display: inline-block;
+            line-height: 1.3;
+            background: #878787;
+            vertical-align: middle;
+            border-radius: 25px 0px 0px 25px;
+
+        }
+
+        .glow:before {
+            content: '●';
+            color: black;
+            margin-right: 8px;
         }
 
         @-webkit-keyframes glow {
@@ -112,41 +126,75 @@
         }
 
         .form {
-            margin-left: 150px;
+            margin-left: 10px;
         }
     </style>
 </head>
 
 <body class="body">
-
+    <?
+    $objDB = mssql_select_db("intelle");
+    $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
+        or die(mssql_error()); ?>
     <h2 class="glow">เพิ่มข่าวทรัพย์สินทางปัญญา</h2>
 
     <div class="container">
         <form action="news/storenews.php" method="post" enctype="multipart/form-data" class="form">
             <h5>เพิ่มไฟล์รูป:</h5>
-            <input type="file" name="image">
+            <input type="file" name="image" id="addimg" value="<?php echo $image; ?>">
             <h5><label for="subject">เพิ่มข่าว</label></h5>
-            
+            <!--             
             <div class="row">
                 <div class="col-75">
                     <textarea name="news" placeholder="รายละเอียดข่าว" style="height:200px; width:750px"></textarea>
                 </div>
-            </div>
-            <!-- <h5><label for="subject">สถานะ</label></h5>
-            <div class="col-25">
-            </div>
-            <div class="row">
-                <div class="col-75">
-                    <textarea name="status" placeholder="รายละเอียดข่าว" style="height:100px; width:750px"></textarea>
-                </div>
             </div> -->
+
+            <textarea name="news" id="detail" style="width:100px;"></textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace('detail');
+
+                function CKupdate() {
+                    for (instance in CKEDITOR.instances)
+                        CKEDITOR.instances[instance].updateElement();
+                }
+            </script>
             <div class="row">
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </div>
         </form>
     </div>
+    <script>
+        $("#addimg").change(function(e) {
+            console.log('event', $("#addimg").val());
 
+            var id = $('#idnews').val();
+            var file_data = $('#addimg').prop('files')[0];
+            var form_data = new FormData();
+            form_data.append('image', file_data);
+            form_data.append('id', id);
+            console.log(form_data);
+            $.ajax({
+                url: 'news/uploadimage.php', // <-- point to server-side PHP script 
+                dataType: 'text', // <-- what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'post',
+                success: function(php_script_response) {
+                    //('../uploads/'.php_script_response); 
+                    $('#showimg').attr('src', function(i, val) {
+                        return '../uploads/' + php_script_response;
+                    });
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>

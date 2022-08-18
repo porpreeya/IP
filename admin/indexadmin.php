@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include("includes/config.inc.php");
+
 $Menu  = $_REQUEST['Menu'];
 $Submenu = $_REQUEST['Submenu'];
 if ($Menu == "1") {

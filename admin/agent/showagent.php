@@ -12,25 +12,29 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <style>
-        table,
+         table, 
         td {
-            border: 0.5px solid black;
             border-collapse: collapse;
-            background-color: white;
-
+            background-color: #bebebe;
+            border-radius: 30px;
+            -webkit-border-radius:10px;
+            -moz-border-radius:10px;
+             border-radius:10px;
+             color:black;   
+             padding: 10px;
         }
 
         th {
-            border: 1px solid black;
             border-collapse: collapse;
             background: #ed9898;
             text-align: center;
+             border-radius:3px 3px 0 0;
+             padding:10px
         }
 
         table.center {
             margin-left: auto;
             margin-right: auto;
-
         }
 
         .glow {
@@ -38,6 +42,12 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
             color: black;
             text-align: center;
             animation: glow 1s ease-in-out infinite alternate;
+            color: black;
+            padding: 0.5em 0;
+            border-top: solid 3px black;
+            border-bottom: solid 3px black;
+            width: 20%;
+            margin-left:600px;
         }
 
         @-webkit-keyframes glow {
