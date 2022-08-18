@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <title>เพิ่มข่าว</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="css/style2.css" type="text/css" media="all" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <?php
-
-    //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
-    $ID_ban = $_GET['ID_ban'];
-    $objDB = mssql_select_db("intelle");
-    $data = mssql_query("SELECT * FROM banner WHERE ID_ban='$ID_ban'")
-        or die(mssql_error());
-
-    ?>
+   
     <style>
         * {
             box-sizing: border-box;
@@ -124,33 +108,76 @@
             margin-left: 150px;
         }
     </style>
-
+      
 </head>
+<?php
+    //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
+    $ID = $_GET['ID'];
+    $objDB = mssql_select_db("intelle");
+    $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
+        or die(mssql_error());
 
+    ?>
 <body class="body">
 
-    <h2 class="glow">เพิ่มเเบนเนอร์</h2>
+    <h2 class="glow">เเก้ไขข่าวทรัพย์สินทางปัญญา</h2>
 
     <div class="container">
-
         <?php
         while ($info = mssql_fetch_array($data)) {
+            $news = iconv("tis-620", "utf-8", $info['news']);
             $image = iconv("tis-620", "utf-8", $info['image']);
 
         ?>
-            <form action="news/storeban.php" method="post" enctype="multipart/form-data" class="form">
+            <form action="news/updatenews.php?ID=<?php echo $info['ID']; ?>" method="post" enctype="multipart/form-data" class="form">
+                
                 <label for="fname"><i class="fa fa-user" aria-hidden="true"></i>รหัส</label>
-                <input name="ID_ban" style="width:84%;" value="<?php echo $ID_ban; ?>">
+                <input name="ID" id="idnews" style="width:84%;" value="<?php echo $ID; ?>">
                 <h5>เพิ่มไฟล์รูป:</h5>
-                <input type="file" name="image" id="file_upload" multiple="true">
+                <input type="file" name="image" id="addimg" value="<?php echo $image; ?>">
+                <img id="showimg" src="../uploads/<?php echo $image?>" style="height:50px;">
+                <h5><label for="subject">เพิ่มข่าว</label></h5>
+
                 <div class="row">
-                    <input type="submit" value="Submit">
-                    <input type="reset" value="Reset">
+                    <div class="col-75">
+                        <textarea name="news" placeholder="รายละเอียดข่าว" style="height:200px; width:750px" ><?php echo $news; ?></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" value="บันทึก">
+                    <input type="reset" value="ยกเลิก">
                 </div>
             </form>
         <?php } ?>
     </div>
+<script>
 
+    $("#addimg").change(function(e) {
+       console.log('event',$("#addimg").val());
+       
+     var id=$('#idnews').val(); 
+    var file_data = $('#addimg').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('image', file_data);
+    form_data.append('id', id);
+    console.log(form_data);                             
+    $.ajax({
+        url: 'news/uploadimage.php', // <-- point to server-side PHP script 
+        dataType: 'text',  // <-- what to expect back from the PHP script, if anything
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,                         
+        type: 'post',
+        success: function(php_script_response){
+           //('../uploads/'.php_script_response); 
+           $('#showimg').attr('src', function(i, val) {
+                 return '../uploads/'+php_script_response;
+});
+        }
+     });
+
+});
+</script>
 </body>
 
-</html>

@@ -77,12 +77,13 @@
         width: 30%;
         height: auto;
     }
+
     .c {
-       
+
 
         color: black;
         text-align: center;
- 
+
 
     }
 
@@ -185,44 +186,62 @@
     }
 </style>
 
-    <div class="tb">
-        <div class="box">
-            <br>
-            <br>
-            <br>
-            <table class="center">
-                <tr class="tr">
-                    <th align="left" width="70%" class="tt">ข้อมูลตัวแทน</th>
-                    <th>
-                </tr>
-            </table>
-            <table style="width:80%" class="center">
-                <tr><br><br><br>
-                    <th>ชื่อตัวแทน</th>
-                    <th>พิจารณา</th>
-                    
-                </tr>
-                <tr class="tr">
-                    <td><br>
-                        <div class="container">
-                            <input type="text" id="text" class="width:100% center" placeholder="กรุณากรอกชื่อ" name="name" required>
-                    </td>
-                    <td><br>
-                        <input type="text" id="text" class="width:100% center" placeholder="กรุณากรอกกลุ่ม" name="name" required>
-                    </td>
-                    
-                </tr>
-            </table>
-            <br><br><br>
-            <table>
+<div class="tb">
+    <div class="box">
+        <br>
+        <br>
+        <br>
+        <table class="center">
+            <tr class="tr">
+                <th align="left" width="70%" class="tt">ข้อมูลตัวแทน</th>
+                <th>
+            </tr>
+        </table>
+        <?php
+        //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
+        $ID = $_GET['ID'];
+        $objDB = mssql_select_db("intelle");
+        $data = mssql_query("SELECT * FROM consider WHERE ID='$ID'")
+            or die(mssql_error());
 
-                <th><button class="button">บันทึก</button></th>
-                <th><button class="button1">ยกเลิก</button></th>
+        ?>
+        <?php
+        while ($info = mssql_fetch_array($data)) {
+            $aname = iconv( "utf-8","tis-620", $info['aname']);
+            $consider = iconv( "utf-8","tis-620", $info['consider']);
 
-            </table>
-        </div>
+        ?>
+        <form action="agent/updateagent.php?ID=<?php echo $info['ID']; ?>" method="post" enctype="multipart/form-data" class="form">
+        <table style="width:80%" class="center">
+            <tr><br><br><br>
+                <th>ชื่อตัวแทน</th>
+                <th>พิจารณา</th>
+
+            </tr>
+
+            <tr class="tr">
+                <td><br>
+                    <div class="container">
+                        <input type="text" id="text" class="width:100% center" placeholder="กรุณากรอกชื่อ" name="aname" required  value="<?php echo $aname; ?>">
+                </td>
+                <td><br>
+                    <input type="text" id="text" class="width:100% center" placeholder="กรุณากรอกกลุ่ม" name="consider" required value="<?php echo $consider; ?>">
+                </td>
+
+            </tr>
+        </table>
+        <br><br><br>
+        <table>
+
+            <th><button class="button">บันทึก</button></th>
+            <th><button class="button1">ยกเลิก</button></th>
+
+        </table>
+        </form>
+        <?php } ?>
     </div>
+</div>
 
-   
+
 
 </html>

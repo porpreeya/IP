@@ -3,46 +3,46 @@
 $sql        = "SELECT *FROM news WHERE ID ='1'";
 $result     = $db_tm->sql_query($sql);
 $rows       = $db_tm->sql_fetchrow($result);
-$image      = $rows['img'];
-$path      = '../IP/img/';
+$image      = $rows['image'];
+$path      = '../IP/uploads/';
 
-$sql2        = "SELECT * FROM news WHERE ID ='2'";
+$sql2        = "SELECT * FROM news WHERE ID ='13'";
 $result2    = $db_tm->sql_query($sql2);
 $rows2       = $db_tm->sql_fetchrow($result2);
-$image2      = $rows2['img'];
-$path2       = '../IP/img/';
+$image2      = $rows2['image'];
+$path2       = '../IP/uploads/';
 
-$sql3       = "SELECT * FROM news WHERE ID ='3'";
+$sql3       = "SELECT * FROM news WHERE ID ='14'";
 $result3    = $db_tm->sql_query($sql3);
 $rows3      = $db_tm->sql_fetchrow($result3);
-$image3      = $rows3['img'];
-$path3       = '../IP/img/';
+$image3      = $rows3['image'];
+$path3       = '../IP/uploads/';
 
 $sql4        = "SELECT * FROM news WHERE ID ='4'";
 $result4    = $db_tm->sql_query($sql4);
 $rows4      = $db_tm->sql_fetchrow($result4);
-$image4      = $rows4['img'];
-$path4       = '../IP/img/';
+$image4      = $rows4['image'];
+$path4       = '../IP/uploads/';
 
 
-$sql5        = "SELECT * FROM news WHERE ID ='5'";
+$sql5        = "SELECT * FROM news WHERE ID ='8'";
 $result5    = $db_tm->sql_query($sql5);
 $rows5      = $db_tm->sql_fetchrow($result5);
-$image5      = $rows5['img'];
-$path5       = '../IP/img/';
+$image5      = $rows5['image'];
+$path5       = '../IP/uploads/';
 
-$sql6        = "SELECT * FROM news WHERE ID ='6'";
+$sql6        = "SELECT * FROM news WHERE ID ='9'";
 $result6    = $db_tm->sql_query($sql6);
 $rows6      = $db_tm->sql_fetchrow($result6);
-$image6      = $rows6['img'];
-$path6       = '../IP/img/';
+$image6      = $rows6['image'];
+$path6       = '../IP/uploads/';
 
 
-$sql7        = "SELECT *FROM news WHERE ID ='7'";
+$sql7        = "SELECT *FROM news WHERE ID ='10'";
 $result7     = $db_tm->sql_query($sql7);
 $rows7       = $db_tm->sql_fetchrow($result7);
-$image7      = $rows7['img'];
-$path7       = '../IP/img/';
+$image7      = $rows7['image'];
+$path7       = '../IP/uploads/';
 
 $sql8        = "SELECT *FROM tb_IP WHERE ID_ip ='1'";
 $result8     = $db_tm->sql_query($sql8);
@@ -259,12 +259,12 @@ $rows8       = $db_tm->sql_fetchrow($result8);
   <div class="slider">
     <div class="slider-holder">
       <ul>
-        <li><img src="<? echo $path . $image; ?> " style="width: 100%;"></li>
-        <li><img src="<? echo $path2 . $image2; ?>" style="width: 100%;"></li>
-        <li><img src="<? echo $path3 . $image3; ?>" style="width: 100%;"></li>
-        <li><img src="<? echo $path . $image; ?> " style="width: 100%;"></li>
-        <li><img src="<? echo $path2 . $image2; ?>" style="width: 100%;"></li>
-        <li><img src="<? echo $path3 . $image3; ?>" style="width: 100%;"></li>
+        <li><img src="<? echo $path . $image; ?> " style="width: 100%; height:100%"></li>
+        <li><img src="<? echo $path2 . $image2; ?>" style="width: 100%; height:100%"></li>
+        <li><img src="<? echo $path3 . $image3; ?>" style="width: 100%; height:100%"></li>
+        <li><img src="<? echo $path . $image; ?> " style="width: 100%; height:100%"></li>
+        <li><img src="<? echo $path2 . $image2; ?>" style="width: 100%; height:100%"></li>
+        <li><img src="<? echo $path3 . $image3; ?>" style="width: 100%; height:100%"></li>
       </ul>
     </div>
     <div class="slider-navigation">

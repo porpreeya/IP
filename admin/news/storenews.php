@@ -7,12 +7,6 @@ $tmp_name = $_FILES['image']['tmp_name'];
 
 
 
-// echo $details."<br>";
- 
-// echo $day."<br>";
-// echo $_FILES['image']['tmp_name']."<br>";
-// echo $_FILES['image']['name']."<br>";
-// echo $_FILES['filename']['name']."<br>";
 
 $objDB = mssql_select_db("intelle");
 $strSQL = "INSERT INTO news ";

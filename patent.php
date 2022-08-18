@@ -1,10 +1,10 @@
 <?
 
-$box2 = iconv("utf-8", "tis-620", $_REQUEST["agent"]);
+$box2 = iconv("utf-8", "tis-620", $_REQUEST["aname"]);
 
 $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
-$data = mssql_query("SELECT * FROM tb_IP where agent like '%$box2%' or affiliation like '%$box2%'");
+$data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or consider like '%$box2%'  ");
 
 ?>
 <style>
@@ -159,12 +159,12 @@ $data = mssql_query("SELECT * FROM tb_IP where agent like '%$box2%' or affiliati
             <tr>
                 <?
                 while ($info = mssql_fetch_array($data)) {
-                    $agent = iconv("tis-620", "utf-8", $info['agent']);
-                    $affiliation = iconv("tis-620", "utf-8", $info['affiliation']);
+                    $aname = iconv("tis-620", "utf-8", $info['aname']);
+                    $consider = iconv("tis-620", "utf-8", $info['consider']);
 
                 ?>
-                    <td style=" text-align:left ;"><?php echo $agent; ?></td>
-                    <td><?php echo $affiliation; ?></td>
+                    <td style=" text-align:left ;"><?php echo $aname; ?></td>
+                    <td><?php echo $consider; ?></td>
 
             </tr>
 

@@ -20,6 +20,8 @@ if ($Menu == "1") {
     $Fileshow = "news/shownews.php";
   } else if ($Submenu == "addnews") {
     $Fileshow = "news/addnews.php";
+  } else if ($Submenu == "editnews") {
+    $Fileshow = "news/editnews.php";
   }
 
 } else if ($Menu == "3") {
@@ -28,6 +30,8 @@ if ($Menu == "1") {
     $Fileshow = "agent/showagent.php";
   } else if ($Submenu == "addagent") {
     $Fileshow = "agent/addagent.php";
+  }else if ($Submenu == "editagent") {
+    $Fileshow = "agent/editagent.php";
   }
   
 } else if ($Menu == "4") {
@@ -60,6 +64,7 @@ if ($Menu == "1") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style2.css" type="text/css" media="all" />
+  <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -77,6 +82,7 @@ if ($Menu == "1") {
     table,p,a {
       font-family: 'K2D', sans-serif;
       text-decoration: none;
+      margin-top:20px;
    
     }
 

@@ -95,7 +95,7 @@ background-color: white;
                 <td style="text-align:center ;"><?php echo $info['ID']; ?></td>
                 <td><?php echo $news; ?></td>
                 <td><?php echo $image; ?></td>
-                <td style="text-align:center ;"><a href='#'><button type="button" class="btn btn-warning">Edit</button></a> </td>
+                <td style="text-align:center ;"><a href='indexadmin.php?Menu=2&Submenu=editnews&ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-warning">Edit</button></a> </td>
                 <td style="text-align:center ;"><a href='news/deletenews.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
                 
             </tr>
