@@ -1,28 +1,15 @@
 <?
-
-
 $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
-$data = mssql_query("SELECT * FROM news where status='1' ");
+$data = mssql_query("SELECT * FROM tb_IP  ");
 
 ?>
+<meta charset="UTF-8">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <style>
-        .h5,
-        h5 {
-            font-size: 1.25rem;
-            margin-top: 20px;
-        }
-
-        .w3-bar .w3-button {
-            padding: 15px;
-            text-decoration: none;
-
-        }
-
         table,
         td {
             border-collapse: collapse;
@@ -32,20 +19,17 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             -moz-border-radius: 10px;
             border-radius: 10px;
             color: black;
-            border-bottom: 1px solid black;
-            text-left: 5px;
-
-
+            padding: 20px;
+            border-bottom: 2px solid black;
         }
 
         th {
             border-collapse: collapse;
-            background: #F68B71;
+            background: #ff3f3f;
             text-align: center;
-            border-radius: 3px 4px 0 0;
-            padding: 10px
+            border-radius: 3px 3px 0 0;
+            padding: 25px;
         }
-
 
         table.center {
             margin-left: auto;
@@ -63,8 +47,10 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             border-bottom: solid 3px black;
             width: 20%;
             margin-left: 600px;
+            margin-top: 40px;
             border-radius: 10px;
         }
+
 
         @-webkit-keyframes glow {
             from {
@@ -80,13 +66,51 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             width: 500px;
         }
 
+
+        p.outset {
+            width: 130px;
+            border-style: outset;
+            background: #2615b1;
+            text-align: center;
+            margin-left: 63%;
+            color: white;
+            height: 40px;
+            padding: 5px;
+            outline-color: red;
+            border-radius: 10px;
+        }
+
+        .outset:active {
+            background-color: #e356ca;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .btn-warning {
+            color: black;
+            background-color: #ffc107;
+            border-color: #ffc107;
+            border-radius: 10px;
+        }
+
+        .btn-danger {
+            color: black;
+            background-color: #dc3545;
+            border-color: #dc3545;
+            border-radius: 10px;
+        }
+
+        .a {
+            text-decoration: none;
+        }
+
         p.outset1 {
             display: inline;
             width: 130px;
             border-style: outset;
             background: #2c15b1;
             text-align: center;
-            margin-left: 285px;
+            margin-left: 20px;
             margin-top: 2%;
             color: white;
             height: 40px;
@@ -107,7 +131,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             border-style: outset;
             background: #c32da9;
             text-align: center;
-            margin-left: 665px;
+            margin-left: 1185px;
             color: white;
             height: 40px;
             padding: 10px;
@@ -124,39 +148,47 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
 </head>
 
 <body>
-<h1 class="glow">ข้อมูลข่าวทรัพย์ทางปัญญา </h1>
+
+    <h1 class="glow">ข้อมูลทรัพย์ทางปัญญา </h1>
     <a onclick="location. href='indexadmin.php';">
         <p class="outset1">ย้อนกลับ</p>
     </a>
-    <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=2&Submenu=addnews'; ">
+    <a onclick="location. href='indexadmin.php?Menu=5&Submenu=addmanage'; ">
         <p class="outset">เพิ่มทรัพย์สินทางปัญญา</p><br><br>
     </a>
-
     <table class="center">
         <tr>
-            <th>ลำดับ</th>
-            <th class="th">ข่าว </th>
-            <th>รูปข่าว</th>
+            <th>ชื่อทรัพย์สินทางปัญญา</th>
+            <th>ชื่อผู้ประดิษฐ์ </th>
+            <th>ชื่อผู้แทน</th>
+            <th>โครงการ</th>
+            <th>ประเภท</th>
+            <th>สถานะ</th>
+            <th>หน่วยงาน</th>
             <th>แก้ไขข้อมูล </th>
             <th>ลบข้อมูล </th>
-
-
-
         </tr>
         <?
         while ($info = mssql_fetch_array($data)) {
-            $news = iconv("tis-620", "utf-8", $info['news']);
-            $image = iconv("tis-620", "utf-8", $info['image']);
-
+            $title = iconv("tis-620", "utf-8", $info['title']);
+            $inventor = iconv("tis-620", "utf-8", $info['inventor']);
+            $agent = iconv("tis-620", "utf-8", $info['agent']);
+            $framename = iconv("tis-620", "utf-8", $info['framename']);
+            $genus = iconv("tis-620", "utf-8", $info['genus']);
+            $status = iconv("tis-620", "utf-8", $info['status']);
+            $affiliation = iconv("tis-620", "utf-8", $info['affiliation']);
 
         ?>
             <tr>
-                <td style="text-align:center ;"><?php echo $info['ID']; ?></td>
-                <td><?php echo $news; ?></td>
-                <td><?php echo $image; ?></td>
+                <td><?php echo $title; ?></td>
+                <td><?php echo $inventor; ?></td>
+                <td><?php echo $agent; ?></td>
+                <td><?php echo $framename; ?></td>
+                <td><?php echo $genus; ?></td>
+                <td><?php echo $status; ?></td>
+                <td><?php echo $affiliation; ?></td>
                 <td style="text-align:center ;"><a href='indexadmin.php?Menu=2&Submenu=editnews&ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-warning">Edit</button></a> </td>
                 <td style="text-align:center ;"><a href='news/deletenews.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
-
             </tr>
         <?php } ?>
     </table>

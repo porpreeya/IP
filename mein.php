@@ -533,7 +533,7 @@ $rows8       = $db_tm->sql_fetchrow($result8);
 
               <div class="entry">
                 <center>
-                  <img src="<? echo $path7 . $image7; ?> " width="60%">
+                  <img src="<? echo $path7 . $image7; ?> "  height="120px">
 
                 </center><br>
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows7['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
@@ -545,7 +545,7 @@ $rows8       = $db_tm->sql_fetchrow($result8);
 
               <div class="entry">
                 <center>
-                  <img src="<? echo $path . $image; ?> " width="60%">
+                  <img src="<? echo $path . $image; ?> "  height="120px">
 
                 </center><br>
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
@@ -558,7 +558,7 @@ $rows8       = $db_tm->sql_fetchrow($result8);
 
               <div class="entry">
                 <center>
-                  <img src="<? echo $path2 . $image2; ?> " width="40%">
+                  <img src="<? echo $path2 . $image2; ?> "  height="120px">
 
                 </center><br>
                 <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
@@ -578,7 +578,7 @@ $rows8       = $db_tm->sql_fetchrow($result8);
               </div>
               <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
                 <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path . $image; ?> " width="60%"></p>
+                  <p class="pu"><img src="<? echo $path . $image; ?> " width="40%"></p>
                   <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
                   <div class="content_flightht_travel_dil">
                     <? echo iconv("tis-620", "utf-8", $rows['news']) ?>

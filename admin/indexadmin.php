@@ -13,6 +13,8 @@ if ($Menu == "1") {
     $Fileshow = "news/addban.php";
   }else if ($Submenu == "editban") {
     $Fileshow = "news/editban.php";
+  }else if ($Submenu == "indexadmin") {
+    $Fileshow = "indexadmin.php";
   }
 
 } else if ($Menu == "2") {
@@ -45,13 +47,14 @@ if ($Menu == "1") {
 
 } else if ($Menu == "5") {
   $selected4 = "class='selected'";
-  if ($Submenu == "comment") {
-    $Fileshow = "comment.html";
-  } else if ($Submenu == "qa") {
-    $Fileshow = "qa.html";
+  if ($Submenu == "showmanage") {
+    $Fileshow = "manage/showmanage.php";
+  } else if ($Submenu == "addmanage") {
+    $Fileshow = "manage/addmanage.php";
   }
   
-} else {
+} 
+else {
   $Fileshow = "news2.html";
 }
 // $box2 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
@@ -83,8 +86,13 @@ if ($Menu == "1") {
     table,p,a {
       font-family: 'K2D', sans-serif;
       text-decoration: none;
-      margin-top:20px;
+      margin-top:10px;
    
+    }
+    .h5, h5 {
+    font-size: 1.25rem;
+    margin-top: 20px;
+    
     }
 
     body,
@@ -102,23 +110,22 @@ if ($Menu == "1") {
 
     }
 
-    .w3-bar .w3-button {
+    /* .w3-bar .w3-button {
       padding: 15px ;
       
-    }
+    } */
     .inc{
       background: #E9F8FF;
       min-height:700px;
     }
     img {
+    margin-top: 30px;
     vertical-align: middle;
     border-style: none;
     margin-left: 30px;
-   
 }
 .menu{
-  padding: 15px;
-  margin-top: 30px;
+  float: right;
 }
   </style>
 </head>
@@ -136,7 +143,7 @@ if ($Menu == "1") {
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=2&Submenu=shownews';"><i class='fas fa-book-open'>&nbsp</i>ข่าว</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=3&Submenu=showagent';"><i class='fas fa-address-card'>&nbsp</i>ข้อมูลตัวเเทน</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=4&Submenu=showqa';"><i class='fas fa-comments'>&nbsp</i>ถาม-ตอบ</a>
-        
+        <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=5&Submenu=showmanage';"><i class='fas fa-comments'>&nbsp</i>บริหารจัดการทรัพย์สินทางปัญญา</a>
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -154,7 +161,10 @@ if ($Menu == "1") {
   </header>
 
 
-  <div class="inc" style="padding:128px 16px" id="about">
+  <div class="inc" style="padding:128px 16px"  id="about">
+  <br>
+  <br>
+  <br>
     <?
     include($Fileshow);
     ?>

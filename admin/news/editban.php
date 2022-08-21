@@ -141,6 +141,18 @@
              margin: 0;
              margin-left: 3%;
         }
+        p.outset {
+            width: 130px;
+            border-style: outset;
+            background: #2615b1;
+            margin-left: 1150px;
+            text-align: center;
+            color: white;
+            height: 40px;
+            padding: 5px;
+            outline-color: red;
+            border-radius: 10px;
+        }
     </style>
 
 </head>
@@ -148,7 +160,8 @@
 <body class="body">
 
     <h2 class="glow">เพิ่มเเบนเนอร์</h2>
-
+    <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=1&Submenu=showdel'; ">
+        <p class="outset    ">ย้อนกลับ</p>
     <div class="container">
 
        
@@ -165,8 +178,6 @@
 
         ?>
             <form action="news/updateban.php?ID_ban=<?php echo $info['ID_ban']; ?>" method="post" enctype="multipart/form-data" class="form">
-            <label for="fname"><i class="fa fa-user" aria-hidden="true"></i>รหัส</label>
-                <input name="ID" id="idnews" style="width:84%;" value="<?php echo $ID_ban; ?>">
                 <h5>เลือกไฟล์รูปเพื่อเเก้ไข:</h5>
                 <input type="file" name="image" id="addimg" onchange="loadFile(event)">
                 <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:150px; width:200px;  white;border:3px solid; border-radius: 25px;">

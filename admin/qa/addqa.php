@@ -124,12 +124,24 @@ $data = mssql_query("SELECT * FROM ques WHERE ID_q='$ID_q'")
     .form {
         margin-left: 150px;
     }
+    p.outset {
+            width: 130px;
+            border-style: outset;
+            background: #2615b1;
+            margin-left: 1160px;
+            text-align: center;
+            color: white;
+            height: 40px;
+            padding: 5px;
+            outline-color: red;
+            border-radius: 10px;
+        }
 </style>
-
-
 <body class="body">
 
-    <h2 class="glow">ตอบกลับ</h2>
+<br>
+    <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=4&Submenu=showqa'; ">
+        <p class="outset    ">ย้อนกลับ</p>
 
     <div class="container">
         <?php
@@ -139,8 +151,6 @@ $data = mssql_query("SELECT * FROM ques WHERE ID_q='$ID_q'")
             $nameans = iconv("tis-620", "utf-8", $info['nameans']);
         ?>
             <form action="qa/updateqa.php?ID_q=<?php echo $info['ID_q']; ?>" class="form" method="POST" enctype="multipart/form-data">
-                <label for="fname"><i class="fa fa-user"></i>รหัส</label><br>
-                <input  name="ID_q" style="width:84%;"value="<?php echo  $ID_q; ?>"/>
                 <h5><label for="subject">คำถาม</label></h5>
                 <div class="col-25">
                 </div>

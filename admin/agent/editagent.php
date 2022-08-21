@@ -176,7 +176,7 @@
 
     .box {
         width: 80%;
-        height: 390px;
+        height: 450px;
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         background-color: rgba(255, 255, 255, 0.4);
@@ -184,19 +184,31 @@
         margin: auto;
         align-items: center;
     }
+    p.outset {
+            width: 130px;
+            border-style: outset;
+            background: #2615b1;
+            margin-left: 1000px;
+            text-align: center;
+            color: white;
+            height: 40px;
+            padding: 5px;
+            outline-color: red;
+            border-radius: 10px;
+        }
 </style>
 
 <div class="tb">
     <div class="box">
-        <br>
-        <br>
-        <br>
+
         <table class="center">
-            <tr class="tr">
+            <tr class="tr"><br>
                 <th align="left" width="70%" class="tt">ข้อมูลตัวแทน</th>
                 <th>
             </tr>
         </table>
+        <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=3&Submenu=showagent'; ">
+        <p class="outset    ">ย้อนกลับ</p>
         <?php
         //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
         $ID = $_GET['ID'];
@@ -213,7 +225,7 @@
         ?>
         <form action="agent/updateagent.php?ID=<?php echo $info['ID']; ?>" method="post" enctype="multipart/form-data" class="form">
         <table style="width:80%" class="center">
-            <tr><br><br><br>
+            <tr>
                 <th>ชื่อตัวแทน</th>
                 <th>พิจารณา</th>
 
@@ -222,10 +234,10 @@
             <tr class="tr">
                 <td><br>
                     <div class="container">
-                        <input type="text" id="text" class="width:100% center" placeholder="กรุณากรอกชื่อ" name="aname" required  value="<?php echo $aname; ?>">
+                    <input class="w3-input w3-border" name="aname" type="text" value="<?php echo $aname; ?>" />
                 </td>
                 <td><br>
-                    <input type="text" id="text" class="width:100% center" placeholder="กรุณากรอกกลุ่ม" name="consider" required value="<?php echo $consider; ?>">
+                <input class="w3-input w3-border" name="consider" type="text" value="<?php echo $consider; ?>" />
                 </td>
 
             </tr>

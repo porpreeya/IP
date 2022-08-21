@@ -12,7 +12,21 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <style>
-        
+   
+        .h5, h5 {
+            font-size: 1.25rem;
+            margin-top: 20px;
+        }
+        .w3-bar .w3-button {
+            padding: 15px;
+            text-decoration: none;
+        }
+        img {
+            margin-top: 30px;
+            vertical-align: middle;
+             border-style: none;
+            margin-left: 30px;
+}
         table, 
         td {
             border-collapse: collapse;
@@ -23,6 +37,8 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
              border-radius:10px;
              color:black;   
              padding: 10px;
+             border-bottom: 1px solid black;  
+            
         }
 
         th {
@@ -36,6 +52,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
         table.center {
             margin-left: auto;
             margin-right: auto;
+            text-align: left;
         }
 
         .glow {
@@ -72,7 +89,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
             border-style: outset;
             background: #c32da9;
             text-align: center;
-            margin-left: 63%;
+            margin-left: 1100px;
             color: white;
             height: 40px;
             padding: 5px;
@@ -96,17 +113,34 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
             border-color: #dc3545;
             border-radius: 10px;
         }
+        p.outset1 {
+            display: inline;
+            width: 130px;
+            border-style: outset;
+            background: #2c15b1;
+            text-align: center;
+            margin-left: 250px;
+            margin-top: 10%;
+            color: white;
+            height: 40px;
+            padding: 10px;
+            outline-color: red;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
 
 <h1 class="glow">Banner </h1>
+<a onclick="location. href='indexadmin.php';">
+        <p class="outset1">ย้อนกลับ</p>
+    </a>
 <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=1&Submenu=addban'; ">
     <p class="outset">เพิ่มเเบนเนอร์</p>
 </a>
 <table class="center">
     <tr>
-        <th>รหัส</th>
+        <th>ลำดับ</th>
         <th class="th">ชื่อรูปเเบนเนอร์ </th>
         <th>ตัวอย่าง</th>
         <th>แก้ไขข้อมูล </th>
@@ -123,7 +157,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
 
     ?>
         <tr>
-            <td style="text-align:center ;"><?php echo $info['ID_ban']; ?></td>
+            <td style="text-align:left ;"><?php echo $info['ID_ban']; ?></td>
             <td><?php echo $image; ?></td>
             <td> <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:150px; width:200px;  white;border:3px solid; border-radius: 25px;"></td>
             <td style="text-align:center ;"><a href='indexadmin.php?Menu=1&Submenu=editban&ID_ban=<?php echo $info['ID_ban']; ?>''><button type="button" class="btn btn-warning">Edit</button></a> </td>

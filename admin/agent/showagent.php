@@ -12,6 +12,16 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <style>
+
+        .h5, h5 {
+            font-size: 1.25rem;
+            margin-top: 20px;
+        }
+        .w3-bar .w3-button {
+            padding: 15px;
+            text-decoration: none;
+           
+        }
          table, 
         td {
             border-collapse: collapse;
@@ -22,6 +32,7 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
              border-radius:10px;
              color:black;   
              padding: 10px;
+             border-bottom: 1px solid black;  
         }
 
         th {
@@ -66,29 +77,60 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
             text-align: center;
         }
 
-        p.outset {
+        p.outset1 {
+            display: inline;
             width: 130px;
             border-style: outset;
-            background: #5cf2bf;
+            background: #2c15b1;
             text-align: center;
-            margin-left: 63%;
-            color: black;
+            margin-left: 350px;
+            margin-top: 2%;
+            color: white;
             height: 40px;
-            padding: 5px;
+            padding: 10px;
             outline-color: red;
-            border-radius:10px ;
+            border-radius: 8px;
+        }
+
+        .outset1:active {
+            background-color: #442bd1;
+            box-shadow: 0 4px #666;
+            transform: translateY(4px);
+        }
+
+        p.outset {
+            display: inline;
+            width: 130px;
+            border-style: outset;
+            background: #c32da9;
+            text-align: center;
+            margin-left: 600px;
+            color: white;
+            height: 40px;
+            padding: 10px;
+            outline-color: red;
+            border-radius: 10px;
+        }
+
+        .outset:active {
+            background-color: #78d162;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
         }
     </style>
 </head>
 
 <body>
     <h1 class="glow">ข้อมูลตัวเเทน</h1>
+    <a onclick="location. href='indexadmin.php';">
+        <p class="outset1">ย้อนกลับ</p>
+    </a>
     <a  onclick="location. href='indexadmin.php?Menu=3&Submenu=addagent';">
         <p class="outset">ข้อมูลตัวเเทน</p>
-    </a>
+    </a><br><br>
     <table class="center">
         <tr>
-            <th>รหัส</th>
+            <th>ลำดับ</th>
             <th class="th">ชื่อตัวเเทน</th>
             <th>พิจารณา</th>
             <th>แก้ไขข้อมูล </th>

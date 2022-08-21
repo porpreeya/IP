@@ -9,7 +9,7 @@ $strSQL .= "VALUES";
 $strSQL .= "('" . $news . "','" . $newfilename . "','1')";
 $objQuery = mssql_query($strSQL);
 
-echo $newfilename ;
+// echo $newfilename ;
 //upload file in folder
 move_uploaded_file($_FILES["image"]["tmp_name"], "../../uploads/" . $newfilename);
 

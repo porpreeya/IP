@@ -27,6 +27,7 @@
 
         label {
             padding: 5px 5px 5px 0;
+            width: 300px;
             display: inline-block;
         }
 
@@ -128,26 +129,58 @@
         .form {
             margin-left: 10px;
         }
-        .heading{
-          
+
+        .heading {
+
             color: #494949;
             background: white;
             border-left: solid 7px #7db4e6;
-            width:11%;  
+            width: 11%;
         }
-        .heading1{
-          
-          color: #494949;
-          background: white;
-          border-left: solid 7px #7db4e6;
-          width:8%;  
+
+        .heading1 {
+
+            color: #494949;
+            background: white;
+            border-left: solid 7px #7db4e6;
+            width: 11%;
         }
-        button, input, select, textarea, optgroup {
+
+        button,
+        input,
+        select,
+        textarea,
+        optgroup {
             font: inherit;
-            margin-left:10%;
+            margin-left: 10%;
             margin-right: 20%;
         }
-            
+        p.outset1 {
+            display: inline;
+            width: 130px;
+            border-style: outset;
+            background: #2c15b1;
+            text-align: center;
+            margin-left: 285px;
+            margin-top: 2%;
+            color: white;
+            height: 40px;
+            padding: 10px;
+            outline-color: red;
+            border-radius: 8px;
+        }
+        p.outset {
+            width: 130px;
+            border-style: outset;
+            background: #2615b1;
+            margin-left: 1160px;
+            text-align: center;
+            color: white;
+            height: 40px;
+            padding: 5px;
+            outline-color: red;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -159,37 +192,38 @@
         or die(mssql_error()); ?>
     <h2 class="glow">เพิ่มข่าวทรัพย์สินทางปัญญา</h2><br>
     <br>
+    <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=2&Submenu=shownews'; ">
+        <p class="outset    ">ย้อนกลับ</p>
     <div class="container">
-       
-            <form action="news/storenews.php" method="post" enctype="multipart/form-data" class="form">
-            <div class="heading"><h5>เพิ่มไฟล์รูป:</h5></div><br>
-                <input type="file" name="image" id="addimg"  onchange="loadFile(event)">
-                <img id="showimg" src="../uploads/<?php echo $image?>" style="height:250px; width:100;">
-                <div class="heading1"><h5><label for="subject">เพิ่มข่าว</label></h5></div><br>
-                <!--             
+
+        <form action="news/storenews.php" method="post" enctype="multipart/form-data" class="form">
+            <div class="heading1">
+                <h5>รายละเอียด:</h5>
+            </div><br>
+            <textarea name="news" id="detail" style="width:100px;"></textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace('detail');
+
+                function CKupdate() {
+                    for (instance in CKEDITOR.instances)
+                        CKEDITOR.instances[instance].updateElement();
+                }
+            </script>
+            <br><br><br>
+            <div class="heading">
+                <h5>เเนบไฟล์รูป:</h5>
+            </div>
+            <input type="file" name="image" id="addimg" onchange="loadFile(event)">
+            <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:200px; width:50;">
             <div class="row">
-                <div class="col-75">
-                    <textarea name="news" placeholder="รายละเอียดข่าว" style="height:200px; width:750px"></textarea>
-                </div>
-            </div> -->
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
 
-                <textarea name="news" id="detail" style="width:100px;"></textarea>
-                <script>
-                    // Replace the <textarea id="editor1"> with a CKEditor
-                    // instance, using default configuration.
-                    CKEDITOR.replace('detail');
+        </form>
 
-                    function CKupdate() {
-                        for (instance in CKEDITOR.instances)
-                            CKEDITOR.instances[instance].updateElement();
-                    }
-                </script>
-                <div class="row">
-                    <input type="submit" value="Submit">
-                    <input type="reset" value="Reset">
-                </div>
-            </form>
-        
     </div>
     <!-- <script>
         $("#addimg").change(function(e) {
@@ -220,15 +254,15 @@
         });
     </script> -->
     <script>
-  var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('showimg');
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
-</script>
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('showimg');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+    </script>
 </body>
 
 </html>

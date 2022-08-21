@@ -1,7 +1,5 @@
-
-
 <head>
-<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -54,6 +52,7 @@
             margin-right: 200px;
             padding: 20px;
             padding-bottom: 20px;
+            margin-top: 30px;
         }
 
         .col-25 {
@@ -90,7 +89,7 @@
         .glow {
             font-size: 26px;
             color: black;
-            margin-left: 200px;      
+            margin-left: 200px;
             color: white;
             padding: 0.5em;
             display: inline-block;
@@ -98,8 +97,9 @@
             background: #878787;
             vertical-align: middle;
             border-radius: 25px 0px 0px 25px;
-            
+
         }
+
         .glow:before {
             content: '●';
             color: black;
@@ -120,21 +120,39 @@
         .form {
             margin-left: 10px;
         }
+        p.outset1 {
+            display: inline;
+            width: 130px;
+            border-style: outset;
+            background: #2c15b1;
+            text-align: center;
+            margin-left: 1195px;
+            margin-top: 2%;
+            color: white;
+            height: 40px;
+            padding: 10px;
+            outline-color: red;
+            border-radius: 8px;
+        }
     </style>
-      
+
 </head>
 <?php
-    //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
-    $ID = $_GET['ID'];
-    $objDB = mssql_select_db("intelle");
-    $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
-        or die(mssql_error());
+//ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
+$ID = $_GET['ID'];
+$objDB = mssql_select_db("intelle");
+$data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
+    or die(mssql_error());
 
-    ?>
+?>
+
 <body class="body">
 
-    <h2 class="glow">เเก้ไขข่าวทรัพย์สินทางปัญญา</h2>
-
+    <h2 class="glow">เเก้ไขข่าวทรัพย์สินทางปัญญา</h2><br> <br>
+    <a onclick="location. href='indexadmin.php?Menu=2&Submenu=shownews';">
+        <p class="outset1">ย้อนกลับ</p><br>
+    </a>
+   
     <div class="container">
         <?php
         while ($info = mssql_fetch_array($data)) {
@@ -142,47 +160,41 @@
             $image = iconv("tis-620", "utf-8", $info['image']);
 
         ?>
+        
             <form action="news/updatenews.php?ID=<?php echo $info['ID']; ?>" method="post" enctype="multipart/form-data" class="form">
-                
-                <label for="fname"><i class="fa fa-user" aria-hidden="true"></i>รหัส</label>
-                <input name="ID" id="idnews" style="width:84%;" value="<?php echo $ID; ?>">
-                <h5>เพิ่มไฟล์รูป:</h5>
-                <input type="file" name="image" id="addimg" onchange="loadFile(event)">
-                <img id="showimg" src="../uploads/<?php echo $image?>" style="height:50px;">
-                <h5><label for="subject">เเก้ไขข่าว</label></h5>
-
                 <div class="row">
-                    <!-- <div class="col-75">
-                        <textarea name="news" placeholder="รายละเอียดข่าว" style="height:200px; width:750px" ></textarea>
+                <h5><label for="subject">รายละเอียดข่าว</label></h5>
+                    <textarea name="news" id="detail" style="width:100px;"><?php echo $news; ?></textarea>
+                    <script>
+                        // Replace the <textarea id="editor1"> with a CKEditor
+                        // instance, using default configuration.
+                        CKEDITOR.replace('detail');
+
+                        function CKupdate() {
+                            for (instance in CKEDITOR.instances)
+                                CKEDITOR.instances[instance].updateElement();
+                        }
+                    </script>
+                    <br>
+                    <h5>เพิ่มไฟล์รูป:</h5>
+                    <input type="file" name="image" id="addimg" onchange="loadFile(event)">
+                    <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:200px; width:50;">
+                    
+                    <div class="row">
+                        <input type="submit" value="บันทึก">
+                        <input type="reset" value="ยกเลิก">
                     </div>
-                </div> -->
-                <textarea name="news" id="detail" style="width:100px;"><?php echo $news; ?></textarea>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace('detail');
-
-                function CKupdate() {
-                    for (instance in CKEDITOR.instances)
-                        CKEDITOR.instances[instance].updateElement();
-                }
-            </script>
-                <div class="row">
-                    <input type="submit" value="บันทึก">
-                    <input type="reset" value="ยกเลิก">
-                </div>
             </form>
         <?php } ?>
     </div>
     <script>
-  var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('showimg');
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
-</script>
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('showimg');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+    </script>
 </body>
-

@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-
         * {
             box-sizing: border-box;
         }
+
         input[type=text],
         select,
         textarea {
@@ -23,10 +23,12 @@
             border-radius: 4px;
             resize: vertical;
         }
+
         label {
             padding: 12px 12px 12px 0;
             display: inline-block;
         }
+
         input[type=submit] {
             background-color: #04AA6D;
             color: white;
@@ -47,15 +49,17 @@
             cursor: pointer;
             margin-left: 100px;
         }
+
         input[type=submit]:hover {
             background-color: #45a049;
         }
+
         .container {
             border-radius: 5px;
             background-color: burlywood;
             margin-left: 200px;
             margin-right: 200px;
-            padding: 20px ;
+            padding: 20px;
             padding-bottom: 20px;
         }
 
@@ -93,7 +97,7 @@
         .glow {
             font-size: 26px;
             color: black;
-            margin-left: 200px;      
+            margin-left: 200px;
             color: white;
             padding: 0.5em;
             display: inline-block;
@@ -101,13 +105,15 @@
             background: #878787;
             vertical-align: middle;
             border-radius: 25px 0px 0px 25px;
-            
-}
+
+        }
+
         .glow:before {
             content: '●';
             color: black;
             margin-right: 8px;
-}
+        }
+
         @-webkit-keyframes glow {
             from {
                 text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f7d2e5, 0 0 25px #f7d2e5, 0 0 30px #f7d2e5, 0 0 40px #f7d2e5, 0 0 50px #f7d2e5;
@@ -117,51 +123,69 @@
                 text-shadow: 0 0 10px #fff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 25px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff;
             }
         }
-        .form{
+
+        .form {
             margin-left: 150px;
         }
-        .heading{
-            padding: 0.25em 0.9em ;
+
+        .heading {
+            padding: 0.25em 0.9em;
             color: #494949;
             background: white;
             border-left: solid 7px #7db4e6;
-            width:12%;  
+            width: 12%;
         }
-        
+
+        p.outset {
+            width: 130px;
+            border-style: outset;
+            background: #2615b1;
+            margin-left: 1160px;
+            text-align: center;
+            color: white;
+            height: 40px;
+            padding: 5px;
+            outline-color: red;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
 <body class="body">
-<?
+    <?
     $image = iconv("tis-620", "utf-8", $info['image']);
     $objDB = mssql_select_db("intelle");
     $data = mssql_query("SELECT * FROM banner ")
         or die(mssql_error()); ?>
     <h2 class="glow">เพิ่มเเบนเนอร์</h2>
+    <br><br>
+    <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=1&Submenu=showdel'; ">
+        <p class="outset    ">ย้อนกลับ</p>
+        <div class="container">
 
-    <div class="container">
-   
-    <div class="heading"><h5>เพิ่มไฟล์รูป:</h5></div><br>
-        <form action="news/storeban.php" method="post" enctype="multipart/form-data" class="form">
-        
-            <input type="file" name="image" id="addimg"  onchange="loadFile(event)">
-            <img id="showimg" src="../uploads/<?php echo $image?>" style="height:250px; width:100;">
-        <div class="row">
-                <input type="submit" value="Submit">
-                <input type="reset" value="Reset">
-            </div>
-       </form>
-    </div>
-    <script>
-  var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('showimg');
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
-</script>
+            <div class="heading">
+                <h5>เพิ่มไฟล์รูป:</h5>
+            </div><br>
+            <form action="news/storeban.php" method="post" enctype="multipart/form-data" class="form">
+
+                <input type="file" name="image" id="addimg" onchange="loadFile(event)">
+                <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:250px; width:100;">
+                <div class="row">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+        </div>
+        <script>
+            var loadFile = function(event) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var output = document.getElementById('showimg');
+                    output.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            };
+        </script>
 </body>
 
 </html>
