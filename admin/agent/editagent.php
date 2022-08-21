@@ -184,18 +184,19 @@
         margin: auto;
         align-items: center;
     }
+
     p.outset {
-            width: 130px;
-            border-style: outset;
-            background: #2615b1;
-            margin-left: 1000px;
-            text-align: center;
-            color: white;
-            height: 40px;
-            padding: 5px;
-            outline-color: red;
-            border-radius: 10px;
-        }
+        width: 130px;
+        border-style: outset;
+        background: #2615b1;
+        margin-left: 1000px;
+        text-align: center;
+        color: white;
+        height: 40px;
+        padding: 5px;
+        outline-color: red;
+        border-radius: 10px;
+    }
 </style>
 
 <div class="tb">
@@ -207,50 +208,51 @@
                 <th>
             </tr>
         </table>
-        <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=3&Submenu=showagent'; ">
-        <p class="outset    ">ย้อนกลับ</p>
-        <?php
-        //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
-        $ID = $_GET['ID'];
-        $objDB = mssql_select_db("intelle");
-        $data = mssql_query("SELECT * FROM consider WHERE ID='$ID'")
-            or die(mssql_error());
+        <a href="indexadmin.php?Menu=3&Submenu=showagent" style="text-decoration: none;" ">
+            <p class="outset">ย้อนกลับ</p></a>
+            <?php
+            //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
+            $ID = $_GET['ID'];
+            $objDB = mssql_select_db("intelle");
+            $data = mssql_query("SELECT * FROM consider WHERE ID='$ID'")
+                or die(mssql_error());
 
-        ?>
-        <?php
-        while ($info = mssql_fetch_array($data)) {
-            $aname = iconv( "utf-8","tis-620", $info['aname']);
-            $consider = iconv( "utf-8","tis-620", $info['consider']);
+            ?>
+            <?php
+            while ($info = mssql_fetch_array($data)) {
+                $aname = iconv("tis-620", "utf-8", $info['aname']);
+                $consider = iconv("tis-620", "utf-8", $info['consider']);
 
-        ?>
-        <form action="agent/updateagent.php?ID=<?php echo $info['ID']; ?>" method="post" enctype="multipart/form-data" class="form">
-        <table style="width:80%" class="center">
-            <tr>
-                <th>ชื่อตัวแทน</th>
-                <th>พิจารณา</th>
+            ?>
+                <form action="agent/updateagent.php?ID=<?php echo $info['ID']; ?>" method="POST" enctype="multipart/form-data" class="form">
+                    
+                <table style="width:80%" class="center">
+                        <tr>
+                            <th>ชื่อตัวแทน</th>
+                            <th>พิจารณา</th>
 
-            </tr>
+                        </tr>
 
-            <tr class="tr">
-                <td><br>
-                    <div class="container">
-                    <input class="w3-input w3-border" name="aname" type="text" value="<?php echo $aname; ?>" />
-                </td>
-                <td><br>
-                <input class="w3-input w3-border" name="consider" type="text" value="<?php echo $consider; ?>" />
-                </td>
+                        <tr class="tr">
+                            <td><br>
+                                <div class="container">
+                                    <input class="w3-input w3-border" name="aname" type="text" value="<?php echo $aname; ?>" />
+                            </td>
+                            <td><br>
+                                <input class="w3-input w3-border" name="consider" type="text" value="<?php echo $consider; ?>" />
+                            </td>
 
-            </tr>
-        </table>
-        <br><br><br>
-        <table>
+                        </tr>
+                    </table>
+                    <br><br><br>
+                    <table>
 
-            <th><button class="button">บันทึก</button></th>
-            <th><button class="button1">ยกเลิก</button></th>
+                        <td><button class="button">บันทึก</button></td>
+                        <td><button class="button1">ยกเลิก</button></td>
 
-        </table>
-        </form>
-        <?php } ?>
+                    </table>
+                </form>
+            <?php } ?>
     </div>
 </div>
 

@@ -184,11 +184,12 @@
             margin: auto;
             align-items: center;
         }
+
         p.outset {
             width: 130px;
             border-style: outset;
             background: #2615b1;
-            float:right;
+            float: right;
             text-align: center;
             color: white;
             height: 40px;
@@ -205,13 +206,14 @@
             <form action="agent/storeagent.php" method="post" enctype="multipart/form-data" class="form">
 
                 <table class="center">
-                        <th align="left" width="70%" class="tt">ข้อมูลตัวแทน</th>
-                        <th>
-                    </tr>
-                    
+                    <th align="left" width="70%" class="tt">ข้อมูลตัวแทน</th>
+                    <th>
+                        </tr>
+
                 </table>
                 <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=3&Submenu=showagent'; ">
-                        <p class="outset    ">ย้อนกลับ</p>
+                    <p class="outset">ย้อนกลับ</p>
+                </a>
                 <table style="width:80%" class="center">
                     <tr><br><br><br>
                         <th>ชื่อตัวแทน</th>

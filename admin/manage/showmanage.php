@@ -175,7 +175,7 @@ $data = mssql_query("SELECT * FROM tb_IP  ");
             $agent = iconv("tis-620", "utf-8", $info['agent']);
             $framename = iconv("tis-620", "utf-8", $info['framename']);
             $genus = iconv("tis-620", "utf-8", $info['genus']);
-            $status = iconv("tis-620", "utf-8", $info['status']);
+            $sta = iconv("tis-620", "utf-8", $info['sta']);
             $affiliation = iconv("tis-620", "utf-8", $info['affiliation']);
 
         ?>
@@ -185,10 +185,10 @@ $data = mssql_query("SELECT * FROM tb_IP  ");
                 <td><?php echo $agent; ?></td>
                 <td><?php echo $framename; ?></td>
                 <td><?php echo $genus; ?></td>
-                <td><?php echo $status; ?></td>
+                <td><?php echo $sta; ?></td>
                 <td><?php echo $affiliation; ?></td>
-                <td style="text-align:center ;"><a href='indexadmin.php?Menu=2&Submenu=editnews&ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-warning">Edit</button></a> </td>
-                <td style="text-align:center ;"><a href='news/deletenews.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
+                <td style="text-align:center ;"><a href='#'><button type="button" class="btn btn-warning">Edit</button></a> </td>
+                <td style="text-align:center ;"><a href='manage/deletemanage.php?ID_ip=<?php echo $info['ID_ip']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
             </tr>
         <?php } ?>
     </table>

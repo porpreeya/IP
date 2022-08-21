@@ -141,7 +141,7 @@ $data = mssql_query("SELECT * FROM ques WHERE ID_q='$ID_q'")
 
 <br>
     <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=4&Submenu=showqa'; ">
-        <p class="outset    ">ย้อนกลับ</p>
+        <p class="outset">ย้อนกลับ</p></a>
 
     <div class="container">
         <?php

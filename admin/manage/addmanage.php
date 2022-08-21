@@ -193,7 +193,7 @@
 <h1 class="glow">การจดทะเบียนทรัพย์สินทางปัญญา</h1>
     <br>
     <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=5&Submenu=showmanage'; ">
-        <p class="outset">ย้อนกลับ</p><br><br>
+        <p class="outset">ย้อนกลับ</p></a><br><br>
     <div class="box2">
             <br>
             <table class="center1">

@@ -193,7 +193,7 @@
     <h2 class="glow">เพิ่มข่าวทรัพย์สินทางปัญญา</h2><br>
     <br>
     <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=2&Submenu=shownews'; ">
-        <p class="outset    ">ย้อนกลับ</p>
+        <p class="outset ">ย้อนกลับ</p></a>
     <div class="container">
 
         <form action="news/storenews.php" method="post" enctype="multipart/form-data" class="form">
