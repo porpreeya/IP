@@ -234,7 +234,7 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
                                                     </tr>
                                                 </table><br>
                                             </div>
-
+                                        
 
 
                                         <?php } ?>

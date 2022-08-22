@@ -1,52 +1,78 @@
 <?
+$objDB = mssql_select_db("intelle");
+$data = mssql_query("SELECT TOP 6 * from banner ORDER BY ID_ban DESC");
+// $sql        = "SELECT *FROM news WHERE ID ='1'";
+// $result     = $db_tm->sql_query($sql);
+// $rows       = $db_tm->sql_fetchrow($result);
+// $image      = $rows['image'];
+// $path      = '../IP/uploads/';
 
-$sql        = "SELECT *FROM news WHERE ID ='1'";
-$result     = $db_tm->sql_query($sql);
-$rows       = $db_tm->sql_fetchrow($result);
-$image      = $rows['image'];
-$path      = '../IP/uploads/';
+// $sql9        = "SELECT *FROM banner WHERE ID_ban ='31'";
+// $result9     = $db_tm->sql_query($sql9);
+// $rows9       = $db_tm->sql_fetchrow($result9);
+// $image4      = $rows['image'];
+// $path4      = '../IP/uploads/';
 
-$sql2        = "SELECT * FROM news WHERE ID ='13'";
-$result2    = $db_tm->sql_query($sql2);
-$rows2       = $db_tm->sql_fetchrow($result2);
-$image2      = $rows2['image'];
-$path2       = '../IP/uploads/';
+// $sql10        = "SELECT *FROM banner WHERE ID_ban ='30'";
+// $result10     = $db_tm->sql_query($sql10);
+// $rows10       = $db_tm->sql_fetchrow($result10);
+// $image5      = $rows['image'];
+// $path5      = '../IP/uploads/';
 
-$sql3       = "SELECT * FROM news WHERE ID ='14'";
-$result3    = $db_tm->sql_query($sql3);
-$rows3      = $db_tm->sql_fetchrow($result3);
-$image3      = $rows3['image'];
-$path3       = '../IP/uploads/';
+// $sql11        = "SELECT *FROM banner WHERE ID_ban ='29'";
+// $result11     = $db_tm->sql_query($sql11);
+// $rows11       = $db_tm->sql_fetchrow($result11);
+// $image6      = $rows['image'];
+// $path6      = '../IP/uploads/';
 
-$sql4        = "SELECT * FROM news WHERE ID ='4'";
-$result4    = $db_tm->sql_query($sql4);
-$rows4      = $db_tm->sql_fetchrow($result4);
-$image4      = $rows4['image'];
-$path4       = '../IP/uploads/';
+// $sql12        = "SELECT *FROM banner WHERE ID_ban ='14'";
+// $result12     = $db_tm->sql_query($sql12);
+// $rows12       = $db_tm->sql_fetchrow($result12);
+// $image7      = $rows['image'];
+// $path7      = '../IP/uploads/';
+
+// $sql2        = "SELECT * FROM news WHERE ID ='13'";
+// $result2    = $db_tm->sql_query($sql2);
+// $rows2       = $db_tm->sql_fetchrow($result2);
+// $image2      = $rows2['image'];
+// $path2       = '../IP/uploads/';
+
+// $sql3       = "SELECT * FROM news WHERE ID ='14'";
+// $result3    = $db_tm->sql_query($sql3);
+// $rows3      = $db_tm->sql_fetchrow($result3);
+// $image3      = $rows3['image'];
+// $path3       = '../IP/uploads/';
+
+// $sql4        = "SELECT * FROM news WHERE ID ='4'";
+// $result4    = $db_tm->sql_query($sql4);
+// $rows4      = $db_tm->sql_fetchrow($result4);
+// $image4      = $rows4['image'];
+// $path4       = '../IP/uploads/';
 
 
-$sql5        = "SELECT * FROM news WHERE ID ='8'";
-$result5    = $db_tm->sql_query($sql5);
-$rows5      = $db_tm->sql_fetchrow($result5);
-$image5      = $rows5['image'];
-$path5       = '../IP/uploads/';
+// $sql5        = "SELECT * FROM news WHERE ID ='8'";
+// $result5    = $db_tm->sql_query($sql5);
+// $rows5      = $db_tm->sql_fetchrow($result5);
+// $image5      = $rows5['image'];
+// $path5       = '../IP/uploads/';
 
-$sql6        = "SELECT * FROM news WHERE ID ='9'";
-$result6    = $db_tm->sql_query($sql6);
-$rows6      = $db_tm->sql_fetchrow($result6);
-$image6      = $rows6['image'];
-$path6       = '../IP/uploads/';
+// $sql6        = "SELECT * FROM news WHERE ID ='9'";
+// $result6    = $db_tm->sql_query($sql6);
+// $rows6      = $db_tm->sql_fetchrow($result6);
+// $image6      = $rows6['image'];
+// $path6       = '../IP/uploads/';
 
 
-$sql7        = "SELECT *FROM news WHERE ID ='10'";
-$result7     = $db_tm->sql_query($sql7);
-$rows7       = $db_tm->sql_fetchrow($result7);
-$image7      = $rows7['image'];
-$path7       = '../IP/uploads/';
+// $sql7        = "SELECT *FROM news WHERE ID ='10'";
+// $result7     = $db_tm->sql_query($sql7);
+// $rows7       = $db_tm->sql_fetchrow($result7);
+// $image7      = $rows7['image'];
+// $path7       = '../IP/uploads/';
 
-$sql8        = "SELECT *FROM tb_IP WHERE ID_ip ='1'";
-$result8     = $db_tm->sql_query($sql8);
-$rows8       = $db_tm->sql_fetchrow($result8);
+// $sql8        = "SELECT *FROM tb_IP WHERE ID_ip ='1'";
+// $result8     = $db_tm->sql_query($sql8);
+// $rows8       = $db_tm->sql_fetchrow($result8);
+
 ?>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <style>
@@ -131,14 +157,14 @@ $rows8       = $db_tm->sql_fetchrow($result8);
     padding: 8px 16px;
     text-decoration: none;
     transition: background-color .3s;
-    
+
 
   }
 
   .pagination3 a.active2 {
     background-color: dodgerblue;
     color: white;
-    
+
   }
 
   .pagination3 {
@@ -255,16 +281,30 @@ $rows8       = $db_tm->sql_fetchrow($result8);
     padding-left: 140px;
   }
 </style>
+
 <div class="shell2">
   <div class="slider">
     <div class="slider-holder">
       <ul>
-        <li><img src="<? echo $path . $image; ?> " style="width: 100%; height:100%"></li>
-        <li><img src="<? echo $path2 . $image2; ?>" style="width: 100%; height:100%"></li>
-        <li><img src="<? echo $path3 . $image3; ?>" style="width: 100%; height:100%"></li>
-        <li><img src="<? echo $path . $image; ?> " style="width: 100%; height:100%"></li>
-        <li><img src="<? echo $path2 . $image2; ?>" style="width: 100%; height:100%"></li>
-        <li><img src="<? echo $path3 . $image3; ?>" style="width: 100%; height:100%"></li>
+        <?
+        while ($info = mssql_fetch_array($data)) {
+          $image = iconv("tis-620", "utf-8", $info['image']);
+
+
+        ?>
+          <li><img id="showimg" src="uploads/<?php echo $image ?>" style="width: 100%; height:100%"></li>
+
+        <?php } ?>
+        <script>
+          var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+              var output = document.getElementById('showimg');
+              output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+          };
+        </script>
       </ul>
     </div>
     <div class="slider-navigation">
@@ -275,6 +315,7 @@ $rows8       = $db_tm->sql_fetchrow($result8);
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li>
         <li><a href="#">6</a></li>
+
       </ul>
     </div>
   </div>
@@ -282,354 +323,65 @@ $rows8       = $db_tm->sql_fetchrow($result8);
   <div class="cl">&nbsp;</div>
 </div>
 <br>
+<?
 
+$data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DESC ");
+?>
 <div id="main">
   <div class="shell">
     <div class="box">
       <h3>ข่าวทรัพย์สินทางปัญญา</h3>
       <br>
+     
     </div>
+    <?
+      $allData = array();
+      while ($info = mssql_fetch_array($data2)) {
+          $news = iconv("utf-8","tis-620",  $info['news']);
+          // $date = iconv("tis-620", "utf-8", $info['date']);
+
+          array_push($allData, $info);
+      }
+      //echo '<pre>'.var_dump($allData).'</pre>' ;
+      $arrData = array_chunk($allData, 6);
+      ?>
     <div class="slider">
       <div class="slider-holder2">
         <ul>
-        <li>
-            <div class="box5">
-              <br>
 
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path . $image; ?> " height="120px">
-
-                </center><br>
-
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path . $image; ?> " width="60%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows['news']) ?>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path2 . $image2; ?> " height="120px">
-                </center><br>
-
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil2"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil2" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path2 . $image2; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil2">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows2['news']) ?>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path3 . $image3; ?> " height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows3['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil3"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil3" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path3 . $image3; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil3">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows3['news']) ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path . $image; ?> "height="120px">
-
-                </center><br>
-
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path . $image; ?> " width="60%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows['news']) ?>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path2 . $image2; ?> " height="120px">
-                </center><br>
-
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil2"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil2" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path2 . $image2; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil2">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows2['news']) ?>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path3 . $image3; ?> " height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows3['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil3"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil3" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path3 . $image3; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil3">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows3['news']) ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-          </li>
+       <?php for ($i = 0; $i < count($arrData); $i++) : ?>
           <li>
-            <div class=" box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path4 . $image4; ?> " height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows4['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
-              </div>
-            </div>
-
+          <?php
+            foreach ($arrData[$i] as $key => $val) {
+            // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+            ?>
             <div class="box5">
               <br>
 
               <div class="entry">
                 <center>
-                  <img src="<? echo $path5 . $image5; ?> "height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows5['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
-              </div>
-            </div>
-
-
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path6 . $image6; ?> "height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows6['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
-              </div>
-            </div>
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path . $image; ?> "height="120px">
+                  <img id="showimg" src="uploads/<?php echo $val[2] ?> " height="120px">
 
                 </center><br>
 
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $val[1]), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
               </div>
               <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
                 <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path . $image; ?> " width="60%"></p>
+                  <p class="pu"><img id="showimg" src="uploads/<?php echo $image ?> " width="60%"></p>
                   <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
                   <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows['news']) ?>
+                    <? echo iconv("tis-620", "utf-8", $val[1]) ?>
                   </div>
                 </div>
               </div>
 
             </div>
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path2 . $image2; ?> " height="120px">
-                </center><br>
-
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil2"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil2" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path2 . $image2; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil2">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows2['news']) ?>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path3 . $image3; ?> " height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows3['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil3"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil3" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path3 . $image3; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil3">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows3['news']) ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-            
-          </li>
-          <li>
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path7 . $image7; ?> "  height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows7['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
-              </div>
-            </div>
-
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path . $image; ?> "  height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
-              </div>
-            </div>
-
-
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path2 . $image2; ?> "  height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><button id="myBtn"><span>อ่านต่อ </span></button></p>
-              </div>
-            </div>
-
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path . $image; ?> "height="120px">
-
-                </center><br>
-
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path . $image; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows['news']) ?>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path2 . $image2; ?> " height="120px">
-                </center><br>
-
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows2['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil2"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil2" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path2 . $image2; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil2">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows2['news']) ?>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="box5">
-              <br>
-
-              <div class="entry">
-                <center>
-                  <img src="<? echo $path3 . $image3; ?> " height="120px">
-
-                </center><br>
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $rows3['news']), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil3"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil3" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img src="<? echo $path3 . $image3; ?> " width="40%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil3">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $rows3['news']) ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+            <?php } ?>
+</li>
+<?php endfor; ?> </ul>
+           
+       
       </div>
       <div class="slider-navigation " ">
        
@@ -655,8 +407,26 @@ $rows8       = $db_tm->sql_fetchrow($result8);
 
 
 </div>
+<?
 
+$data3 = mssql_query("SELECT TOP  * from tb_IP ORDER BY ID_ip DESC");
+?>
 </div>
+<div>
+                    <?php
+                    //เริ่ม
+                    $allData = array();
+                    while ($info = mssql_fetch_array($data3)) {
+                        // $question = iconv("tis-620", "utf-8", $info['question']);
+                        // $date = iconv("tis-620", "utf-8", $info['date']);
+
+                        array_push($allData, $info);
+                    }
+                    //echo '<pre>'.var_dump($allData).'</pre>' ;
+                    $arrData = array_chunk($allData, 3);
+                    ?>
+
+                </div>
 <!-- ทรัพย์สินที่จดใหม่ -->
 <div id="main1">
   <div class="shell">
@@ -1073,25 +843,25 @@ $rows8       = $db_tm->sql_fetchrow($result8);
         <br>
         <br>
         <div class="slider-navigation2 ">
-      <div class=" pagination3">
+          <div class=" pagination3">
 
-          <!-- <li><a href="#" class="active">1</a></li>
+            <!-- <li><a href="#" class="active">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li> -->
-          <a href="#">&laquo;</a>
-          <a href="#">1</a>
-          <a class="active2" href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">&raquo;</a>
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a class="active2" href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">&raquo;</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <br>
 

@@ -141,7 +141,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
 <table class="center">
     <tr>
         <th>ลำดับ</th>
-        <th class="th">ชื่อรูปเเบนเนอร์ </th>
+        <th class="th" >ชื่อรูปเเบนเนอร์ </th>
         <th>ตัวอย่าง</th>
         <th>แก้ไขข้อมูล </th>
 
@@ -157,9 +157,9 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
 
     ?>
         <tr>
-            <td style="text-align:left ;"><?php echo $info['ID_ban']; ?></td>
-            <td><?php echo $image; ?></td>
-            <td> <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:150px; width:200px;  white;border:3px solid; border-radius: 25px;"></td>
+            <td valign="top" style="text-align:left ;"><?php echo $info['ID_ban']; ?></td>
+            <td valign="top"><?php echo $image; ?></td>
+            <td valign="top"> <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:150px; width:200px;  white;border:3px solid; border-radius: 25px;"></td>
             <td style="text-align:center ;"><a href='indexadmin.php?Menu=1&Submenu=editban&ID_ban=<?php echo $info['ID_ban']; ?>''><button type="button" class="btn btn-warning">Edit</button></a> </td>
             <td style="text-align:center ;"><a href='news/deleteban.php?ID_ban=<?php echo $info['ID_ban']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
 
