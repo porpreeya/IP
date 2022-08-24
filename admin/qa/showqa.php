@@ -7,7 +7,7 @@ $objDB = mssql_select_db("intelle");
 $data = mssql_query("SELECT * FROM ques ");
 
 ?>
-
+<br>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -141,7 +141,17 @@ $data = mssql_query("SELECT * FROM ques ");
                 <td><?php echo $date; ?></td>
                 <td><?php echo $response; ?></td>
                 <td><?php echo $nameans; ?></td>
-                 <td style="text-align:center ;"><a href='indexadmin.php?Menu=4&Submenu=addqa&ID_q=<?php echo $info['ID_q']; ?>'><button type="button" class="btn btn-warning">ตอบกลับ</button></a> </td>
+                
+                
+                 <td style="text-align:center ;">
+                 <?
+                if ($info["status"]=="0") {
+                    ?>
+                 <a href='indexadmin.php?Menu=4&Submenu=addqa&ID_q=<?php echo $info['ID_q']; ?>'><button type="button" class="btn btn-warning">ตอบกลับ</button></a> 
+                 <?
+                 }
+                 ?>
+                </td>
                 <td style="text-align:center ;"><a href='qa/deleteqa.php?ID_q=<?php echo $info['ID_q']; ?>'><button type="button" class="btn btn-danger">ลบ</button></a></td>
                
             </tr>

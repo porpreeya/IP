@@ -51,6 +51,8 @@ if ($Menu == "1") {
     $Fileshow = "manage/showmanage.php";
   } else if ($Submenu == "addmanage") {
     $Fileshow = "manage/addmanage.php";
+  }else if ($Submenu == "editmanage") {
+    $Fileshow = "manage/editmanage.php";
   }
   
 } 
@@ -162,7 +164,6 @@ else {
 
 
   <div class="inc" style="padding:128px 16px"  id="about">
-  <br>
   <br>
   <br>
     <?

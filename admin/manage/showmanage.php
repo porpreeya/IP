@@ -1,7 +1,7 @@
 <?
 $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
-$data = mssql_query("SELECT * FROM tb_IP  ");
+$data = mssql_query("SELECT * FROM tb_IP where status='1' ");
 
 ?>
 <meta charset="UTF-8">
@@ -187,7 +187,7 @@ $data = mssql_query("SELECT * FROM tb_IP  ");
                 <td><?php echo $genus; ?></td>
                 <td><?php echo $sta; ?></td>
                 <td><?php echo $affiliation; ?></td>
-                <td style="text-align:center ;"><a href='#'><button type="button" class="btn btn-warning">Edit</button></a> </td>
+                <td style="text-align:center ;"><a href='indexadmin.php?Menu=5&Submenu=editmanage&ID_ip=<?php echo $info['ID_ip']; ?>'><button type="button" class="btn btn-warning">Edit</button></a> </td>
                 <td style="text-align:center ;"><a href='manage/deletemanage.php?ID_ip=<?php echo $info['ID_ip']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
             </tr>
         <?php } ?>

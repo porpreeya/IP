@@ -38,13 +38,14 @@ if ($sql != "") {
 ?>
 <style>
     .td1 {
-    width: 870px;
-    height: 20px;
-  }
+        width: 870px;
+        height: 20px;
+    }
+
     .body {
         /* background-image: url(../IP/img/d.jpg); */
         background-color: white;
-        height: 950px;
+        min-height: 950px;
     }
 
     td,
@@ -310,11 +311,12 @@ if ($sql != "") {
                         <tr>
                             <td>
                                 <input type="radio" id="css" <?php echo $key2 ?> name="keyword" value="2">
-                                  <label for="css">ค้นหาคำสงวน(Key word) </label><br>
+                                <label for="css">ค้นหาคำสงวน(Key word) </label><br>
                             </td>
                             <td>
                                 <div class="container">
                                     <input type="text" id="title" name="title" value="<?php echo $_REQUEST["title"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -323,10 +325,12 @@ if ($sql != "") {
                     <table>
                         <tr>
                             <td><input type="radio" id="javascript" <?php echo $key3 ?> value="3" name="keyword">
-                                  <label for="javascript">ค้นหาชื่อผู้ประดิษฐ์</label></td>
+                                <label for="javascript">ค้นหาชื่อผู้ประดิษฐ์</label>
+                            </td>
                             <td>
                                 <div class="container">
                                     <input type="text" id="inventor" name="inventor" value="<?php echo $_REQUEST["inventor"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -366,7 +370,7 @@ if ($sql != "") {
                 </table>
                 <br>
                 <br>
-               
+
                 <table class="table">
                     <tr>
                         <td>
@@ -396,7 +400,7 @@ if ($sql != "") {
                         <td class="td1"><?php echo $attachment; ?></td>
                     </tr>
                 </table>
-                
+
                 <a button id="myBtn" href="#popup_flight_travlDil<?php echo $info['ID_ip']; ?>"><span>รายละเอียดเพิ่มเติม</span></a>
 
 
@@ -407,57 +411,73 @@ if ($sql != "") {
 
                     <a class="close_flight_travelDl" href="# popup_flight_travlDil<?php echo $info['ID_ip']; ?>">&times;</a>
                     <div class="content_flightht_travel_dil">
-                    <table class="table">
-                    <tbody>
-                      <tr>
-                        <td ><h4>ลำดับ :</td>
-                        <td > <?php echo $info['ID_ip']; ?> </td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <td><h4>ชื่อเรื่อง :</td>
-                       <td><?php echo $title; ?></td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <td ><h4>ผู้ทรงสิทธิ์ :</td>
-                        <td><?php echo $holdre; ?></td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <td><h4>ผู้ประดิษฐ์ :</td>
-                        <td><?php echo $inventor; ?></td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <td><h4>วันที่จดเลขทะเบียน :</td>
-                        <td><?php echo $datenumregister; ?></td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <td><h4>สถานะ :</td>
-                        <td><?php echo $status; ?></td> 
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <td><h4>รายละเอียด :</td>
-                       <td><?php echo $attachment; ?></td>
-                      </tr>
-                    </tbody>
-                    <tbody>
-                      <tr>
-                        <td><h4>หมายเหตุ :</h4></td>
-                        <td><?php echo $note; ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                                    </div>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>ลำดับ :
+                                    </td>
+                                    <td> <?php echo $info['ID_ip']; ?> </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>ชื่อเรื่อง :
+                                    </td>
+                                    <td><?php echo $title; ?></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>ผู้ทรงสิทธิ์ :
+                                    </td>
+                                    <td><?php echo $holdre; ?></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>ผู้ประดิษฐ์ :
+                                    </td>
+                                    <td><?php echo $inventor; ?></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>วันที่จดเลขทะเบียน :
+                                    </td>
+                                    <td><?php echo $datenumregister; ?></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>สถานะ :
+                                    </td>
+                                    <td><?php echo $status; ?></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>รายละเอียด :
+                                    </td>
+                                    <td><?php echo $attachment; ?></td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>หมายเหตุ :</h4>
+                                    </td>
+                                    <td><?php echo $note; ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         <?php } ?>

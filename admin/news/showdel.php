@@ -85,11 +85,12 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
 
        
         p.outset {
+            display: inline;
             width: 130px;
             border-style: outset;
             background: #c32da9;
             text-align: center;
-            margin-left: 1100px;
+            margin-left: 800px;
             color: white;
             height: 40px;
             padding: 5px;

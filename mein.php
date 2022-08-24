@@ -364,12 +364,12 @@ $data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DE
 
                 </center><br>
 
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $val[1]), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil1"><span>อ่านต่อ </span></a></p>
+                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $val[1]), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil<? echo $key;?>"><span>อ่านต่อ </span></a></p>
               </div>
-              <div id="popup_flight_travlDil1" class="overlay_flight_traveldil">
+              <div id="popup_flight_travlDil<? echo $key;?>" class="overlay_flight_traveldil">
                 <div class="popup_flight_travlDil">
-                  <p class="pu"><img id="showimg" src="uploads/<?php echo $image ?> " width="60%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil1">&times;</a>
+                  <p class="pu"><img id="showimg" src="uploads/<?php echo $val[2] ?> " width="60%"></p>
+                  <a class="close_flight_travelDl" href="# popup_flight_travlDil<? echo $key;?>">&times;</a>
                   <div class="content_flightht_travel_dil">
                     <? echo iconv("tis-620", "utf-8", $val[1]) ?>
                   </div>
@@ -396,8 +396,7 @@ $data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DE
         <a href="#">1</a>
         <a class="active2" href="#">2</a>
         <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
+       
         <a href="#">&raquo;</a>
 
       </div>
@@ -409,7 +408,7 @@ $data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DE
 </div>
 <?
 
-$data3 = mssql_query("SELECT TOP  * from tb_IP ORDER BY ID_ip DESC");
+$data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip DESC");
 ?>
 </div>
 <div>
@@ -439,14 +438,19 @@ $data3 = mssql_query("SELECT TOP  * from tb_IP ORDER BY ID_ip DESC");
         <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
           <div class="jcarousel-clip jcarousel-clip-horizontal">
             <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:500px; left: 0px;">
-              <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
-                <div class="box2">
+            <?php for ($i = 0; $i < count($arrData); $i++) : ?>
+            <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
+            <?php
+           foreach ($arrData[$i] as $key => $val) {
+                                            // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+            ?>
+            <div class="box2">
                   <br>
                   <table>
                     <tbody>
                       <tr>
                         <td style="width:auto;">ชื่อเรื่อง :</td>
-                        <td class="td1"> <? echo iconv("tis-620", "utf-8", $rows8['title']) ?> </td>
+                        <td class="td1"> <? echo iconv("tis-620", "utf-8", $val[11]) ?></td>
                       </tr>
                     </tbody>
                   </table>
@@ -456,7 +460,7 @@ $data3 = mssql_query("SELECT TOP  * from tb_IP ORDER BY ID_ip DESC");
                     <tbody>
                       <tr>
                         <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $val[12]) ?></td>
                       </tr>
                     </tbody>
                   </table>
@@ -466,7 +470,7 @@ $data3 = mssql_query("SELECT TOP  * from tb_IP ORDER BY ID_ip DESC");
                     <tbody>
                       <tr>
                         <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $val[15]) ?></td>
                       </tr>
                     </tbody>
                   </table>
@@ -476,366 +480,15 @@ $data3 = mssql_query("SELECT TOP  * from tb_IP ORDER BY ID_ip DESC");
                     <tbody>
                       <tr>
                         <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
+                        <td class="td1"><? echo iconv("tis-620", "utf-8", $val[8]) ?></td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <br>
-                <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td style="width:auto;">ชื่อเรื่อง :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ชื่อเรื่อง :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <br>
-
-
-
-
+                <?php } ?>
               </li>
-              <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-2 jcarousel-item-2-horizontal" jcarouselindex="2" style="">
-                <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td style="width:auto;">ชื่อเรื่อง :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td style="width:auto;">ชื่อเรื่อง :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ชื่อเรื่อง :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <br>
-
-
-
-              </li>
-              <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-3 jcarousel-item-3-horizontal" jcarouselindex="3" style="">
-                <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td style="width:auto;">ชื่อเรื่อง :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['title']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td style="width:auto;">ชื่อเรื่อง :</td>
-                        <td class="td1"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ชื่อเรื่อง :</td>
-                        <td class="td1"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <br>
-
-
-
-              </li>
+              <?php endfor; ?>
             </ul>
           </div>
         </div>
@@ -854,8 +507,6 @@ $data3 = mssql_query("SELECT TOP  * from tb_IP ORDER BY ID_ip DESC");
             <a href="#">1</a>
             <a class="active2" href="#">2</a>
             <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
             <a href="#">&raquo;</a>
           </div>
         </div>
@@ -867,117 +518,3 @@ $data3 = mssql_query("SELECT TOP  * from tb_IP ORDER BY ID_ip DESC");
 
 <br>
 <br>
-<!-- <!-- <div class="box2">
-      <br>
-      <table>
-        <tr>
-          <td style="width:auto;">ชื่อเรื่อง :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['name']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>ผู้ทรงสิทธิ์ :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>ผู้ประดิษฐ์ :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>วันที่จดเลขทะเบียน :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']); ?></td>
-        </tr>
-      </table>
-    </div>
-    <br>
-    <div class="box2">
-      <br>
-      <table>
-        <tr>
-          <td style="width:auto;">ชื่อเรื่อง :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['name']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>ผู้ทรงสิทธิ์ :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>ผู้ประดิษฐ์ :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>วันที่จดเลขทะเบียน :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']); ?></td>
-        </tr>
-      </table>
-    </div>
-    <br>
-    <div class="box2">
-      <br>
-      <table>
-        <tr>
-          <td>ชื่อเรื่อง :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['name']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>ผู้ทรงสิทธิ์ :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['holdre']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>ผู้ประดิษฐ์ :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['inventor']); ?></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <table>
-        <tr>
-          <td>วันที่จดเลขทะเบียน :</td>
-          <td class="td1"><? echo iconv("tis-620", "utf-8", $rows8['datenumregister']); ?></td>
-        </tr>
-      </table>
-    </div>
-    <br>
-    <br> -->
-
-
-<!-- <div class="pagination">
-  <a href="#">&laquo;</a>
-  <a href="#">1</a>
-  <a class="active" href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">&raquo;</a>
-</div> -->
