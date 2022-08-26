@@ -142,12 +142,12 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
         <?
         while ($info = mssql_fetch_array($data)) {
             $aname = iconv("tis-620", "utf-8", $info['aname']);
-            $consider = iconv("tis-620", "utf-8", $info['consider']);
+            $patent = iconv("tis-620", "utf-8", $info['patent']);
         ?>
             <tr>
                 <td style="text-align:center ;"><?php echo $info['ID']; ?></td>
                 <td><?php echo $aname; ?></td>
-                <td><?php echo $consider; ?></td>
+                <td><?php echo $patent; ?></td>
                 <td style="text-align:center ;"><a href='indexadmin.php?Menu=3&Submenu=editagent&ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-warning">Edit</button></a> </td>
                 <td style="text-align:center ;"><a href='agent/deleteagent.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
                

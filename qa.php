@@ -121,7 +121,7 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
             background-color: #ffebcd;
             margin-left: auto;
             margin-right: auto;
-            height: 600px;
+            height: 1800px;
 
         }
 
@@ -179,7 +179,7 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
                         array_push($allData, $info);
                     }
                     //echo '<pre>'.var_dump($allData).'</pre>' ;
-                    $arrData = array_chunk($allData, 3);
+                    $arrData = array_chunk($allData, 10);
                     ?>
 
                 </div>
@@ -191,10 +191,10 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
         <div class="shell">
 
             <div class="slider">
-                <div class="slider-holder2">
+                <div class="slider-holder4">
                     <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
                         <div class="jcarousel-clip jcarousel-clip-horizontal">
-                            <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:550px; left: 0px;">
+                            <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:1750px; left: 0px;">
                                 <?php for ($i = 0; $i < count($arrData); $i++) : ?>
                                     <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
                                         <?php
@@ -245,15 +245,15 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
                         </div>
                     </div>
 </body>
-<div class="slider-navigation " ">
+<div class="slider-navigation4 " ">
       <div class=" pagination4">
-    <a href="#">&laquo;</a>
+    
     <a href="#">1</a>
-    <a class="active2" href="#">2</a>
+    <a class="active4" href="#">2</a>
     <a href="#">3</a>
     <a href="#">4</a>
     <a href="#">5</a>
-    <a href="#">&raquo;</a>
+
 </div>
 </div>
 </div>

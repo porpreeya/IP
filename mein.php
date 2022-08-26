@@ -433,7 +433,7 @@ $data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip
       <h3>รายการทรัพย์สินทางปัญญาที่ขึ้นทะเบียนใหม่</h3>
       <br>
     </div>
-    <div class="slider3">
+    <div class="slider">
       <div class="slider-holder3">
         <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
           <div class="jcarousel-clip jcarousel-clip-horizontal">
@@ -496,7 +496,7 @@ $data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip
         <br>
         <br>
         <div class="slider-navigation3 ">
-          <div class=" pagination2">
+          <div class=" pagination3">
 
             <!-- <li><a href="#" class="active">1</a></li>
         <li><a href="#">2</a></li>
@@ -505,7 +505,7 @@ $data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip
         <li><a href="#">5</a></li> -->
             
             <a href="#">1</a>
-            <a class="active2" href="#">2</a>
+            <a class="active3" href="#">2</a>
             <a href="#">3</a>
             
           

@@ -6,10 +6,10 @@ $objDB = mssql_select_db("intelle");
 
 $ID = $_GET['ID'];
 $aname= iconv( "utf-8", "tis-620",$_POST['aname']);
-$consider= iconv( "utf-8", "tis-620",$_POST['consider']);
+$consider= iconv( "utf-8", "tis-620",$_POST['patent']);
 
 
-$sql = ("UPDATE consider SET aname='{$aname}',consider='{$consider}' WHERE ID='{$ID}'");
+$sql = ("UPDATE consider SET aname='{$aname}',patent='{$patent}' WHERE ID='{$ID}'");
 
 $objQuery = mssql_query($sql);
 

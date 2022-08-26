@@ -2,15 +2,15 @@
 
 
 $aname= iconv("utf-8", "tis-620", $_POST['aname']);
-$consider= iconv("utf-8", "tis-620", $_POST['consider']);
+$consider= iconv("utf-8", "tis-620", $_POST['patent']);
 
 
 
 $objDB = mssql_select_db("intelle");
 $strSQL = "INSERT INTO consider ";
-$strSQL .= "(aname,consider,status)";
+$strSQL .= "(aname,patent,status)";
 $strSQL .= "VALUES";
-$strSQL .= "('" . $aname . "','" . $consider . "','1')";
+$strSQL .= "('" . $aname . "','" . $patent . "','1')";
 $objQuery = mssql_query($strSQL);
 
 

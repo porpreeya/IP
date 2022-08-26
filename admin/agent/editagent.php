@@ -227,7 +227,7 @@ margin-left and margin-right + width = 100%*/
             <?php
             while ($info = mssql_fetch_array($data)) {
                 $aname = iconv("tis-620", "utf-8", $info['aname']);
-                $consider = iconv("tis-620", "utf-8", $info['consider']);
+                $patent = iconv("tis-620", "utf-8", $info['patent']);
 
             ?>
         <form action="agent/updateagent.php?ID=<?php echo $info['ID']; ?>" method="post" enctype="multipart/form-data" class="form">
@@ -249,7 +249,7 @@ margin-left and margin-right + width = 100%*/
                             <input type="text" id="text" class="width:100% " placeholder="กรุณากรอกชื่อ" name="aname" required value="<?php echo $aname; ?>">
                     </td>
                     <td><br>
-                        <input type="text" id="text" class="width:100% " placeholder="กรุณากรอกกลุ่ม" name="consider" required value="<?php echo $consider; ?>">
+                        <input type="text" id="text" class="width:100% " placeholder="กรุณากรอกกลุ่ม" name="patent" required value="<?php echo $patent; ?>">
                     </td>
 
                 </tr>

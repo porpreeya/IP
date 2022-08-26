@@ -493,7 +493,7 @@ input, textarea, select {
 .slider-navigation2 ul li a.active {
 	background:url(images/slider-navigation-active.png);
 }
-.slider {
+.slider3 {
 	float:left;
 }
 .slider-holder3 ul {
@@ -529,7 +529,42 @@ input, textarea, select {
 .slider-navigation3 ul li a.active {
 	background:url(images/slider-navigation-active.png);
 }
-
+.slider4 {
+	float:left;
+}
+.slider-holder4 ul {
+	position:relative;
+	overflow:hidden;
+}
+.slider-holder4 ul li {
+	width:1300px;
+	height:100px;
+	float:left;
+	display:inline;
+}
+.slider-navigation4 {
+	position:absolute;
+	bottom:8px;
+	right:550px;
+}
+.slider-navigation4 ul {
+	list-style:none;
+}
+.slider-navigation4 ul li {
+	float:left;
+}
+.slider-navigation4 ul li a {
+	float:left;
+	width:20px;
+	height:25px;
+	background:url(images/slider-navigation-normal.png);
+	font-size:0;
+	line-height:0;
+	text-indent:-4000px;
+}
+.slider-navigation4 ul li a.active4 {
+	background:url(images/slider-navigation-active.png);
+}
 
 
 

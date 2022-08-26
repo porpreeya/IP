@@ -236,7 +236,7 @@
                                 <input type="text" id="text" class="width:100% " placeholder="กรุณากรอกชื่อ" name="aname" required>
                         </td>
                         <td><br>
-                            <input type="text" id="text" class="width:100% " placeholder="กรุณากรอกกลุ่ม" name="consider" required>
+                            <input type="text" id="text" class="width:100% " placeholder="กรุณากรอกกลุ่ม" name="patent" required>
                         </td>
 
                     </tr>

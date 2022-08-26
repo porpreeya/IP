@@ -1,10 +1,9 @@
 <?
 
 $box2 = iconv("utf-8", "tis-620", $_REQUEST["aname"]);
-$box2 = iconv("utf-8", "tis-620", $_REQUEST["consider"]);
 $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
-$data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or consider like '%$box2%' ");
+$data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent like '%$box2%' ");
 
 ?>
 <style>
@@ -91,7 +90,7 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or consid
         float: left;
         width: 80%;
         background: #f1f1f1;
-        margin-top: 550px;
+        margin-top: 520px;
     }
 
     form.example .button {
@@ -124,7 +123,7 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or consid
         border: 1px solid black;
         border-left: none;
         cursor: pointer;
-        margin-top: 550px;
+        margin-top: 520px;
 
     }
 
@@ -160,11 +159,11 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or consid
                 <?
                 while ($info = mssql_fetch_array($data)) {
                     $aname = iconv("tis-620", "utf-8", $info['aname']);
-                    $consider = iconv("tis-620", "utf-8", $info['consider']);
+                    $patent = iconv("tis-620", "utf-8", $info['patent']);
 
                 ?>
                     <td style=" text-align:left ;"><?php echo $aname; ?></td>
-                    <td><?php echo $consider; ?></td>
+                    <td><?php echo $patent; ?></td>
 
             </tr>
 
@@ -173,7 +172,7 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or consid
 
 
         <form class="example" action="" style="margin:auto;max-width:300px" method="POST">
-            <input type="text" placeholder="Search.." name="agent">
+            <input type="text" placeholder="Search.." name="aname">
             
             <button type="submit" ><i class="fa fa-search"></i></button>
 
