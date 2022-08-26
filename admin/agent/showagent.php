@@ -83,7 +83,7 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
             border-style: outset;
             background: #2c15b1;
             text-align: center;
-            margin-left: 340px;
+            margin-left: 335px;
             margin-top: 2%;
             color: white;
             height: 40px;
@@ -104,7 +104,7 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
             border-style: outset;
             background: #c32da9;
             text-align: center;
-            margin-left: 610px;
+            margin-left: 620px;
             color: white;
             height: 40px;
             padding: 10px;
@@ -113,7 +113,7 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
         }
 
         .outset:active {
-            background-color: #78d162;
+            background-color:#f169da;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
         }
@@ -126,7 +126,7 @@ $data = mssql_query("SELECT * FROM consider where status='1' ");
         <p class="outset1">ย้อนกลับ</p>
     </a>
     <a  onclick="location. href='indexadmin.php?Menu=3&Submenu=addagent';">
-        <p class="outset">ข้อมูลตัวเเทน</p>
+        <p class="outset">เพิ่มข้อมูลตัวเเทน</p>
     </a><br><br>
     <table class="center">
         <tr>

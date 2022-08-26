@@ -9,7 +9,7 @@ $aname= iconv( "utf-8", "tis-620",$_POST['aname']);
 $consider= iconv( "utf-8", "tis-620",$_POST['consider']);
 
 
-$sql = ("UPDATE consider SET aname='{$aname}',consider='{$consider}', status='1' WHERE ID={$ID}");
+$sql = ("UPDATE consider SET aname='{$aname}',consider='{$consider}' WHERE ID='{$ID}'");
 
 $objQuery = mssql_query($sql);
 

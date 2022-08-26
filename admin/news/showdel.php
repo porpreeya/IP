@@ -101,7 +101,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
             background-color: #e356ca;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
-}
+        }
         .btn-warning {
             color:black;
            background-color: #ffc107;
@@ -128,6 +128,11 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
             outline-color: red;
             border-radius: 8px;
         }
+        .outset1:active {
+            background-color: #442bd1;
+            box-shadow: 0 4px #666;
+            transform: translateY(4px);
+        }
     </style>
 </head>
 
@@ -138,7 +143,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
     </a>
 <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=1&Submenu=addban'; ">
     <p class="outset">เพิ่มเเบนเนอร์</p>
-</a>
+</a><br><br>
 <table class="center">
     <tr>
         <th>ลำดับ</th>

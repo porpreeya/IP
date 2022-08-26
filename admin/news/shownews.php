@@ -86,7 +86,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             border-style: outset;
             background: #2c15b1;
             text-align: center;
-            margin-left: 285px;
+            margin-left: 275px;
             margin-top: 2%;
             color: white;
             height: 40px;
@@ -107,7 +107,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             border-style: outset;
             background: #c32da9;
             text-align: center;
-            margin-left: 665px;
+            margin-left: 675px;
             color: white;
             height: 40px;
             padding: 10px;
@@ -116,8 +116,13 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
         }
 
         .outset:active {
-            background-color: #78d162;
+            background-color: #f169da;
             box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        .outset1:active {
+            background-color: #442bd1;
+            box-shadow: 0 4px #666;
             transform: translateY(4px);
         }
     </style>

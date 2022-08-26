@@ -1,22 +1,22 @@
 <?php
 
 
-$name= iconv("utf-8", "tis-620", $_POST['name']);
+$aname= iconv("utf-8", "tis-620", $_POST['aname']);
 $consider= iconv("utf-8", "tis-620", $_POST['consider']);
 
 
 
 $objDB = mssql_select_db("intelle");
 $strSQL = "INSERT INTO consider ";
-$strSQL .= "(name,consider,status)";
+$strSQL .= "(aname,consider,status)";
 $strSQL .= "VALUES";
-$strSQL .= "('" . $name . "','" . $consider . "','1')";
+$strSQL .= "('" . $aname . "','" . $consider . "','1')";
 $objQuery = mssql_query($strSQL);
 
 
 
 ?>
 
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
     window.location = "../indexadmin.php?Menu=3&Submenu=showagent";
-</script> 
+</script>  -->

@@ -10,7 +10,6 @@ $numfeduest = iconv("utf-8", "tis-620", $_POST['numfeduest']);
 $agent = iconv("utf-8", "tis-620", $_POST['agent']);
 $numregister = iconv("utf-8", "tis-620", $_POST['numregister']);
 $datenumregister = iconv("utf-8", "tis-620", $_POST['datenumregister']);
-$prapaet = iconv("utf-8", "tis-620", $_POST['prapaet']);
 $kind = iconv("utf-8", "tis-620", $_POST['kind']);
 $title = iconv("utf-8", "tis-620", $_POST['title']);
 $holdre = iconv("utf-8", "tis-620", $_POST['holdre']);
@@ -41,8 +40,8 @@ $tmp_name3 = $_FILES['attachment']['tmp_name'];
 $temp3 = explode(".", $_FILES["attachment"]["name"]);
 $newfilename3 = round(microtime(true)) . '3.' . end($temp3);
 
-$sql = ("UPDATE tb_IP SET type='{$type}', offer='{$offer}',numfeduest='{$numfeduest}', agent='{$agent}',
-datenumregister='{$datenumregister}',prapaet='{$prapaet}',kind='{$kind}',title='{$title}',holdre='{$holdre}',team='{$team}',affiliation='{$affiliation}',inventor='{$inventor}',
+$sql = ("UPDATE tb_IP SET type='{$type}', offer='{$offer}',numfeduest='{$numfeduest}',numregister='{$numregister}', agent='{$agent}',
+datenumregister='{$datenumregister}',kind='{$kind}',title='{$title}',holdre='{$holdre}',team='{$team}',affiliation='{$affiliation}',inventor='{$inventor}',
 inventors='{$inventors}',framename='{$framename}',projectcode='{$projectcode}',contract='{$contract}',genus='{$genus}',
 benefit='{$benefit}',lead='{$lead}',sta ='{$sta }',note='{$note}' WHERE ID_ip='{$ID_ip}'");
 

@@ -1,11 +1,13 @@
 <meta charset="UTF-8">
 <style>
-    body, a {
-    font-family: 'K2D', sans-serif;
-    text-decoration: none;
-    margin-top: 10px;
-    color: blue;
-}
+    body,
+    a {
+        font-family: 'K2D', sans-serif;
+        text-decoration: none;
+        margin-top: 10px;
+        color: blue;
+    }
+
     .glow1 {
         font-size: 26px;
         color: black;
@@ -43,7 +45,7 @@
         margin-right: auto;
         font-size: 14px;
         color: black;
-        
+
         height: 20px;
         c border-radius: 8px;
 
@@ -108,7 +110,7 @@
         border: none;
         border-radius: 12px;
         box-shadow: 0 4px white;
-        margin-left: 750px;
+        margin-left: 950px;
         margin-top: 5px;
     }
 
@@ -123,7 +125,6 @@
         border-bottom: solid 3px black;
         width: 30%;
         margin-left: 580px;
-        margin-top: 40px;
         border-radius: 10px;
     }
 
@@ -165,7 +166,7 @@
         padding: initial;
         border: initial;
         overflow: hidden !important;
-        
+
 
     }
 
@@ -183,12 +184,13 @@
         font-weight: bold;
         text-align: -internal-center;
         padding: 20px;
+        color: #000;
 
     }
 
     .form {
-        width: 97%;
-        height: 980px;
+        width: 1500px;
+        height: 1080px;
         background: #e6e6e6;
         border-radius: 8px;
         box-shadow: 0 0 40px -10px #000;
@@ -212,7 +214,7 @@
     }
 
     input[type=text] {
-        
+
         height: 39px;
         padding: 0px 10px;
         background-color: rgb(255 255 255);
@@ -221,7 +223,7 @@
         color: #303030;
         font-size: 13px;
         font-weight: 400;
-        
+
         text-align: center;
         border-radius: 5px;
         -webkit-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
@@ -231,7 +233,7 @@
 
     input[type=date],
     input[type=ddmmyy] {
-        
+
         height: 39px;
         padding: 0px 10px;
         background-color: rgb(255 255 255);
@@ -240,7 +242,7 @@
         color: #303030;
         font-size: 13px;
         font-weight: 400;
-       
+
         border-radius: 5px;
         -webkit-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
         -moz-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
@@ -248,7 +250,7 @@
     }
 
     input[type=number] {
-        
+
         height: 39px;
         padding: 0px 10px;
         background-color: rgb(255 255 255);
@@ -257,7 +259,7 @@
         color: #303030;
         font-size: 13px;
         font-weight: 400;
-       
+
         text-align: center;
         border-radius: 5px;
         -webkit-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
@@ -269,11 +271,11 @@
     label:before,
     select option,
     select {
-        
+
         font-size: 13px;
         padding: 1em;
         line-height: 1.4;
-       
+
         background-color: #ffffff;
         border: 1px solid #e5e5e5;
         border-radius: 4px;
@@ -320,7 +322,6 @@
             $numregister = iconv("tis-620", "utf-8", $info['numregister']);
             $datenumregister = iconv("tis-620", "utf-8", $info['numregister']);
             $datenumregister = iconv("tis-620", "utf-8", $info['datenumregister']);
-            $prapaet = iconv("tis-620", "utf-8", $info['prapaet']);
             $kind = iconv("tis-620", "utf-8", $info['kind']);
             $title = iconv("tis-620", "utf-8", $info['title']);
             $holdre = iconv("tis-620", "utf-8", $info['holdre']);
@@ -369,369 +370,418 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table>
+                        <tr class="tr">
+                            <br>
+                            <div class="container">
 
-                    <table style="width: 100%" class="center">
-                        <tbody>
-                            <tr class="tr">
-                                <th>วันที่ยื่นขอ</th>
-                                <th>เลขที่คำขอ</th>
-                                <th>เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตร จดทะเบียน</th>
-                                <th>สำหรับแอดมิน</th>
-                                <th>ตัวเเทน</th>
-
-                            </tr>
-                            <tr class="tr">
-
+                                <th>เลขที่คำขอ: </th>
                                 <td>
-                                    <input type="date" name="offer" value="<?php echo $offer; ?>">
-                                    <div id="result"></div>
-                                </td>
-                                <td>
-                                    <div class="container">
-                                        <input type="number" id="number" c placeholder="000000" name="numfeduest" required="">
+                                    <div class="container" style=" margin-right:30px; margin-left:30px; ">
+                                        <input type="number" id="number" name="numfeduest" required="" value="<?php echo $numregister; ?>">
                                     </div>
                                 </td>
+
+                                <th>วันที่ยื่นขอ:</th>
                                 <td>
-                                    <label for="myfile">กรุณาเลือกไฟล์</label>
-                                    <br> <input type="file" id="myfile" name="form">
-                                    &nbsp;<a id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="-blank">เรียกดู</a>       
+                                    <div class="container" style=" margin-right:30px;  margin-left:30px;">
+                                        <input type="date" name="offer" value="<?php echo $offer; ?>">
+                                        <div id="result"></div>
                                 </td>
+
+                                <th>เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตร จดทะเบียน: </th>
                                 <td>
-                                    <label for="myfile">กรุณาเลือกไฟล์</label>
-                                    <input type="file" id="myfile" name="admin">
-                                    <a id="file" class="outset1" href="../uploadpdf/<?php echo $admin ?>" target="-blank">เรียกดู</a> 
+                                    <div class="container" style="text-align:center; margin-left:40px; color: black; margin-right:40px;">
+                                        <label for="myfile">กรุณาเลือกไฟล์</label><br>
+                                        &nbsp;<a id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="-blank">เรียกดู</a>
                                 </td>
+
+                                <th>สำหรับแอดมิน</th>
                                 <td>
-                                    <div class="container">
+                                    <div class="container" style="text-align:center; margin-right:40px; margin-left:40px; color: black;">
+                                        <label for="myfile">กรุณาเลือกไฟล์</label><br>
+                                        <a id="file" class="outset1" href="../uploadpdf/<?php echo $admin ?>" target="-blank">เรียกดู</a>
+                                </td>
+                            </div>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr class="tr"><br>
+                            <div class="container">
+
+                                <th>ตัวเเทน</th>
+                                <td>
+                                    <div class="container" style=" margin-left: 50px; margin-right:40px">
                                         <input type="text" placeholder="xxxx" name="agent" required="" value="<?php echo $agent; ?>">
                                     </div>
                                 </td>
-                            </tr>
-                            <tr class="tr">
+
                                 <th>เลขทะเบียน</th>
-                                <th>วันที่ออกเลขทะเบียน</th>
-                                <th style="width:10%">ชนิด</th>
-                                <th style="width:10%">ชื่อเรื่อง</th>
-                                <th>ผู้ทรงสิทธิ</th>
-                            </tr>
-                            <tr class="tr">
                                 <td>
-                                    <div class="container">
+                                    <div class="container" style=" margin-right:30px">
                                         <input type="number" id="number" placeholder="000000" name="numregister" required="" value="<?php echo $numregister; ?>">
                                     </div>
                                 </td>
+
+                                <th>วันที่ออกเลขทะเบียน</th>
                                 <td>
-                                    <input type="date" name="datenumregister" value="<?php echo $datenumregister; ?>">
-                                    <div id="result"></div>
+                                    <div class="container" style="margin-left:30px; margin-right: 60px;">
+                                        <input type="date" name="datenumregister" value="<?php echo $datenumregister; ?>">
+                                        <div id="result"></div>
                                 </td>
+
+                                <th>ชนิด</th>
                                 <td class="tr">
-                                    <select name="kind"> Answer 1
-                                        <option selected="" value="">--กรุณาเลือก--</option>
-                                        <option value="1" <?php if ($kind == 1) {
-                                                                echo 'selected';
-                                                            } ?>>การประดิษฐ์</option>
-                                        <option value="2" <?php if ($kind == 2) {
-                                                                echo 'selected';
-                                                            } ?>>การออกแบบ</option>
-                                        <option value="3" <?php if ($kind == 3) {
-                                                                echo 'selected';
-                                                            } ?>>การรับรอง</option>
-                                        <option value="4" <?php if ($kind == 4) {
-                                                                echo 'selected';
-                                                            } ?>>การบริการ </option>
-                                        <option value="5" <?php if ($kind == 5) {
-                                                                echo 'selected';
-                                                            } ?>>การขึ้นทะเบียน </option>
-                                    </select>
+                                    <div class="container" style="margin-left: 55px;">
+                                        <select name="kind"> Answer 1
+                                            <option selected="" value="">--กรุณาเลือก--</option>
+                                            <option value="1" <?php if ($kind == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>การประดิษฐ์</option>
+                                            <option value="2" <?php if ($kind == 2) {
+                                                                    echo 'selected';
+                                                                } ?>>การออกแบบ</option>
+                                            <option value="3" <?php if ($kind == 3) {
+                                                                    echo 'selected';
+                                                                } ?>>การรับรอง</option>
+                                            <option value="4" <?php if ($kind == 4) {
+                                                                    echo 'selected';
+                                                                } ?>>การบริการ </option>
+                                            <option value="5" <?php if ($kind == 5) {
+                                                                    echo 'selected';
+                                                                } ?>>การขึ้นทะเบียน </option>
+                                        </select>
                                 </td>
+
+                            </div>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr class="tr"><br>
+                            <div class="container">
+
+                                <th>ชื่อเรื่อง</th>
                                 <td>
-                                    <div class="container">
+                                    <div class="container" style=" margin-left: 50px; margin-right:40px">
                                         <input type="text" placeholder="xxxx" name="title" required="" value="<?php echo $title; ?>">
                                     </div>
                                 </td>
 
+                                <th>ผู้ทรงสิทธิ</th>
                                 <td>
-                                    <div class="container">
+                                    <div class="container" style=" margin-left: 10px; margin-right:80px">
                                         <input type="text" placeholder="xxx" name="holdre" required="" value="<?php echo $holdre; ?>">
                                     </div>
                                 </td>
 
-                            </tr>
-                            <tr class="tr">
-                                <th style="width:15%">กลุ่ม</th>
-                                <th style="width:15%">สังกัด</th>
-                                <th>ผู้ประดิษฐ์(1คน)</th>
-                                <th>ผู้ประดิษฐ์(1-15)</th>
-                                <th>ชื่อโครงการ(กตป.)</th>
-                            </tr>
-
-                            <td><select name="team"> Answer 1
-                                    <option selected="" value="">--กรุณาเลือก-- </option>
-                                    <option value="1" <?php if ($team == 1) {
-                                                            echo 'selected';
-                                                        } ?>>อช.</option>
-                                    <option value="2" <?php if ($team == 1) {
-                                                            echo 'selected';
-                                                        } ?>>พช.</option>
-                                    <option value="3" <?php if ($team == 1) {
-                                                            echo 'selected';
-                                                        } ?>>บอ.</option>
-                                </select>
-                            </td>
-
-                            <td>
-
-                                <select name="affiliation"> Answer 1
-                                    <option selected="" value="">--กรุณาเลือก--
-                                    </option>
-                                    <option value="1" <?php if ($affiliation == 1) {
-                                                            echo 'selected';
-                                                        } ?>>ศนก.
-                                    </option>
-                                    <option value="2" <?php if ($affiliation == 2) {
-                                                            echo 'selected';
-                                                        } ?>>ศคช.
-                                    </option>
-                                    <option value="3" <?php if ($affiliation == 3) {
-                                                            echo 'selected';
-                                                        } ?>>ศนอ.
-                                    </option>
-                                    <option value="4" <?php if ($affiliation == 4) {
-                                                            echo 'selected';
-                                                        } ?>>ศนส.
-                                    </option>
-                                    <option value="5" <?php if ($affiliation == 5) {
-                                                            echo 'selected';
-                                                        } ?>>ศนพ.
-                                    </option>
-                                    <option value="6" <?php if ($affiliation == 6) {
-                                                            echo 'selected';
-                                                        } ?>>ศนว.
-                                    </option>
-                                    <option value="7" <?php if ($affiliation == 7) {
-                                                            echo 'selected';
-                                                        } ?>>ศนย.
-                                    </option>
-                                    <option value="8" <?php if ($affiliation == 8) {
-                                                            echo 'selected';
-                                                        } ?>>ศบท.
-                                    </option>
-                                    <option value="9" <?php if ($affiliation == 9) {
-                                                            echo 'selected';
-                                                        } ?>>ศพว.
-                                    </option>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="inventor"> Answer 1
-                                    <option selected="" value="">--กรุณาเลือก--
-                                    </option>
-                                    <option value="1" <?php if ($inventor == 1) {
-                                                            echo 'selected';
-                                                        } ?>>คนที่1
-                                    </option>
-                                    <option value="2" <?php if ($inventor == 2) {
-                                                            echo 'selected';
-                                                        } ?>>คนที่2
-                                    </option>
-                                    <option value="3" <?php if ($inventor == 3) {
-                                                            echo 'selected';
-                                                        } ?>>คนที่3
-                                    </option>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="inventors"> Answer 1
-                                    <option selected="" value="">--กรุณาเลือก--
-                                    </option>
-                                    <option value="1" <?php if ($inventors == 1) {
-                                                            echo 'selected';
-                                                        } ?>>คนที่1
-                                    </option>
-                                    <option value="2" <?php if ($inventors == 2) {
-                                                            echo 'selected';
-                                                        } ?>>คนที่2
-                                    </option>
-                                    <option value="3" <?php if ($inventors == 3) {
-                                                            echo 'selected';
-                                                        } ?>>คนที่3
-                                    </option>
-                                </select>
-                            </td>
-                            <td>
-                                <div class="container">
-                                    <input type="text" " placeholder=" xxxx" name="framename" required="" value="<?php echo $framename; ?>">
-                                </div>
-                            </td>
-                            </tr>
-                            <tr>
-                                <th>รหัสโครงการวิจัย บริการวิจัย</th>
-                                <th>คู่สัญญาโครงการ</th>
-                                <th>ประเภทโครงการ</th>
-                                <th>เเนบเอกสารโครงการ</th>
-                                <th>ประเภทการใช้ประโยชน์</th>
-                            </tr>
-                            <tr class="tr">
+                                <th>กลุ่ม</th>
                                 <td>
-                                    <div class="container">
+                                    <div class="container" style="margin-left: 80px; margin-right:60px">
+                                        <select name="team"> Answer 1
+                                            <option selected="" value="">--กรุณาเลือก-- </option>
+                                            <option value="1" <?php if ($team == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>อช.</option>
+                                            <option value="2" <?php if ($team == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>พช.</option>
+                                            <option value="3" <?php if ($team == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>บอ.</option>
+                                        </select>
+                                </td>
+
+                                <th>สังกัด</th>
+                                <td>
+                                    <div class="container" style="margin-left: 45px;">
+                                        <select name="affiliation"> Answer 1
+                                            <option selected="" value="">--กรุณาเลือก--
+                                            </option>
+                                            <option value="1" <?php if ($affiliation == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>ศนก.
+                                            </option>
+                                            <option value="2" <?php if ($affiliation == 2) {
+                                                                    echo 'selected';
+                                                                } ?>>ศคช.
+                                            </option>
+                                            <option value="3" <?php if ($affiliation == 3) {
+                                                                    echo 'selected';
+                                                                } ?>>ศนอ.
+                                            </option>
+                                            <option value="4" <?php if ($affiliation == 4) {
+                                                                    echo 'selected';
+                                                                } ?>>ศนส.
+                                            </option>
+                                            <option value="5" <?php if ($affiliation == 5) {
+                                                                    echo 'selected';
+                                                                } ?>>ศนพ.
+                                            </option>
+                                            <option value="6" <?php if ($affiliation == 6) {
+                                                                    echo 'selected';
+                                                                } ?>>ศนว.
+                                            </option>
+                                            <option value="7" <?php if ($affiliation == 7) {
+                                                                    echo 'selected';
+                                                                } ?>>ศนย.
+                                            </option>
+                                            <option value="8" <?php if ($affiliation == 8) {
+                                                                    echo 'selected';
+                                                                } ?>>ศบท.
+                                            </option>
+                                            <option value="9" <?php if ($affiliation == 9) {
+                                                                    echo 'selected';
+                                                                } ?>>ศพว.
+                                            </option>
+                                        </select>
+                                </td>
+
+                            </div>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr class="tr"><br>
+                            <div class="container">
+
+                                <th>ผู้ประดิษฐ์<br>(1คน)</th>
+                                <td>
+                                    <div class="container" style=" margin-left: 38px; margin-right:80px">
+                                        <select name="inventor"> Answer 1
+                                            <option selected="" value="">--กรุณาเลือก--
+                                            </option>
+                                            <option value="1" <?php if ($inventor == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>คนที่1
+                                            </option>
+                                            <option value="2" <?php if ($inventor == 2) {
+                                                                    echo 'selected';
+                                                                } ?>>คนที่2
+                                            </option>
+                                            <option value="3" <?php if ($inventor == 3) {
+                                                                    echo 'selected';
+                                                                } ?>>คนที่3
+                                            </option>
+                                        </select>
+                                </td>
+
+                                <th>ผู้ประดิษฐ์<br>(1-15)</th>
+                                <td>
+                                    <div class="container" style=" margin-left: 20px; margin-right:85px">
+                                        <select name="inventors"> Answer 1
+                                            <option selected="" value="">--กรุณาเลือก--
+                                            </option>
+                                            <option value="1" <?php if ($inventors == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>คนที่1
+                                            </option>
+                                            <option value="2" <?php if ($inventors == 2) {
+                                                                    echo 'selected';
+                                                                } ?>>คนที่2
+                                            </option>
+                                            <option value="3" <?php if ($inventors == 3) {
+                                                                    echo 'selected';
+                                                                } ?>>คนที่3
+                                            </option>
+                                        </select>
+                                </td>
+
+                                <th>ชื่อโครงการ(กตป.)</th>
+                                <td>
+                                    <div class="container" style=" margin-left: 25px; margin-right:13px">
+                                        <input type="text" " placeholder=" xxxx" name="framename" required="" value="<?php echo $framename; ?>">
+                                    </div>
+                                </td>
+
+                                <th>รหัสโครงการวิจัย<br>บริการวิจัย</th>
+                                <td>
+                                    <div class="container" style="margin-left: 15px; ">
                                         <input type="number" id="number" placeholder="0" name="projectcode" required="" value="<?php echo $projectcode; ?>">
                                     </div>
                                 </td>
-                                <td>
-                                    <select name="contract"> Answer 1
-                                        <option selected="" value="">--กรุณาเลือก--</option>
-                                        <option value="1" <?php if ($contract == 1) {
-                                                                echo 'selected';
-                                                            } ?>>คนที่1</option>
-                                        <option value="2" <?php if ($contract == 2) {
-                                                                echo 'selected';
-                                                            } ?>>คนที่2 </option>
 
-                                        <option value="3" <?php if ($contract == 3) {
-                                                                echo 'selected';
-                                                            } ?>>คนที่3</option>
-                                    </select>
+                            </div>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr class="tr"><br>
+                            <div class="container"">
+                            <th>คู่สัญญา<br>โครงการ</th>
+                            <td>
+                                <div class=" container" style=" margin-left:40px;  margin-right:80px">
+                                <select name="contract"> Answer 1
+                                    <option selected="" value="">--กรุณาเลือก--</option>
+                                    <option value="1" <?php if ($contract == 1) {
+                                                            echo 'selected';
+                                                        } ?>>คนที่1</option>
+                                    <option value="2" <?php if ($contract == 2) {
+                                                            echo 'selected';
+                                                        } ?>>คนที่2 </option>
+
+                                    <option value="3" <?php if ($contract == 3) {
+                                                            echo 'selected';
+                                                        } ?>>คนที่3</option>
+                                </select>
                                 </td>
+
+                                <th>ประเภท<br>โครงการ</th>
                                 <td>
-                                    <select name="genus"> Answer 1
-                                        <option selected="" value="">--กรุณาเลือก--</option>
-                                        <option value="1" <?php if ($genus == 1) {
-                                                                echo 'selected';
-                                                            } ?>>การบริการวิจัย
-                                        </option>
-                                        <option value="2" <?php if ($genus == 2) {
-                                                                echo 'selected';
-                                                            } ?>>การบริการวิจัยจากแหล่งทุน
-                                        </option>
-                                        <option value="3" <?php if ($genus == 3) {
-                                                                echo 'selected';
-                                                            } ?>>mou
-                                        </option>
-                                        <option value="4" <?php if ($genus == 4) {
-                                                                echo 'selected';
-                                                            } ?>>เงินทุน วว.
-                                        </option>
-                                        <option value="5" <?php if ($genus == 5) {
-                                                                echo 'selected';
-                                                            } ?>>การถ่ายทอดเทคโนโลยี
-                                        </option>
-                                    </select>
+                                    <div class="container" style="  margin-left:20px; margin-right:50px">
+                                        <select name="genus"> Answer 1
+                                            <option selected="" value="">--กรุณาเลือก--</option>
+                                            <option value="1" <?php if ($genus == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>การบริการวิจัย
+                                            </option>
+                                            <option value="2" <?php if ($genus == 2) {
+                                                                    echo 'selected';
+                                                                } ?>>การบริการวิจัยจากแหล่งทุน
+                                            </option>
+                                            <option value="3" <?php if ($genus == 3) {
+                                                                    echo 'selected';
+                                                                } ?>>mou
+                                            </option>
+                                            <option value="4" <?php if ($genus == 4) {
+                                                                    echo 'selected';
+                                                                } ?>>เงินทุน วว.
+                                            </option>
+                                            <option value="5" <?php if ($genus == 5) {
+                                                                    echo 'selected';
+                                                                } ?>>การถ่ายทอดเทคโนโลยี
+                                            </option>
+                                        </select>
                                 </td>
+
+                                <th>เเนบเอกสาร<br>โครงการ</th>
                                 <td>
-                                    <label for="myfile">กรุณาเลือกไฟล์</label>
-                                    <input type="file" id="myfile" name="attachment">
-                                    <a id="file" class="outset1" href="../uploadpdf/<?php echo $admin ?>" target="-blank">เรียกดู</a>
-                                </td>
-                                <td>
-                                    <select name="benefit"> Answer 1
-                                        <option selected="" value="VANI">--กรุณาเลือก--</option>
-                                        <option value="1" <?php if ($benefit == 1) {
-                                                                echo 'selected';
-                                                            } ?>>การบริการวิจัย
-                                        </option>
-                                        <option value="2" <?php if ($genus == 2) {
-                                                                echo 'selected';
-                                                            } ?>>การถ่ายทอดเทคโนโลยี
-                                        </option>
-                                        <option value="3" <?php if ($benefit == 3) {
-                                                                echo 'selected';
-                                                            } ?>>การอนุญาตให้ใช้สิทธิ
-                                        </option>
-                                        <option value="4" <?php if ($benefit == 4) {
-                                                                echo 'selected';
-                                                            } ?>>mou
-                                        </option>
-                                    </select>
+                                    <div class="container" style="text-align:center;">
+                                        <div class="container" style=" margin-left:70px; margin-right:45px; color:black;">
+                                            <label for="myfile">กรุณาเลือกไฟล์</label><br>
+                                            <a id="file" class="outset1" href="../uploadpdf/<?php echo $admin ?>" target="-blank">เรียกดู</a>
                                 </td>
 
 
-
-                            </tr>
-                            <tr class="tr">
-                                <th>ผู้นำผลงานวิจัยไปใช้ประโยชน์</th>
-                                <th>สถานะอัพเดทปัจจุบัน</th>
-                                <th>หมายเหตุ</th>
-                            </tr>
-                            <tr class="tr">
+                                <th>ประเภทการใช้<br>ประโยชน์</th>
                                 <td>
-                                    <div class="container">
+                                    <div class="container" style=" margin-left:15px;">
+                                        <select name="benefit"> Answer 1
+                                            <option selected="" value="VANI">--กรุณาเลือก--</option>
+                                            <option value="1" <?php if ($benefit == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>การบริการวิจัย
+                                            </option>
+                                            <option value="2" <?php if ($genus == 2) {
+                                                                    echo 'selected';
+                                                                } ?>>การถ่ายทอดเทคโนโลยี
+                                            </option>
+                                            <option value="3" <?php if ($benefit == 3) {
+                                                                    echo 'selected';
+                                                                } ?>>การอนุญาตให้ใช้สิทธิ
+                                            </option>
+                                            <option value="4" <?php if ($benefit == 4) {
+                                                                    echo 'selected';
+                                                                } ?>>mou
+                                            </option>
+                                        </select>
+                                </td>
+                            </div>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr class="tr"><br>
+                            <div class="container"">
+                            <th>ผู้นำผลงาน<br>วิจัยไปใช้<br>ประโยชน์</th>
+                            <class=" tr">
+                                <td>
+                                    <div class="container" style="  margin-left:20px; margin-right:20px">
                                         <input type="text" placeholder="xxxx" name="lead" required="" value="<?php echo $lead; ?>">
                                     </div>
                                 </td>
+
+                                <th>สถานะอัพเดท<br>ปัจจุบัน</th>
                                 <td>
-                                    <select name="sta"> Answer 1
-                                        <option selected="" value="">--กรุณาเลือก--
-                                        </option>
-                                        <option value="15" <?php if ($sta == 15) {
-                                                                echo 'selected';
-                                                            } ?>>แก้ไข
-                                        </option>
-                                        <option value="1" <?php if ($sta == 1) {
-                                                                echo 'selected';
-                                                            } ?>>ชำระค่าธรรมเนียมประกาศโฆษณา
-                                        </option>
-                                        <option value="2" <?php if ($sta == 2) {
-                                                                echo 'selected';
-                                                            } ?>>ประกาศโฆษณา
-                                        </option>
-                                        <option value="3" <?php if ($sta == 3) {
-                                                                echo 'selected';
-                                                            } ?>>ยื่นตรวจสอบการประดิษฐ์
-                                        </option>
-                                        <option value="4" <?php if ($sta == 4) {
-                                                                echo 'selected';
-                                                            } ?>>ชำระค่าออกสิทธิบัตร
-                                        </option>
-                                        <option value="5" <?php if ($sta == 5) {
-                                                                echo 'selected';
-                                                            } ?>>ชำระค่าออกอนุสิทธิบัตร
-                                        </option>
-                                        <option value="6" <?php if ($sta == 6) {
-                                                                echo 'selected';
-                                                            } ?>>ออกสิทธิบัตร
-                                        </option>
-                                        <option value="7" <?php if ($sta == 7) {
-                                                                echo 'selected';
-                                                            } ?>>ออกอนุสิทธิบัตร
-                                        </option>
-                                        <option value="8" <?php if ($sta == 8) {
-                                                                echo 'selected';
-                                                            } ?>>ชำระค่าธรรมเนียมสิทธิบัตรรายปี
-                                        </option>
-                                        <option value="9" <?php if ($sta == 9) {
-                                                                echo 'selected';
-                                                            } ?>>ชำระค่าธรรมเนียมอนุสิทธิบัตรรายปี
-                                        </option>
-                                        <option value="10" <?php if ($sta == 10) {
-                                                                echo 'selected';
-                                                            } ?>>ไม่มีขั้นการประดิษฐ์ที่สูงขึ้น
-                                        </option>
-                                        <option value="11" <?php if ($sta == 11) {
-                                                                echo 'selected';
-                                                            } ?>>ชี้แจงข้อโต้แย้ง
-                                        </option>
-                                        <option value="12" <?php if ($sta == 12) {
-                                                                echo 'selected';
-                                                            } ?>>เปลี่ยนแปลงสิทธิ
-                                        </option>
-                                        <option value="13" <?php if ($sta == 13) {
-                                                                echo 'selected';
-                                                            } ?>>ละทิ้งคำขอ
-                                        </option>
-                                        <option value="14" <?php if ($sta == 14) {
-                                                                echo 'selected';
-                                                            } ?>>สิ้นอายุ
-                                        </option>
-                                    </select>
+                                    <div class="container" style="  margin-left:5px; margin-right:15px">
+                                        <select name="sta"> Answer 1
+                                            <option selected="" value="">--กรุณาเลือก--
+                                            </option>
+                                            <option value="15" <?php if ($sta == 15) {
+                                                                    echo 'selected';
+                                                                } ?>>แก้ไข
+                                            </option>
+                                            <option value="1" <?php if ($sta == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>ชำระค่าธรรมเนียมประกาศโฆษณา
+                                            </option>
+                                            <option value="2" <?php if ($sta == 2) {
+                                                                    echo 'selected';
+                                                                } ?>>ประกาศโฆษณา
+                                            </option>
+                                            <option value="3" <?php if ($sta == 3) {
+                                                                    echo 'selected';
+                                                                } ?>>ยื่นตรวจสอบการประดิษฐ์
+                                            </option>
+                                            <option value="4" <?php if ($sta == 4) {
+                                                                    echo 'selected';
+                                                                } ?>>ชำระค่าออกสิทธิบัตร
+                                            </option>
+                                            <option value="5" <?php if ($sta == 5) {
+                                                                    echo 'selected';
+                                                                } ?>>ชำระค่าออกอนุสิทธิบัตร
+                                            </option>
+                                            <option value="6" <?php if ($sta == 6) {
+                                                                    echo 'selected';
+                                                                } ?>>ออกสิทธิบัตร
+                                            </option>
+                                            <option value="7" <?php if ($sta == 7) {
+                                                                    echo 'selected';
+                                                                } ?>>ออกอนุสิทธิบัตร
+                                            </option>
+                                            <option value="8" <?php if ($sta == 8) {
+                                                                    echo 'selected';
+                                                                } ?>>ชำระค่าธรรมเนียมสิทธิบัตรรายปี
+                                            </option>
+                                            <option value="9" <?php if ($sta == 9) {
+                                                                    echo 'selected';
+                                                                } ?>>ชำระค่าธรรมเนียมอนุสิทธิบัตรรายปี
+                                            </option>
+                                            <option value="10" <?php if ($sta == 10) {
+                                                                    echo 'selected';
+                                                                } ?>>ไม่มีขั้นการประดิษฐ์ที่สูงขึ้น
+                                            </option>
+                                            <option value="11" <?php if ($sta == 11) {
+                                                                    echo 'selected';
+                                                                } ?>>ชี้แจงข้อโต้แย้ง
+                                            </option>
+                                            <option value="12" <?php if ($sta == 12) {
+                                                                    echo 'selected';
+                                                                } ?>>เปลี่ยนแปลงสิทธิ
+                                            </option>
+                                            <option value="13" <?php if ($sta == 13) {
+                                                                    echo 'selected';
+                                                                } ?>>ละทิ้งคำขอ
+                                            </option>
+                                            <option value="14" <?php if ($sta == 14) {
+                                                                    echo 'selected';
+                                                                } ?>>สิ้นอายุ
+                                            </option>
+                                        </select>
                                 </td>
+
+                                <th>หมายเหตุ</th>
                                 <td>
-                                    <div class="container">
+                                    <div class="container" style="  margin-left:47px; ">
                                         <input type="text" placeholder="xxxx" name="note" required="" value="<?php echo $note; ?>">
                                     </div>
                                 </td>
-                            </tr>
-                        </tbody>
+
+                            </div>
+                        </tr>
                     </table>
+
                     <table table="" style="width:20%" class="center1">
 
                         <tbody>

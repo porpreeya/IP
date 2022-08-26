@@ -1,10 +1,10 @@
 <?
 
 $box2 = iconv("utf-8", "tis-620", $_REQUEST["aname"]);
-
+$box2 = iconv("utf-8", "tis-620", $_REQUEST["consider"]);
 $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
-$data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or consider like '%$box2%'  ");
+$data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or consider like '%$box2%' ");
 
 ?>
 <style>

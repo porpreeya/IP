@@ -47,7 +47,6 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             border-bottom: solid 3px black;
             width: 20%;
             margin-left: 600px;
-            margin-top: 40px;
             border-radius: 10px;
         }
 
@@ -110,7 +109,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             border-style: outset;
             background: #2c15b1;
             text-align: center;
-            margin-left: 20px;
+            margin-left: 28px;
             margin-top: 2%;
             color: white;
             height: 40px;
@@ -131,7 +130,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             border-style: outset;
             background: #c32da9;
             text-align: center;
-            margin-left: 1185px;
+            margin-left: 1180px;
             color: white;
             height: 40px;
             padding: 10px;
@@ -140,7 +139,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
         }
 
         .outset:active {
-            background-color: #78d162;
+            background-color: #f169da;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
         }

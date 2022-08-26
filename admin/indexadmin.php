@@ -133,12 +133,12 @@ else {
 </head>
 
 <body >
-
+ 
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
     <div class="w3-bar w3-white w3-card" id="myNavbar">
-      <div style="float:left; "> <img src="../img/2.png" width="95" > </div>
-      <a href="indexadmin.php" class="w3-bar-item w3-button w3-wide" ><h5>ฐานข้อมูลทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีเเห่งประเทศไทย</h5></a>
+      <div style="float:left; "> <img src="../img/2.png" width="95" > 
+      <a href="indexadmin.php" class="w3-bar-item w3-button w3-wide" ></div><h5>ฐานข้อมูลทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีเเห่งประเทศไทย</h5></a>
       <!-- Right-sided navbar links -->
       <div class="menu">
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=1&Submenu=showdel';"><i class='fas fa-certificate'>&nbsp</i>เเบนเนอร์</a>
@@ -147,21 +147,8 @@ else {
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=4&Submenu=showqa';"><i class='fas fa-comments'>&nbsp</i>ถาม-ตอบ</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=5&Submenu=showmanage';"><i class='fas fa-comments'>&nbsp</i>บริหารจัดการทรัพย์สินทางปัญญา</a>
       </div>
-      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-      <!-- <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
-      </a> -->
     </div>
   </div>
-
-
-  <!-- Header with full-height image -->
-  <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-
-
-  </header>
-
 
   <div class="inc" style="padding:128px 16px"  id="about">
   <br>
@@ -170,14 +157,6 @@ else {
     include($Fileshow);
     ?>
   </div>
-
-
-
-
-
-
-
-
 
 
   <script>

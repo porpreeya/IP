@@ -493,7 +493,7 @@ input, textarea, select {
 .slider-navigation2 ul li a.active {
 	background:url(images/slider-navigation-active.png);
 }
-.slider3 {
+.slider {
 	float:left;
 }
 .slider-holder3 ul {

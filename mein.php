@@ -383,7 +383,7 @@ $data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DE
            
        
       </div>
-      <div class="slider-navigation " ">
+      <div class="slider-navigation2">
        
       <div class=" pagination2">
 
@@ -392,12 +392,12 @@ $data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DE
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li> -->
-        <a href="#">&laquo;</a>
+        <!-- <a href="#">&laquo;</a> -->
         <a href="#">1</a>
         <a class="active2" href="#">2</a>
         <a href="#">3</a>
        
-        <a href="#">&raquo;</a>
+        <!-- <a href="#">&raquo;</a> -->
 
       </div>
     </div>
@@ -433,8 +433,8 @@ $data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip
       <h3>รายการทรัพย์สินทางปัญญาที่ขึ้นทะเบียนใหม่</h3>
       <br>
     </div>
-    <div class="slider">
-      <div class="slider-holder2">
+    <div class="slider3">
+      <div class="slider-holder3">
         <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
           <div class="jcarousel-clip jcarousel-clip-horizontal">
             <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:500px; left: 0px;">
@@ -495,19 +495,20 @@ $data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip
         <br>
         <br>
         <br>
-        <div class="slider-navigation2 ">
-          <div class=" pagination3">
+        <div class="slider-navigation3 ">
+          <div class=" pagination2">
 
             <!-- <li><a href="#" class="active">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li> -->
-            <a href="#">&laquo;</a>
+            
             <a href="#">1</a>
             <a class="active2" href="#">2</a>
             <a href="#">3</a>
-            <a href="#">&raquo;</a>
+            
+          
           </div>
         </div>
       </div>

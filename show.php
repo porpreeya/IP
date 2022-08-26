@@ -99,7 +99,7 @@
     transform: translateY(4px);
   }
 
-  .center {
+  /* .center {
     margin-left: auto;
     margin-right: auto;
     font-size: 14px;
@@ -110,16 +110,16 @@
     border-radius: 4px;
     border: none;
     min-width: 230px;
-  }
+  } */
 
-  .center1 {
+  /* .center1 {
     margin-right: auto;
     font-size: 14px;
     color: black;
     text-align: center;
     height: 20px;
     border-radius: 8px;
-  }
+  } */
 
   .form {
     width: 95%;
@@ -148,7 +148,7 @@
   .glow1 {
     font-size: 26px;
     color: black;
-    width: 300%;
+    width: 330%;
     color: white;
     padding: 0.5em;
     display: inline-block;
@@ -161,7 +161,8 @@
   input[type=date],
   [type=number],
   input[type=ddmmyy] {
-
+    margin: 20px;
+    min-width: 200px;
     height: 39px;
     padding: 0px 10px;
     background-color: rgb(255 255 255);
@@ -195,24 +196,9 @@
     box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
   }
 
-  input[type=number] {
-    margin-top: 20px;
-    height: 39px;
-    padding: 0px 10px;
-    background-color: rgb(255 255 255);
-    border: none;
-    display: inline;
-    color: #303030;
-    font-size: 14px;
-    font-weight: 400;
-    text-align: center;
-    border-radius: 5px;
-    -webkit-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
-    -moz-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
-    box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
-  }
-
   input[type="file"i] {
+    margin: 20px;
+    width: 190px;
     appearance: none;
     background-color: initial;
     cursor: default;
@@ -224,13 +210,14 @@
     padding: initial;
     border: initial;
     overflow: hidden !important;
-    margin-top: 20px display:inline;
+    margin-top: 20px;
+    display: inline;
   }
+ 
 
   label:before,
   select option,
   select {
-
     padding: 1em;
     line-height: 1.4;
     float: left;
@@ -245,6 +232,8 @@
     text-align: center;
     font-size: 13px;
   }
+
+   
 </style>
 
 <body>
@@ -267,6 +256,7 @@
         <table class="center1">
           <tbody>
             <tr>
+              <td></td>
               <th align="left" width="70%" class="glow1">ประเภทการจดทะเบียน</th>
               <th class="th">
                 <input type="radio" id="html" name="type" value="1">
@@ -283,302 +273,307 @@
             </tr>
           </tbody>
         </table>
-        <table style="width: 100%" class="center">
-          <tr class="tr">
-            <br>
-            <div class="container">
 
-              <th>เลขที่คำขอ: </th>
-              <td>
 
-                <input type="number" id="number" c placeholder="000000" name="numfeduest" required="">
-            </div>
-            </td>
-
-            <th>วันที่ยื่นขอ: </th>
-            <td>
-              <input type="date" id="ddmmyy" name="offer" onchange="selectday()">
-              <div id="result"></div>
-            </td>
-
-            <th>เเบบพิมพ์คำขอสิทธิบัตร/อนุสิทธิบัตร จดทะเบียน: </th>
-            <td>
-              <label for="myfile">กรุณาเลือกไฟล์</label>
-              <input type="file" id="myfile" name="form" </td>
-      </div>
-      </table>
-      </tr>
-
-      <table style="width: 100%" class="center">
-        <tr class="tr"><br>
+      <table>
+        <tr class="tr">
+          <br>
           <div class="container">
 
-            <th>สำหรับแอดมิน</th>
+            <th>เลขที่คำขอ: </th>
             <td>
-              <label for="myfile">กรุณาเลือกไฟล์</label>
-              <input type="file" id="myfile" name="admin">
-            </td>
-
-            <th>ตัวเเทน</th>
-            <td>
-              <div class="container">
-                <input type="text" id="number" placeholder="xxxx" name="agent" required="">
-              </div>
-            </td>
-
-            <th>เลขทะเบียน</th>
-            <td>
-              <div class="container">
-                <input type="number" id="number" placeholder="000000" name="numregister" required="">
-              </div>
-            </td>
-
-            <th>วันที่ออกเลขทะเบียน</th>
-            <td>
-              <input type="date" id="ddmmyy" onchange="selectday()">
-              <div id="result"></div>
-            </td>
+              <input type="number" id="number" c placeholder="000000" name="numfeduest" required="">
           </div>
-      </table>
-      </tr>
-
-      <table style="width: 100%" class="center">
-        <tr class="tr"><br>
-          <div class="container">
-            <th>ชนิด</th>
-            <td class="tr">
-              <select name="kind"> Answer 1
-                <option selected="" value="VANI">--กรุณาเลือก--
-                <option value="1">การประดิษฐ์</option>
-                <option value="2">การออกแบบ</option>
-                <option value="3">การรับรอง</option>
-                <option value="4">การบริการ </option>
-                <option value="5">การขึ้นทะเบียน </option>
-              </select>
-            </td>
-
-            <th>ชื่อเรื่อง</th>
-            <td>
-              <div class="container">
-                <input type="text" id="number" placeholder="xxxx" name="title" required="">
-              </div>
-            </td>
-
-            <th>ผู้ทรงสิทธิ</th>
-            <td>
-              <div class="container">
-                <input type="text" id="number" placeholder="xxx" name="holdre" required="">
-              </div>
-            </td>
-
-            <th>กลุ่ม</th>
-            <td><select name="team"> Answer 1
-                <option selected="" value="VANI">--กรุณาเลือก-- </option>
-                <option value="1">อช.</option>
-                <option value="2">พช.</option>
-                <option value="3">บอ.</option>
-              </select>
-            </td>
-          </div>
-      </table>
-      </tr>
-
-
-      <table style="width: 100%" class="center">
-        <tr class="tr"><br>
-          <div class="container">
-            <th>สังกัด</th>
-            <td>
-              <select name="affiliation"> Answer 1
-                <option selected="" value="VANI">--กรุณาเลือก--
-                </option>
-                <option value="1">ศนก.
-                </option>
-                <option value="2">ศคช.
-                </option>
-                <option value="3">ศนอ.
-                </option>
-                <option value="4">ศนส.
-                </option>
-                <option value="5">ศนพ.
-                </option>
-                <option value="6">ศนว.
-                </option>
-                <option value="7">ศนย.
-                </option>
-                <option value="8">ศบท.
-                </option>
-                <option value="9">ศพว.
-                </option>
-              </select>
-            </td>
-
-            <th>ผู้ประดิษฐ์(1คน)</th>
-            <td>
-              <select name="inventor"> Answer 1
-                <option selected="" value="VANI">ช่องกรอก
-                </option>
-                <option value="1">คนที่1
-                </option>
-                <option value="2">คนที่2
-                </option>
-                <option value="3">คนที่3
-                </option>
-              </select>
-            </td>
-
-            <th>ผู้ประดิษฐ์(1-15)</th>
-            <td>
-              <select name="inventors"> Answer 1
-                <option selected="" value="VANI">ช่องกรอก
-                </option>
-                <option value="1">คนที่1
-                </option>
-                <option value="2">คนที่2
-                </option>
-                <option value="3">คนที่3
-                </option>
-              </select>
-            </td>
-
-            <th>ชื่อโครงการ(กตป.)</th>
-            <<td>
-              <div class="container">
-                <input type="text" id="number" " placeholder=" xxxx" name="framename" required="">
-              </div>
-              </td>
-          </div>
-      </table>
-      </tr>
-
-      <table style="width: 100%" class="center">
-        <tr class="tr"><br>
-          <div class="container">
-            <th>รหัสโครงการวิจัย บริการวิจัย</th>
-            <td>
-              <div class="container">
-                <input type="number" id="number" placeholder="0" name="projectcode" required="">
-              </div>
-            </td>
-
-            <th>คู่สัญญาโครงการ</th>
-            </th>
-            <td>
-              <select name="inventor"> Answer 1
-                <option selected="" value="VANI">ช่องกรอก
-                </option>
-                <option value="1">คนที่1
-                </option>
-                <option value="2">คนที่2
-                </option>
-                <option value="3">คนที่3
-                </option>
-              </select>
-            </td>
-
-            <th>ประเภทโครงการ</th>
-            <td>
-              <select name="genus"> Answer 1
-                <option selected="" value="VANI">กรุณาเลือก</option>
-                <option value="1">การบริการวิจัย
-                </option>
-                <option value="2">การบริการวิจัยจากแหล่งทุน
-                </option>
-                <option value="3">mou
-                </option>
-                <option value="4">เงินทุน วว.
-                </option>
-                <option value="5">การถ่ายทอดเทคโนโลยี
-                </option>
-              </select>
-            </td>
-      </table>
-      </tr>
-
-
-      <table style="width: 100%" class="center">
-        <tr class="tr"><br>
-          <div class="container">
-            <th>เเนบเอกสารโครงการ</th>
-            <td>
-              <label for="myfile">กรุณาเลือกไฟล์</label>
-              <input type="file" id="myfile" name="attachment">
-            </td>
-          </div>
-
-          <th>ประเภทการใช้ประโยชน์</th>
-          <td>
-            <select name="benefit"> Answer 1
-              <option selected="" value="VANI">กรุณาเลือก</option>
-              <option value="1">การบริการวิจัย
-              </option>
-              <option value="2">การถ่ายทอดเทคโนโลยี
-              </option>
-              <option value="3">การอนุญาตให้ใช้สิทธิ
-              </option>
-              <option value="4">mou
-              </option>
-            </select>
           </td>
 
-          <th>ผู้นำผลงานวิจัยไปใช้ประโยชน์</th>
-            <td>
-              <div class="container">
-                <input type="text" id="number" placeholder="xxxx" name="lead" required="">
-              </div>
-            </td>
+          <th>วันที่ยื่นขอ:</th>
+          <td >
+          <div class="container"style=" width: 50% ; ">
+            <input type="date" id="ddmmyy" name="offer" onchange="selectday()">
+            <div id="result"></div>
+          </td>
+
+          <th>เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตร จดทะเบียน: </th>
+          <td>
+            <label  for="myfile">กรุณาเลือกไฟล์</label><br>
+            <input type="file" id="myfile" name="form">
+          </td>
+          <th>สำหรับแอดมิน</th>
+        <td>
+          <label for="myfile">กรุณาเลือกไฟล์</label><br>
+          <input type="file" id="myfile" name="admin">
+        </td>
   </div>
+  </tr>
+  </table>
+  
+
+  <table>
+    <tr class="tr"><br>
+      <div class="container">
+
+        
+
+        <th>ตัวเเทน</th>
+        <td >
+          <div class="container"style=" margin-left: 50px; margin-right:20px">
+            <input type="text" id="number" placeholder="xxxx" name="agent" required="">
+          </div>
+        </td>
+
+        <th>เลขทะเบียน</th>
+        <td>
+          <div class="container">
+            <input type="number" id="number" placeholder="000000" name="numregister" required="">
+          </div>
+        </td>
+
+        <th>วันที่ออกเลขทะเบียน</th>
+        <td>
+          <input type="date" id="ddmmyy" onchange="selectday()">
+          <div id="result"></div>
+        </td>
+      </div>
   </table>
   </tr>
 
   <table style="width: 100%" class="center">
-        <tr class="tr"><br>
-          <div class="container">
-            <th>สถานะอัพเดทปัจจุบัน</th>
-            <td>
-              <select name="sta"> Answer 1
-                <option selected="" value="VANI">ช่องกรอก
-                </option>
-                <option value="15">แก้ไข
-                </option>
-                <option value="1">ชำระค่าธรรมเนียมประกาศโฆษณา
-                </option>
-                <option value="2">ประกาศโฆษณา
-                </option>
-                <option value="3">ยื่นตรวจสอบการประดิษฐ์
-                </option>
-                <option value="4">ชำระค่าออกสิทธิบัตร
-                </option>
-                <option value="5">ชำระค่าออกอนุสิทธิบัตร
-                </option>
-                <option value="6">ออกสิทธิบัตร
-                </option>
-                <option value="7">ออกอนุสิทธิบัตร
-                </option>
-                <option value="8">ชำระค่าธรรมเนียมสิทธิบัตรรายปี
-                </option>
-                <option value="9">ชำระค่าธรรมเนียมอนุสิทธิบัตรรายปี
-                </option>
-                <option value="10">ไม่มีขั้นการประดิษฐ์ที่สูงขึ้น
-                </option>
-                <option value="11">ชี้แจงข้อโต้แย้ง
-                </option>
-                <option value="12">เปลี่ยนแปลงสิทธิ
-                </option>
-                <option value="13">ละทิ้งคำขอ
-                </option>
-                <option value="14">สิ้นอายุ
-                </option>
-              </select>
-            </td>
+    <tr class="tr"><br>
+      <div class="container">
+        <th>ชนิด</th>
+        <td class="tr" style="margin-left:20px;">
+          <select name="kind"> Answer 1
+            <option selected="" value="VANI">--กรุณาเลือก--
+            <option value="1">การประดิษฐ์</option>
+            <option value="2">การออกแบบ</option>
+            <option value="3">การรับรอง</option>
+            <option value="4">การบริการ </option>
+            <option value="5">การขึ้นทะเบียน </option>
+          </select>
+        </td>
 
-            <th>หมายเหตุ</th>
-            <td>
+        <th>ชื่อเรื่อง</th>
+        <td>
+          <div class="container">
+            <input type="text" id="number" placeholder="xxxx" name="title" required="">
+          </div>
+        </td>
+
+        <th>ผู้ทรงสิทธิ</th>
+        <td>
+          <div class="container">
+            <input type="text" id="number" placeholder="xxx" name="holdre" required="">
+          </div>
+        </td>
+
+        <th>กลุ่ม</th>
+        <td><select name="team"> Answer 1
+            <option selected="" value="VANI">--กรุณาเลือก-- </option>
+            <option value="1">อช.</option>
+            <option value="2">พช.</option>
+            <option value="3">บอ.</option>
+          </select>
+        </td>
+      </div>
+  </table>
+  </tr>
+
+
+  <table style="width: 100%" class="center">
+    <tr class="tr"><br>
+      <div class="container">
+        <th>สังกัด</th>
+        <td>
+          <select name="affiliation"> Answer 1
+            <option selected="" value="VANI">--กรุณาเลือก--
+            </option>
+            <option value="1">ศนก.
+            </option>
+            <option value="2">ศคช.
+            </option>
+            <option value="3">ศนอ.
+            </option>
+            <option value="4">ศนส.
+            </option>
+            <option value="5">ศนพ.
+            </option>
+            <option value="6">ศนว.
+            </option>
+            <option value="7">ศนย.
+            </option>
+            <option value="8">ศบท.
+            </option>
+            <option value="9">ศพว.
+            </option>
+          </select>
+        </td>
+
+        <th>ผู้ประดิษฐ์(1คน)</th>
+        <td>
+          <select name="inventor"> Answer 1
+            <option selected="" value="VANI">ช่องกรอก
+            </option>
+            <option value="1">คนที่1
+            </option>
+            <option value="2">คนที่2
+            </option>
+            <option value="3">คนที่3
+            </option>
+          </select>
+        </td>
+
+        <th>ผู้ประดิษฐ์(1-15)</th>
+        <td>
+          <select name="inventors"> Answer 1
+            <option selected="" value="VANI">ช่องกรอก
+            </option>
+            <option value="1">คนที่1
+            </option>
+            <option value="2">คนที่2
+            </option>
+            <option value="3">คนที่3
+            </option>
+          </select>
+        </td>
+
+        <th>ชื่อโครงการ(กตป.)</th>
+        <<td>
+          <div class="container">
+            <input type="text" id="number" " placeholder=" xxxx" name="framename" required="">
+          </div>
+          </td>
+      </div>
+  </table>
+  </tr>
+
+  <table style="width: 100%" class="center">
+    <tr class="tr"><br>
+      <div class="container">
+        <th>รหัสโครงการวิจัย บริการวิจัย</th>
+        <td>
+          <div class="container">
+            <input type="number" id="number" placeholder="0" name="projectcode" required="">
+          </div>
+        </td>
+
+        <th>คู่สัญญาโครงการ</th>
+        </th>
+        <td>
+          <select name="inventor"> Answer 1
+            <option selected="" value="VANI">ช่องกรอก
+            </option>
+            <option value="1">คนที่1
+            </option>
+            <option value="2">คนที่2
+            </option>
+            <option value="3">คนที่3
+            </option>
+          </select>
+        </td>
+
+        <th>ประเภทโครงการ</th>
+        <td>
+          <select name="genus"> Answer 1
+            <option selected="" value="VANI">กรุณาเลือก</option>
+            <option value="1">การบริการวิจัย
+            </option>
+            <option value="2">การบริการวิจัยจากแหล่งทุน
+            </option>
+            <option value="3">mou
+            </option>
+            <option value="4">เงินทุน วว.
+            </option>
+            <option value="5">การถ่ายทอดเทคโนโลยี
+            </option>
+          </select>
+        </td>
+  </table>
+  </tr>
+
+
+  <table style="width: 100%" class="center">
+    <tr class="tr"><br>
+      <div class="container">
+        <th>เเนบเอกสารโครงการ</th>
+        <td>
+          <label for="myfile">กรุณาเลือกไฟล์</label>
+          <input type="file" id="myfile" name="attachment">
+        </td>
+      </div>
+
+      <th>ประเภทการใช้ประโยชน์</th>
+      <td>
+        <select name="benefit"> Answer 1
+          <option selected="" value="VANI">กรุณาเลือก</option>
+          <option value="1">การบริการวิจัย
+          </option>
+          <option value="2">การถ่ายทอดเทคโนโลยี
+          </option>
+          <option value="3">การอนุญาตให้ใช้สิทธิ
+          </option>
+          <option value="4">mou
+          </option>
+        </select>
+      </td>
+
+      <th>ผู้นำผลงานวิจัยไปใช้ประโยชน์</th>
+      <td>
+        <div class="container">
+          <input type="text" id="number" placeholder="xxxx" name="lead" required="">
+        </div>
+      </td>
+      </div>
+  </table>
+  </tr>
+
+  <table style="width: 100%" class="center">
+    <tr class="tr"><br>
+      <div class="container">
+        <th>สถานะอัพเดทปัจจุบัน</th>
+        <td>
+          <select name="sta"> Answer 1
+            <option selected="" value="VANI">ช่องกรอก
+            </option>
+            <option value="15">แก้ไข
+            </option>
+            <option value="1">ชำระค่าธรรมเนียมประกาศโฆษณา
+            </option>
+            <option value="2">ประกาศโฆษณา
+            </option>
+            <option value="3">ยื่นตรวจสอบการประดิษฐ์
+            </option>
+            <option value="4">ชำระค่าออกสิทธิบัตร
+            </option>
+            <option value="5">ชำระค่าออกอนุสิทธิบัตร
+            </option>
+            <option value="6">ออกสิทธิบัตร
+            </option>
+            <option value="7">ออกอนุสิทธิบัตร
+            </option>
+            <option value="8">ชำระค่าธรรมเนียมสิทธิบัตรรายปี
+            </option>
+            <option value="9">ชำระค่าธรรมเนียมอนุสิทธิบัตรรายปี
+            </option>
+            <option value="10">ไม่มีขั้นการประดิษฐ์ที่สูงขึ้น
+            </option>
+            <option value="11">ชี้แจงข้อโต้แย้ง
+            </option>
+            <option value="12">เปลี่ยนแปลงสิทธิ
+            </option>
+            <option value="13">ละทิ้งคำขอ
+            </option>
+            <option value="14">สิ้นอายุ
+            </option>
+          </select>
+        </td>
+
+        <th>หมายเหตุ</th>
+        <td>
           <div class="container">
             <input type="text" id="number" placeholder="xxxx" name="note" required="">
           </div>
         </td>
-  </div>
+      </div>
   </table>
   </tr>
   <table table="" style="width:20%" class="center1">
