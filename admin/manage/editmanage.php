@@ -391,7 +391,7 @@
 
                                 <th>เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตร จดทะเบียน: </th>
                                 <td>
-                                    <div class="container" style="text-align:center; margin-left:40px; color: black; margin-right:40px;">
+                                    <div class="container" style="text-align:center; margin-left:40px; color: black; margin-right:80px;">
                                         <label for="myfile">กรุณาเลือกไฟล์</label><br>
                                         &nbsp;<a id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="-blank">เรียกดู</a>
                                 </td>
@@ -426,7 +426,7 @@
 
                                 <th>วันที่ออกเลขทะเบียน</th>
                                 <td>
-                                    <div class="container" style="margin-left:30px; margin-right: 60px;">
+                                    <div class="container" style="margin-left:30px; margin-right: 90px;">
                                         <input type="date" name="datenumregister" value="<?php echo $datenumregister; ?>">
                                         <div id="result"></div>
                                 </td>
@@ -478,7 +478,7 @@
 
                                 <th>กลุ่ม</th>
                                 <td>
-                                    <div class="container" style="margin-left: 80px; margin-right:60px">
+                                    <div class="container" style="margin-left: 80px; margin-right:90px">
                                         <select name="team"> Answer 1
                                             <option selected="" value="">--กรุณาเลือก-- </option>
                                             <option value="1" <?php if ($team == 1) {

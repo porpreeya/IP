@@ -145,6 +145,11 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
             width: 100%;
 
         }
+
+        .pagination4 a.active4 {
+            background-color: dodgerblue;
+            color: white;
+        }
     </style>
 </head>
 <link rel="stylesheet" href="./css/style.css">
@@ -234,7 +239,7 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
                                                     </tr>
                                                 </table><br>
                                             </div>
-                                        
+
 
 
                                         <?php } ?>
@@ -247,7 +252,7 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
 </body>
 <div class="slider-navigation4 " ">
       <div class=" pagination4">
-    
+
     <a href="#">1</a>
     <a class="active4" href="#">2</a>
     <a href="#">3</a>

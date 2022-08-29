@@ -56,8 +56,15 @@ if ($Menu == "1") {
   }
   
 } 
+else if ($Menu == "6") {
+  $selected4 = "class='selected'";
+  if ($Submenu == "home") {
+    $Fileshow = "home.php";
+  } 
+  
+} 
 else {
-  $Fileshow = "news2.html";
+  $Fileshow = "home.php";
 }
 // $box2 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
 // $box3 = iconv("utf-8", "tis-620", $_REQUEST["inventor"]);
