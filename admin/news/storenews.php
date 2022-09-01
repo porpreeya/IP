@@ -1,8 +1,9 @@
 <?php
+include("../../includes/config.inc.php");
 $news= iconv( "tis-620","utf-8", $_POST['news']);
 $temp = explode(".", $_FILES["image"]["name"]);
 $newfilename = round(microtime(true)) . '.' . end($temp);
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 $strSQL = "INSERT INTO news ";
 $strSQL .= "(news,image,status)";
 $strSQL .= "VALUES";

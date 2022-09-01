@@ -1,7 +1,7 @@
 <?
 session_start();
-error_reporting(0);
-include("includes/config.inc.php");
+// error_reporting(0);
+include("../includes/config.inc.php");
 
 $Menu  = $_REQUEST['Menu'];
 $Submenu = $_REQUEST['Submenu'];
@@ -56,8 +56,15 @@ if ($Menu == "1") {
   }
   
 } 
+else if ($Menu == "6") {
+  $selected4 = "class='selected'";
+  if ($Submenu == "home") {
+    $Fileshow = "home.php";
+  } 
+  
+} 
 else {
-  $Fileshow = "news2.html";
+  $Fileshow = "home.php";
 }
 // $box2 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
 // $box3 = iconv("utf-8", "tis-620", $_REQUEST["inventor"]);
@@ -69,7 +76,7 @@ else {
   <title>Admin</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style2.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="../css/style2.css" type="text/css" media="all" />
   <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
@@ -145,7 +152,7 @@ else {
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=2&Submenu=shownews';"><i class='fas fa-book-open'>&nbsp</i>ข่าว</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=3&Submenu=showagent';"><i class='fas fa-address-card'>&nbsp</i>ข้อมูลตัวเเทน</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=4&Submenu=showqa';"><i class='fas fa-comments'>&nbsp</i>ถาม-ตอบ</a>
-        <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=5&Submenu=showmanage';"><i class='fas fa-comments'>&nbsp</i>บริหารจัดการทรัพย์สินทางปัญญา</a>
+        <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=5&Submenu=showmanage';"><i class='fas fa-file-alt'>&nbsp</i>บริหารจัดการทรัพย์สินทางปัญญา</a>
       </div>
     </div>
   </div>

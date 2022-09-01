@@ -13,7 +13,7 @@
 
     //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
     $ID_ban = $_GET['ID_ban'];
-    $objDB = mssql_select_db("intelle");
+    // $objDB = mssql_select_db("intelle");
     $data = mssql_query("SELECT * FROM banner WHERE ID_ban='$ID_ban'")
         or die(mssql_error());
 
@@ -168,7 +168,7 @@
         <?php
     //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
     $ID_ban = $_GET['ID_ban'];
-    $objDB = mssql_select_db("intelle");
+    // $objDB = mssql_select_db("intelle");
     $data = mssql_query("SELECT * FROM banner WHERE ID_ban='$ID_ban'")
         or die(mssql_error());
 

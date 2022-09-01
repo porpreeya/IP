@@ -1,6 +1,7 @@
 <?php
+include("../../includes/config.inc.php");
 // ไอดีที่เราทำการดึงเพื่อนำมาแก้ไข
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 $ID_ban = $_GET['ID_ban'];
 $image = iconv( "utf-8","tis-620", $_FILES['image']['name']);
 $tmp_name = $_FILES['image']['tmp_name'];

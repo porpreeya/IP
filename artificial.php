@@ -28,7 +28,7 @@ if ($keyword == '1') {
     $sql = "";
 }
 
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
 if ($sql != "") {
     $data = mssql_query($sql);
@@ -345,6 +345,7 @@ if ($sql != "") {
         <br>
         <?php
         while ($info = mssql_fetch_array($data)) {
+            $form = iconv("tis-620", "utf-8", $info['form']);
             $title = iconv("tis-620", "utf-8", $info['title']);
             $holdre = iconv("tis-620", "utf-8", $info['holdre']);
             $datenumregister = iconv("tis-620", "utf-8", $info['datenumregister']);
@@ -397,7 +398,7 @@ if ($sql != "") {
                         <td>
                             <h4>รายละเอียด:</h4>
                         </td>
-                        <td class="td1"><?php echo $attachment; ?></td>
+                        <td class="td1"><a id="file" class="outset1" href="uploadpdf/<?php echo $form ?>" target="-blank"><h4>เรียกดู</h4></a></td>
                     </tr>
                 </table>
 
@@ -465,7 +466,7 @@ if ($sql != "") {
                                     <td>
                                         <h4>รายละเอียด :
                                     </td>
-                                    <td><?php echo $attachment; ?></td>
+                                    <td><a id="file" class="outset1" href="uploadpdf/<?php echo $form ?>" target="-blank"><h4>เรียกดู</h4></a></td>
                                 </tr>
                             </tbody>
                             <tbody>

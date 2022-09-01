@@ -154,7 +154,7 @@
 <body class="body">
     <?
     $image = iconv("tis-620", "utf-8", $info['image']);
-    $objDB = mssql_select_db("intelle");
+    // $objDB = mssql_select_db("intelle");
     $data = mssql_query("SELECT * FROM banner ")
         or die(mssql_error()); ?>
     <h2 class="glow">เพิ่มเเบนเนอร์</h2>

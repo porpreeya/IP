@@ -1,5 +1,5 @@
 <?
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
 $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
 
@@ -159,7 +159,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
         <tr>
             <th>ชื่อทรัพย์สินทางปัญญา</th>
             <th>ชื่อผู้ประดิษฐ์ </th>
-            <th>ชื่อผู้แทน</th>
+            <th>ชื่อตัวแทน</th>
             <th>โครงการ</th>
             <th>ประเภท</th>
             <th>สถานะ</th>
@@ -169,6 +169,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
         </tr>
         <?
         while ($info = mssql_fetch_array($data)) {
+            
             $title = iconv("tis-620", "utf-8", $info['title']);
             $inventor = iconv("tis-620", "utf-8", $info['inventor']);
             $agent = iconv("tis-620", "utf-8", $info['agent']);
@@ -176,6 +177,8 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             $genus = iconv("tis-620", "utf-8", $info['genus']);
             $sta = iconv("tis-620", "utf-8", $info['sta']);
             $affiliation = iconv("tis-620", "utf-8", $info['affiliation']);
+
+
 
         ?>
             <tr>

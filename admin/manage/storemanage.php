@@ -1,4 +1,5 @@
 <?php
+include("../../includes/config.inc.php");
 $name= iconv("utf-8", "tis-620", $_POST['name']);
 $type= iconv("utf-8", "tis-620", $_POST['type']);
 $numfeduest= iconv("utf-8", "tis-620", $_POST['numfeduest']);
@@ -7,7 +8,6 @@ $numfeduest= iconv("utf-8", "tis-620", $_POST['numfeduest']);
 $agent= iconv("utf-8", "tis-620", $_POST['agent']);
 $numregister= iconv("utf-8", "tis-620", $_POST['numregister']);
 $datenumregister= iconv("utf-8", "tis-620", $_POST['datenumregister']);
-$prapaet= iconv("utf-8", "tis-620", $_POST['prapaet']);
 $kind= iconv("utf-8", "tis-620", $_POST['kind']);
 $title= iconv("utf-8", "tis-620", $_POST['title']);
 $holdre= iconv("utf-8", "tis-620", $_POST['holdre']);
@@ -38,13 +38,13 @@ $tmp_name3=$_FILES['attachment']['tmp_name'];
 $temp3 = explode(".", $_FILES["attachment"]["name"]);
 $newfilename3 = round(microtime(true)) . '3.' . end($temp3);
 
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 $strSQL = "INSERT INTO tb_IP ";
-$strSQL .= "(type,offer,numfeduest,form,admin,agent,numregister,datenumregister,prapaet,kind,title,holdre,team,affiliation,
+$strSQL .= "(type,offer,numfeduest,form,admin,agent,numregister,datenumregister,kind,title,holdre,team,affiliation,
 inventor,inventors,framename,projectcode,contract,genus,attachment,benefit,lead,sta,note,status)";
 $strSQL .= "VALUES";
 $strSQL .= "('" . $type . "','" . $offer. "','" . $numfeduest . "','" . $newfilename . "','" . $newfilename2 . "','" . $agent . "','" . $numregister . "',
-'" . $datenumregister . "','" . $prapaet . "','" . $kind . "','" . $title . "','" . $holdre . "','" . $team . "','" . $affiliation . "',
+'" . $datenumregister . "','" . $kind . "','" . $title . "','" . $holdre . "','" . $team . "','" . $affiliation . "',
 '" . $inventor . "','" . $inventors . "','" . $framename . "','" . $projectcode . "','" . $contract . "','" . $genus . "','" . $newfilename3 . "','" . $benefit . "','" . $lead . "',
 '" . $sta . "','" . $note . "','1')";
 $objQuery = mssql_query($strSQL);
@@ -56,7 +56,6 @@ move_uploaded_file($_FILES["attachment"]["tmp_name"], "../../uploadpdf/" . $newf
 ?>
 
 
-
-  <script type="text/javascript">
+<script type="text/javascript">
     window.location = "../indexadmin.php?Menu=5&Submenu=showmanage";
-</script>  
+</script> 

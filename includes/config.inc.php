@@ -1,6 +1,5 @@
 <?php
-
-$servername = "127.0.0.1";
+$servername = ".";
     $dbuser		= "sa";
     $dbpasswd	= "123456";
     $dbname		= "intelle";

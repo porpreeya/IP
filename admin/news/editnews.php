@@ -140,7 +140,7 @@
 <?php
 //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
 $ID = $_GET['ID'];
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
     or die(mssql_error());
 

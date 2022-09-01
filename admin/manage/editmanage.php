@@ -11,7 +11,8 @@
     .glow1 {
         font-size: 26px;
         color: black;
-        width: 300%;
+        width: 400%;
+        height: 80px;
         color: white;
         padding: 0.5em;
         display: inline-block;
@@ -33,7 +34,7 @@
         margin-right: auto;
         font-size: 14px;
         color: black;
-        text-align: center;
+    
         height: 20px;
         padding: 18p;
         border-radius: 4px;
@@ -47,7 +48,7 @@
         color: black;
 
         height: 20px;
-        c border-radius: 8px;
+        border-radius: 8px;
 
     }
 
@@ -130,7 +131,7 @@
 
     p.outset1 {
         display: inline;
-        width: 130px;
+        
         border-style: outset;
         background: #2c15b1;
         text-align: center;
@@ -139,8 +140,8 @@
         color: white;
         height: 40px;
         padding: 15px;
-        outline-color: red;
         border-radius: 8px;
+        width: 260px;
     }
 
     .outset1:active {
@@ -166,6 +167,7 @@
         padding: initial;
         border: initial;
         overflow: hidden !important;
+        display: inline;
 
 
     }
@@ -185,6 +187,7 @@
         text-align: -internal-center;
         padding: 20px;
         color: #000;
+       
 
     }
 
@@ -286,6 +289,9 @@
         transition: all 0.35s ease-in-out;
         text-align: center;
     }
+ 
+   
+    
 </style>
 
 <body>
@@ -300,7 +306,7 @@
         <?php
         //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
         $ID_ip = $_GET['ID_ip'];
-        $objDB = mssql_select_db("intelle");
+        // $objDB = mssql_select_db("intelle");
         $data = mssql_query("SELECT * FROM tb_IP WHERE ID_ip='$ID_ip'")
             or die(mssql_error());
 
@@ -346,24 +352,36 @@
                     <table class="center1">
                         <tbody>
                             <tr>
-                                <th align="left" width="70%" class="glow1">ประเภทการจดทะเบียน</th>
+                                <th align="left" width="70%" class="glow1"> &nbsp; &nbsp;ประเภทการจดทะเบียน</th>
                                 <th class="th">
                                     <input type="radio" id="html" name="type" value="1" <?php if ($type == 1) {
                                                                                             echo 'checked';
                                                                                         } ?>>
-                                    &nbsp; <label for="html">สิทธิบัตร</label>
+                                    &nbsp; <label for="html">สิทธิบัตรการประดิษฐ์</label>
                                     &nbsp; <input type="radio" id="css" name="type" value="2" <?php if ($type == 2) {
                                                                                                     echo 'checked';
                                                                                                 } ?>>
-                                    &nbsp; <label for="css">อนุสิทธิบัตร</label>
+                                    &nbsp; <label for="css">สิทธิบัตรการออกแบบผลิตภัณฑ์</label>
                                     <input type="radio" id="css" name="type" value="3" <?php if ($type == 3) {
                                                                                             echo 'checked';
                                                                                         } ?>>
-                                    &nbsp; <label for="css">เครื่องหมายการค้า</label>
+                                    &nbsp; <label for="css">อนุสิทธิบัตร</label>
                                     <input type="radio" id="css" name="type" value="4" <?php if ($type == 4) {
                                                                                             echo 'checked';
                                                                                         } ?>>
-                                    &nbsp; <label for="css">พันธุ์พืช</label>
+                                    <label for="css">การจดทะเบียนเครื่องหมายการค้า</label>
+                                    <br><input type="radio" id="css" name="type" value="5" <?php if ($type == 5) {
+                                                                                                echo 'checked';
+                                                                                            } ?>>
+                                    &nbsp; <label for="css">การจดทะเบียนเครื่องหมายรับรอง</label>
+                                    <input type="radio" id="css" name="type" value="6" <?php if ($type == 6) {
+                                                                                            echo 'checked';
+                                                                                        } ?>>
+                                    &nbsp; <label for="css">การจดทะเบียนเครื่องหมายบริการ</label>
+                                    <input type="radio" id="css" name="type" value="7" <?php if ($type == 7) {
+                                                                                            echo 'checked';
+                                                                                        } ?>>
+                                    &nbsp; <label for="css">การขึ้นทะเบียนพันธุ์พืช</label>
                                 </th>
                                 <th>
                                 </th>
@@ -375,31 +393,32 @@
                             <br>
                             <div class="container">
 
-                                <th>เลขที่คำขอ: </th>
+                                <style =" width: 100px;"></style><th>เลขที่คำขอ: </th></style>
                                 <td>
-                                    <div class="container" style=" margin-right:30px; margin-left:30px; ">
+                                    <div class="container">
                                         <input type="number" id="number" name="numfeduest" required="" value="<?php echo $numregister; ?>">
                                     </div>
                                 </td>
 
                                 <th>วันที่ยื่นขอ:</th>
                                 <td>
-                                    <div class="container" style=" margin-right:30px;  margin-left:30px;">
+                                    <div class="container">
                                         <input type="date" name="offer" value="<?php echo $offer; ?>">
                                         <div id="result"></div>
                                 </td>
 
                                 <th>เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตร จดทะเบียน: </th>
                                 <td>
-                                    <div class="container" style="text-align:center; margin-left:40px; color: black; margin-right:40px;">
+                                    <div class="container" style=" display:inline;  margin-left:20px; color: black; margin-right:70px;">
                                         <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                        &nbsp;<a id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="-blank">เรียกดู</a>
+                                        <input type="file" id="myfile" name="form" style="width:180px;">
+                                        <a  id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="-blank">เรียกดู</a>
                                 </td>
 
                                 <th>สำหรับแอดมิน</th>
                                 <td>
-                                    <div class="container" style="text-align:center; margin-right:40px; margin-left:40px; color: black;">
-                                        <label for="myfile">กรุณาเลือกไฟล์</label><br>
+                                    <div class="container" style="display:inline; text-align:center;  margin-left:40px; color: black;">
+                                        <label for="myfile">กรุณาเลือกไฟล์</label><input type="file" id="myfile" name="admin"><br>
                                         <a id="file" class="outset1" href="../uploadpdf/<?php echo $admin ?>" target="-blank">เรียกดู</a>
                                 </td>
                             </div>
@@ -413,7 +432,7 @@
                                 <th>ตัวเเทน</th>
                                 <td>
                                     <div class="container" style=" margin-left: 50px; margin-right:40px">
-                                        <input type="text" placeholder="xxxx" name="agent" required="" value="<?php echo $agent; ?>">
+                                        <input type="text" placeholder="" name="agent" required="" value="<?php echo $agent; ?>">
                                     </div>
                                 </td>
 
@@ -426,31 +445,27 @@
 
                                 <th>วันที่ออกเลขทะเบียน</th>
                                 <td>
-                                    <div class="container" style="margin-left:30px; margin-right: 60px;">
+                                    <div class="container" style="margin-left:30px; margin-right: 90px;">
                                         <input type="date" name="datenumregister" value="<?php echo $datenumregister; ?>">
                                         <div id="result"></div>
                                 </td>
 
                                 <th>ชนิด</th>
                                 <td class="tr">
+                                <?
+                                $data = mssql_query("SELECT * FROM tb_kind");
+                                ?>
                                     <div class="container" style="margin-left: 55px;">
                                         <select name="kind"> Answer 1
                                             <option selected="" value="">--กรุณาเลือก--</option>
-                                            <option value="1" <?php if ($kind == 1) {
+                                            <?
+                                            while ($info = mssql_fetch_array($data)) { 
+                                                
+                                                ?>
+                                                <option value="<? echo $info['ID'] ?><?php if ($kind == '$rows["ID_kind"]') {
                                                                     echo 'selected';
-                                                                } ?>>การประดิษฐ์</option>
-                                            <option value="2" <?php if ($kind == 2) {
-                                                                    echo 'selected';
-                                                                } ?>>การออกแบบ</option>
-                                            <option value="3" <?php if ($kind == 3) {
-                                                                    echo 'selected';
-                                                                } ?>>การรับรอง</option>
-                                            <option value="4" <?php if ($kind == 4) {
-                                                                    echo 'selected';
-                                                                } ?>>การบริการ </option>
-                                            <option value="5" <?php if ($kind == 5) {
-                                                                    echo 'selected';
-                                                                } ?>>การขึ้นทะเบียน </option>
+                                                                } ?>"><? echo iconv("tis-620", "utf-8", $info['kinds'])?></option>
+                                            <?php } ?>
                                         </select>
                                 </td>
 
@@ -465,7 +480,7 @@
                                 <th>ชื่อเรื่อง</th>
                                 <td>
                                     <div class="container" style=" margin-left: 50px; margin-right:40px">
-                                        <input type="text" placeholder="xxxx" name="title" required="" value="<?php echo $title; ?>">
+                                        <input type="text" placeholder="" name="title" required="" value="<?php echo $title; ?>">
                                     </div>
                                 </td>
 
@@ -478,16 +493,16 @@
 
                                 <th>กลุ่ม</th>
                                 <td>
-                                    <div class="container" style="margin-left: 80px; margin-right:60px">
+                                    <div class="container" style="margin-left: 80px; margin-right:90px">
                                         <select name="team"> Answer 1
                                             <option selected="" value="">--กรุณาเลือก-- </option>
                                             <option value="1" <?php if ($team == 1) {
                                                                     echo 'selected';
                                                                 } ?>>อช.</option>
-                                            <option value="2" <?php if ($team == 1) {
+                                            <option value="2" <?php if ($team == 2) {
                                                                     echo 'selected';
-                                                                } ?>>พช.</option>
-                                            <option value="3" <?php if ($team == 1) {
+                                                                } ?>>พย.</option>
+                                            <option value="3" <?php if ($team == 3) {
                                                                     echo 'selected';
                                                                 } ?>>บอ.</option>
                                         </select>
@@ -591,7 +606,7 @@
                                 <th>ชื่อโครงการ(กตป.)</th>
                                 <td>
                                     <div class="container" style=" margin-left: 25px; margin-right:13px">
-                                        <input type="text" " placeholder=" xxxx" name="framename" required="" value="<?php echo $framename; ?>">
+                                        <input type="text" placeholder=" " name="framename" required="" value="<?php echo $framename; ?>">
                                     </div>
                                 </td>
 
@@ -657,10 +672,10 @@
 
                                 <th>เเนบเอกสาร<br>โครงการ</th>
                                 <td>
-                                    <div class="container" style="text-align:center;">
+                                   
                                         <div class="container" style=" margin-left:70px; margin-right:45px; color:black;">
-                                            <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                            <a id="file" class="outset1" href="../uploadpdf/<?php echo $admin ?>" target="-blank">เรียกดู</a>
+                                            <label for="myfile">กรุณาเลือกไฟล์</label><input type="file" id="myfile" name="attachment"><br>
+                                            <a id="file" class="outset1" href="../uploadpdf/<?php echo $attachment ?>" target="-blank">เรียกดู</a>
                                 </td>
 
 
@@ -673,7 +688,7 @@
                                                                     echo 'selected';
                                                                 } ?>>การบริการวิจัย
                                             </option>
-                                            <option value="2" <?php if ($genus == 2) {
+                                            <option value="2" <?php if ($benefit == 2) {
                                                                     echo 'selected';
                                                                 } ?>>การถ่ายทอดเทคโนโลยี
                                             </option>
@@ -693,90 +708,90 @@
 
                     <table>
                         <tr class="tr"><br>
-                            <div class="container"">
-                            <th>ผู้นำผลงาน<br>วิจัยไปใช้<br>ประโยชน์</th>
-                            <class=" tr">
-                                <td>
-                                    <div class="container" style="  margin-left:20px; margin-right:20px">
-                                        <input type="text" placeholder="xxxx" name="lead" required="" value="<?php echo $lead; ?>">
-                                    </div>
-                                </td>
+                            <div class="container">
+                                <th>ผู้นำผลงาน<br>วิจัยไปใช้<br>ประโยชน์</th>
+                                <class="tr">
+                                    <td>
+                                        <div class="container" style="  margin-left:20px; margin-right:20px">
+                                            <input type="text" placeholder="" name="lead" required="" value="<?php echo $lead; ?>">
+                                        </div>
+                                    </td>
 
-                                <th>สถานะอัพเดท<br>ปัจจุบัน</th>
-                                <td>
-                                    <div class="container" style="  margin-left:5px; margin-right:15px">
-                                        <select name="sta"> Answer 1
-                                            <option selected="" value="">--กรุณาเลือก--
-                                            </option>
-                                            <option value="15" <?php if ($sta == 15) {
-                                                                    echo 'selected';
-                                                                } ?>>แก้ไข
-                                            </option>
-                                            <option value="1" <?php if ($sta == 1) {
-                                                                    echo 'selected';
-                                                                } ?>>ชำระค่าธรรมเนียมประกาศโฆษณา
-                                            </option>
-                                            <option value="2" <?php if ($sta == 2) {
-                                                                    echo 'selected';
-                                                                } ?>>ประกาศโฆษณา
-                                            </option>
-                                            <option value="3" <?php if ($sta == 3) {
-                                                                    echo 'selected';
-                                                                } ?>>ยื่นตรวจสอบการประดิษฐ์
-                                            </option>
-                                            <option value="4" <?php if ($sta == 4) {
-                                                                    echo 'selected';
-                                                                } ?>>ชำระค่าออกสิทธิบัตร
-                                            </option>
-                                            <option value="5" <?php if ($sta == 5) {
-                                                                    echo 'selected';
-                                                                } ?>>ชำระค่าออกอนุสิทธิบัตร
-                                            </option>
-                                            <option value="6" <?php if ($sta == 6) {
-                                                                    echo 'selected';
-                                                                } ?>>ออกสิทธิบัตร
-                                            </option>
-                                            <option value="7" <?php if ($sta == 7) {
-                                                                    echo 'selected';
-                                                                } ?>>ออกอนุสิทธิบัตร
-                                            </option>
-                                            <option value="8" <?php if ($sta == 8) {
-                                                                    echo 'selected';
-                                                                } ?>>ชำระค่าธรรมเนียมสิทธิบัตรรายปี
-                                            </option>
-                                            <option value="9" <?php if ($sta == 9) {
-                                                                    echo 'selected';
-                                                                } ?>>ชำระค่าธรรมเนียมอนุสิทธิบัตรรายปี
-                                            </option>
-                                            <option value="10" <?php if ($sta == 10) {
-                                                                    echo 'selected';
-                                                                } ?>>ไม่มีขั้นการประดิษฐ์ที่สูงขึ้น
-                                            </option>
-                                            <option value="11" <?php if ($sta == 11) {
-                                                                    echo 'selected';
-                                                                } ?>>ชี้แจงข้อโต้แย้ง
-                                            </option>
-                                            <option value="12" <?php if ($sta == 12) {
-                                                                    echo 'selected';
-                                                                } ?>>เปลี่ยนแปลงสิทธิ
-                                            </option>
-                                            <option value="13" <?php if ($sta == 13) {
-                                                                    echo 'selected';
-                                                                } ?>>ละทิ้งคำขอ
-                                            </option>
-                                            <option value="14" <?php if ($sta == 14) {
-                                                                    echo 'selected';
-                                                                } ?>>สิ้นอายุ
-                                            </option>
-                                        </select>
-                                </td>
+                                    <th>สถานะอัพเดท<br>ปัจจุบัน</th>
+                                    <td>
+                                        <div class="container" style="  margin-left:5px; margin-right:15px">
+                                            <select name="sta"> Answer 1
+                                                <option selected="" value="">--กรุณาเลือก--
+                                                </option>
+                                                <option value="15" <?php if ($sta == 15) {
+                                                                        echo 'selected';
+                                                                    } ?>>แก้ไข
+                                                </option>
+                                                <option value="1" <?php if ($sta == 1) {
+                                                                        echo 'selected';
+                                                                    } ?>>ชำระค่าธรรมเนียมประกาศโฆษณา
+                                                </option>
+                                                <option value="2" <?php if ($sta == 2) {
+                                                                        echo 'selected';
+                                                                    } ?>>ประกาศโฆษณา
+                                                </option>
+                                                <option value="3" <?php if ($sta == 3) {
+                                                                        echo 'selected';
+                                                                    } ?>>ยื่นตรวจสอบการประดิษฐ์
+                                                </option>
+                                                <option value="4" <?php if ($sta == 4) {
+                                                                        echo 'selected';
+                                                                    } ?>>ชำระค่าออกสิทธิบัตร
+                                                </option>
+                                                <option value="5" <?php if ($sta == 5) {
+                                                                        echo 'selected';
+                                                                    } ?>>ชำระค่าออกอนุสิทธิบัตร
+                                                </option>
+                                                <option value="6" <?php if ($sta == 6) {
+                                                                        echo 'selected';
+                                                                    } ?>>ออกสิทธิบัตร
+                                                </option>
+                                                <option value="7" <?php if ($sta == 7) {
+                                                                        echo 'selected';
+                                                                    } ?>>ออกอนุสิทธิบัตร
+                                                </option>
+                                                <option value="8" <?php if ($sta == 8) {
+                                                                        echo 'selected';
+                                                                    } ?>>ชำระค่าธรรมเนียมสิทธิบัตรรายปี
+                                                </option>
+                                                <option value="9" <?php if ($sta == 9) {
+                                                                        echo 'selected';
+                                                                    } ?>>ชำระค่าธรรมเนียมอนุสิทธิบัตรรายปี
+                                                </option>
+                                                <option value="10" <?php if ($sta == 10) {
+                                                                        echo 'selected';
+                                                                    } ?>>ไม่มีขั้นการประดิษฐ์ที่สูงขึ้น
+                                                </option>
+                                                <option value="11" <?php if ($sta == 11) {
+                                                                        echo 'selected';
+                                                                    } ?>>ชี้แจงข้อโต้แย้ง
+                                                </option>
+                                                <option value="12" <?php if ($sta == 12) {
+                                                                        echo 'selected';
+                                                                    } ?>>เปลี่ยนแปลงสิทธิ
+                                                </option>
+                                                <option value="13" <?php if ($sta == 13) {
+                                                                        echo 'selected';
+                                                                    } ?>>ละทิ้งคำขอ
+                                                </option>
+                                                <option value="14" <?php if ($sta == 14) {
+                                                                        echo 'selected';
+                                                                    } ?>>สิ้นอายุ
+                                                </option>
+                                            </select>
+                                    </td>
 
-                                <th>หมายเหตุ</th>
-                                <td>
-                                    <div class="container" style="  margin-left:47px; ">
-                                        <input type="text" placeholder="xxxx" name="note" required="" value="<?php echo $note; ?>">
-                                    </div>
-                                </td>
+                                    <th>หมายเหตุ</th>
+                                    <td>
+                                        <div class="container" style="  margin-left:47px; ">
+                                            <input type="text" placeholder="" name="note" required="" value="<?php echo $note; ?>">
+                                        </div>
+                                    </td>
 
                             </div>
                         </tr>

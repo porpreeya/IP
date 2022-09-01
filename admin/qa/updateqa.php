@@ -1,8 +1,8 @@
 <?php
-
+include("../../includes/config.inc.php");
 //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
 
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 
 
 $ID_q = $_GET['ID_q'];

@@ -2,7 +2,7 @@
 
 $box2 = iconv("utf-8", "tis-620", $_REQUEST["agent"]);
 
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
 $data = mssql_query("SELECT * FROM ques ");
 

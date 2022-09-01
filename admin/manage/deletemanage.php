@@ -1,5 +1,6 @@
 <?php 
-$objDB = mssql_select_db("intelle");
+include("../../includes/config.inc.php");
+// $objDB = mssql_select_db("intelle");
 $data = mssql_query(" SELECT * FROM tb_IP")
 or die(mssql_error());
 

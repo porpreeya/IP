@@ -2,7 +2,7 @@
 
 
 
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
 $data = mssql_query("SELECT * FROM banner where status='1' ");
 

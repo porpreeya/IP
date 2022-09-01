@@ -1,9 +1,10 @@
 <?php 
-$objDB = mssql_select_db("intelle");
+include("../../includes/config.inc.php");
+// $objDB = mssql_select_db("intelle");
 $data = mssql_query(" SELECT * FROM ques")
 or die(mssql_error());
 
-$IDban = $_GET['ID'];
+$ID_q = $_GET['ID_q'];
 $sql = "DELETE FROM ques WHERE ID_q = '$ID_q'";
 
   mssql_query($sql);

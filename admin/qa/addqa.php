@@ -13,7 +13,7 @@
 
 //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
 $ID_q = $_GET['ID_q'];
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 $data = mssql_query("SELECT * FROM ques WHERE ID_q='$ID_q'")
     or die(mssql_error());
 

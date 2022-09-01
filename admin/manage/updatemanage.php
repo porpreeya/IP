@@ -1,6 +1,7 @@
 <?php
+include("../../includes/config.inc.php");
 // ไอดีที่เราทำการดึงเพื่อนำมาแก้ไข
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 $ID_ip = $_GET['ID_ip'];
 $name = iconv("utf-8", "tis-620", $_POST['name']);
 $type = iconv("utf-8", "tis-620", $_POST['type']);

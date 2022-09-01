@@ -219,7 +219,7 @@ margin-left and margin-right + width = 100%*/
     <div class="box2">
         <!-- //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข -->
            <?php $ID = $_GET['ID'];
-            $objDB = mssql_select_db("intelle");
+            // $objDB = mssql_select_db("intelle");
             $data = mssql_query("SELECT * FROM consider WHERE ID='$ID'")
                 or die(mssql_error());
 

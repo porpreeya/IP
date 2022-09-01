@@ -187,7 +187,7 @@
 <body class="body">
     <?
     $image = iconv("tis-620", "utf-8", $info['image']);
-    $objDB = mssql_select_db("intelle");
+    // $objDB = mssql_select_db("intelle");
     $data = mssql_query("SELECT * FROM news ")
         or die(mssql_error()); ?>
     <h2 class="glow">เพิ่มข่าวทรัพย์สินทางปัญญา</h2><br>

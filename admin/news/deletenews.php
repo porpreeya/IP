@@ -1,6 +1,6 @@
 <?php 
-
-$objDB = mssql_select_db("intelle");
+include("../../includes/config.inc.php");
+// $objDB = mssql_select_db("intelle");
 $data = mssql_query(" SELECT * FROM news")
 or die(mssql_error());
 

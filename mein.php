@@ -1,77 +1,6 @@
 <?
-$objDB = mssql_select_db("intelle");
+// $objDB = mssql_select_db("intelle");
 $data = mssql_query("SELECT TOP 6 * from banner ORDER BY ID_ban DESC");
-// $sql        = "SELECT *FROM news WHERE ID ='1'";
-// $result     = $db_tm->sql_query($sql);
-// $rows       = $db_tm->sql_fetchrow($result);
-// $image      = $rows['image'];
-// $path      = '../IP/uploads/';
-
-// $sql9        = "SELECT *FROM banner WHERE ID_ban ='31'";
-// $result9     = $db_tm->sql_query($sql9);
-// $rows9       = $db_tm->sql_fetchrow($result9);
-// $image4      = $rows['image'];
-// $path4      = '../IP/uploads/';
-
-// $sql10        = "SELECT *FROM banner WHERE ID_ban ='30'";
-// $result10     = $db_tm->sql_query($sql10);
-// $rows10       = $db_tm->sql_fetchrow($result10);
-// $image5      = $rows['image'];
-// $path5      = '../IP/uploads/';
-
-// $sql11        = "SELECT *FROM banner WHERE ID_ban ='29'";
-// $result11     = $db_tm->sql_query($sql11);
-// $rows11       = $db_tm->sql_fetchrow($result11);
-// $image6      = $rows['image'];
-// $path6      = '../IP/uploads/';
-
-// $sql12        = "SELECT *FROM banner WHERE ID_ban ='14'";
-// $result12     = $db_tm->sql_query($sql12);
-// $rows12       = $db_tm->sql_fetchrow($result12);
-// $image7      = $rows['image'];
-// $path7      = '../IP/uploads/';
-
-// $sql2        = "SELECT * FROM news WHERE ID ='13'";
-// $result2    = $db_tm->sql_query($sql2);
-// $rows2       = $db_tm->sql_fetchrow($result2);
-// $image2      = $rows2['image'];
-// $path2       = '../IP/uploads/';
-
-// $sql3       = "SELECT * FROM news WHERE ID ='14'";
-// $result3    = $db_tm->sql_query($sql3);
-// $rows3      = $db_tm->sql_fetchrow($result3);
-// $image3      = $rows3['image'];
-// $path3       = '../IP/uploads/';
-
-// $sql4        = "SELECT * FROM news WHERE ID ='4'";
-// $result4    = $db_tm->sql_query($sql4);
-// $rows4      = $db_tm->sql_fetchrow($result4);
-// $image4      = $rows4['image'];
-// $path4       = '../IP/uploads/';
-
-
-// $sql5        = "SELECT * FROM news WHERE ID ='8'";
-// $result5    = $db_tm->sql_query($sql5);
-// $rows5      = $db_tm->sql_fetchrow($result5);
-// $image5      = $rows5['image'];
-// $path5       = '../IP/uploads/';
-
-// $sql6        = "SELECT * FROM news WHERE ID ='9'";
-// $result6    = $db_tm->sql_query($sql6);
-// $rows6      = $db_tm->sql_fetchrow($result6);
-// $image6      = $rows6['image'];
-// $path6       = '../IP/uploads/';
-
-
-// $sql7        = "SELECT *FROM news WHERE ID ='10'";
-// $result7     = $db_tm->sql_query($sql7);
-// $rows7       = $db_tm->sql_fetchrow($result7);
-// $image7      = $rows7['image'];
-// $path7       = '../IP/uploads/';
-
-// $sql8        = "SELECT *FROM tb_IP WHERE ID_ip ='1'";
-// $result8     = $db_tm->sql_query($sql8);
-// $rows8       = $db_tm->sql_fetchrow($result8);
 
 ?>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -181,7 +110,7 @@ $data = mssql_query("SELECT TOP 6 * from banner ORDER BY ID_ban DESC");
 
   .box2 {
     width: 85%;
-    height: 150px;
+    height: 180px;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(5px);
     background-color: #FFE8E8;
@@ -280,6 +209,11 @@ $data = mssql_query("SELECT TOP 6 * from banner ORDER BY ID_ban DESC");
   .pu {
     padding-left: 140px;
   }
+
+  .pagination3 a.active3 {
+    background-color: dodgerblue;
+    color: white;
+  }
 </style>
 
 <div class="shell2">
@@ -332,77 +266,78 @@ $data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DE
     <div class="box">
       <h3>ข่าวทรัพย์สินทางปัญญา</h3>
       <br>
-     
+
     </div>
     <?
-      $allData = array();
-      while ($info = mssql_fetch_array($data2)) {
-          $news = iconv("utf-8","tis-620",  $info['news']);
-          // $date = iconv("tis-620", "utf-8", $info['date']);
+    $allData = array();
+    while ($info = mssql_fetch_array($data2)) {
+      $news = iconv("utf-8", "tis-620",  $info['news']);
+      // $date = iconv("tis-620", "utf-8", $info['date']);
 
-          array_push($allData, $info);
-      }
-      //echo '<pre>'.var_dump($allData).'</pre>' ;
-      $arrData = array_chunk($allData, 6);
-      ?>
+      array_push($allData, $info);
+    }
+    //echo '<pre>'.var_dump($allData).'</pre>' ;
+    $arrData = array_chunk($allData, 6);
+    ?>
     <div class="slider">
       <div class="slider-holder2">
         <ul>
 
-       <?php for ($i = 0; $i < count($arrData); $i++) : ?>
-          <li>
-          <?php
-            foreach ($arrData[$i] as $key => $val) {
-            // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
-            ?>
-            <div class="box5">
-              <br>
+          <?php for ($i = 0; $i < count($arrData); $i++) : ?>
+            <li>
+              <?php
+              foreach ($arrData[$i] as $key => $val) {
+                // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+              ?>
+                <div class="box5">
+                  <br>
 
-              <div class="entry">
-                <center>
-                  <img id="showimg" src="uploads/<?php echo $val[2] ?> " height="120px">
+                  <div class="entry">
+                    <center>
+                      <img id="showimg" src="uploads/<?php echo $val[2] ?> " height="120px">
 
-                </center><br>
+                    </center><br>
 
-                <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $val[1]), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil<? echo $key;?>"><span>อ่านต่อ </span></a></p>
-              </div>
-              <div id="popup_flight_travlDil<? echo $key;?>" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
-                  <p class="pu"><img id="showimg" src="uploads/<?php echo $val[2] ?> " width="60%"></p>
-                  <a class="close_flight_travelDl" href="# popup_flight_travlDil<? echo $key;?>">&times;</a>
-                  <div class="content_flightht_travel_dil">
-                    <? echo iconv("tis-620", "utf-8", $val[1]) ?>
+                    <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $val[1]), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil<? echo $val["ID"]; ?>"><span>อ่านต่อ </span></a></p>
                   </div>
-                </div>
-              </div>
+                  <div id="popup_flight_travlDil<? echo $val["ID"]; ?>" class="overlay_flight_traveldil">
+                    <div class="popup_flight_travlDil">
+                      <p class="pu"><img id="showimg" src="uploads/<?php echo $val[2] ?> " width="60%"></p>
+                      <a class="close_flight_travelDl" href="# popup_flight_travlDil<? echo $val["ID"]; ?>">&times;</a>
+                      <div class="content_flightht_travel_dil">
+                        <? echo iconv("tis-620", "utf-8", $val[1]) ?>
+                      </div>
+                    </div>
+                  </div>
 
-            </div>
-            <?php } ?>
-</li>
-<?php endfor; ?> </ul>
-           
-       
+                </div>
+              <?php } ?>
+            </li>
+          <?php endfor; ?>
+        </ul>
+
+
       </div>
       <div class="slider-navigation2">
-       
-      <div class=" pagination2">
 
-        <!-- <li><a href="#" class="active">1</a></li>
+        <div class=" pagination2">
+
+          <!-- <li><a href="#" class="active">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li> -->
-        <!-- <a href="#">&laquo;</a> -->
-        <a href="#">1</a>
-        <a class="active2" href="#">2</a>
-        <a href="#">3</a>
-       
-        <!-- <a href="#">&raquo;</a> -->
+          <!-- <a href="#">&laquo;</a> -->
+          <a href="#">1</a>
+          <a class="active2" href="#">2</a>
+          <a href="#">3</a>
 
+          <!-- <a href="#">&raquo;</a> -->
+
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
 </div>
@@ -412,82 +347,91 @@ $data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip
 ?>
 </div>
 <div>
-                    <?php
-                    //เริ่ม
-                    $allData = array();
-                    while ($info = mssql_fetch_array($data3)) {
-                        // $question = iconv("tis-620", "utf-8", $info['question']);
-                        // $date = iconv("tis-620", "utf-8", $info['date']);
+  <?php
+  //เริ่ม
+  $allData = array();
+  while ($info = mssql_fetch_array($data3)) {
+    // $question = iconv("tis-620", "utf-8", $info['question']);
+    // $date = iconv("tis-620", "utf-8", $info['date']);
 
-                        array_push($allData, $info);
-                    }
-                    //echo '<pre>'.var_dump($allData).'</pre>' ;
-                    $arrData = array_chunk($allData, 3);
-                    ?>
+    array_push($allData, $info);
+  }
+  //echo '<pre>'.var_dump($allData).'</pre>' ;
+  $arrData = array_chunk($allData, 3);
+  ?>
 
-                </div>
+</div>
 <!-- ทรัพย์สินที่จดใหม่ -->
 <div id="main1">
   <div class="shell">
     <div class="box">
-      <h3>รายการทรัพย์สินทางปัญญาที่ขึ้นทะเบียนใหม่</h3>
+      <h3>รายการทรัพย์สินทางปัญญาที่ได้รับการขึ้นทะเบียนแล้ว</h3>
       <br>
     </div>
     <div class="slider">
       <div class="slider-holder3">
         <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
           <div class="jcarousel-clip jcarousel-clip-horizontal">
-            <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:500px; left: 0px;">
-            <?php for ($i = 0; $i < count($arrData); $i++) : ?>
-            <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
-            <?php
-           foreach ($arrData[$i] as $key => $val) {
-                                            // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
-            ?>
-            <div class="box2">
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td style="width:auto;">ชื่อเรื่อง :</td>
-                        <td class="td1"> <? echo iconv("tis-620", "utf-8", $val[11]) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ทรงสิทธิ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $val[12]) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>ผู้ประดิษฐ์ :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $val[15]) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br>
-                  <br>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>วันที่จดเลขทะเบียน :</td>
-                        <td class="td1"><? echo iconv("tis-620", "utf-8", $val[8]) ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-                <?php } ?>
-              </li>
+            <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:580px; left: 0px;">
+              <?php for ($i = 0; $i < count($arrData); $i++) : ?>
+                <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
+                  <?php
+                  foreach ($arrData[$i] as $key => $val) {
+                    // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+                  ?>
+                    <div class="box2">
+                      <br>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td style="width:auto;">ชื่อเรื่อง :</td>
+                            <td class="td1"> <? echo iconv("tis-620", "utf-8", $val[11]) ?></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <br>
+                      <br>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>ผู้ทรงสิทธิ์ :</td>
+                            <td class="td1"><? echo iconv("tis-620", "utf-8", $val[12]) ?></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <br>
+                      <br>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>ผู้ประดิษฐ์ :</td>
+                            <td class="td1"><? echo iconv("tis-620", "utf-8", $val[15]) ?></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <br>
+                      <br>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>วันที่จดเลขทะเบียน :</td>
+                            <td class="td1"><? echo iconv("tis-620", "utf-8", $val[8]) ?></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <br><br>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>เเบบพิมพ์คำขอสิทธิบัตร :</td>
+                            <td class="td1"><a id="file" class="outset1" href="uploadpdf/<?php echo $val[20] ?>" target="-blank" ><h3>ดาวน์โหลด</h3></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <br>
+                  <?php } ?>
+                </li>
               <?php endfor; ?>
             </ul>
           </div>
@@ -503,12 +447,12 @@ $data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li> -->
-            
+
             <a href="#">1</a>
             <a class="active3" href="#">2</a>
             <a href="#">3</a>
-            
-          
+
+
           </div>
         </div>
       </div>

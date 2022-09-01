@@ -1,10 +1,10 @@
 <?php 
-
-$objDB = mssql_select_db("intelle");
+include("../../includes/config.inc.php");
+// $objDB = mssql_select_db("intelle");
 $data = mssql_query(" SELECT * FROM consider")
 or die(mssql_error());
 
-$IDban = $_GET['ID'];
+$ID = $_GET['ID'];
 $sql = "update consider set status='0' WHERE ID = '$ID'";
 
   mssql_query($sql);
