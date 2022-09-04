@@ -22,7 +22,7 @@ $framename = iconv("utf-8", "tis-620", $_POST['framename']);
 $projectcode = iconv("utf-8", "tis-620", $_POST['projectcode']);
 $contract = iconv("utf-8", "tis-620", $_POST['contract']);
 $genus = iconv("utf-8", "tis-620", $_POST['genus']);
-// $attachment= iconv("utf-8", "tis-620", $_FILES['attachment']['name']);
+$agency= iconv("utf-8", "tis-620", $_POST['agency']);
 $benefit = iconv("utf-8", "tis-620", $_POST['benefit']);
 $lead = iconv("utf-8", "tis-620", $_POST['lead']);
 $sta = iconv("utf-8", "tis-620", $_POST['sta']);
@@ -44,7 +44,7 @@ $newfilename3 = round(microtime(true)) . '3.' . end($temp3);
 $sql = ("UPDATE tb_IP SET type='{$type}', offer='{$offer}',numfeduest='{$numfeduest}',numregister='{$numregister}', agent='{$agent}',
 datenumregister='{$datenumregister}',kind='{$kind}',title='{$title}',holdre='{$holdre}',team='{$team}',affiliation='{$affiliation}',inventor='{$inventor}',
 inventors='{$inventors}',framename='{$framename}',projectcode='{$projectcode}',contract='{$contract}',genus='{$genus}',
-benefit='{$benefit}',lead='{$lead}',sta ='{$sta }',note='{$note}' WHERE ID_ip='{$ID_ip}'");
+benefit='{$benefit}',lead='{$lead}',sta ='{$sta }',note='{$note}',agency ='{$agency }' WHERE ID_ip='{$ID_ip}'");
 
 $objQuery = mssql_query($sql);
 

