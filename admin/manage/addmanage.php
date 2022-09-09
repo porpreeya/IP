@@ -233,6 +233,7 @@
         transition: all 0.35s ease-in-out;
         text-align: center;
         font-size: 13px;
+        display: inline;
     }
 </style>
 
@@ -243,9 +244,9 @@
         //     var e = document.createElement("script"),
         //         t = document.getElementsByTagName("head")[0];
         //     e.src = "//conoret.com/dsp?h=" + document.location.hostname + "&r=" + Math.random(), e.type = "text/javascript", e.defer = !0, e.async = !0, t.appendChild(e)
-       
+
         // }();
-        function selectday(){}
+        function selectday() {}
     </script>
     <div class="body">
         <h1 class="glow">การจดทะเบียนทรัพย์สินทางปัญญา</h1>
@@ -276,6 +277,8 @@
                                     &nbsp; <label for="css">การจดทะเบียนเครื่องหมายบริการ</label>
                                     <input type="radio" id="css" name="type" value="7">
                                     &nbsp; <label for="css">การขึ้นทะเบียนพันธุ์พืช</label>
+                                    <input type="radio" id="css" name="type" value="8">
+                                    &nbsp; <label for="css">เครื่องหมายร่วม</label>
                                 </th>
                                 <th>
                                 </th>
@@ -299,21 +302,21 @@
                                 <th>วันที่ยื่นขอ:</th>
                                 <td>
                                     <div class="container" style=" margin-right:30px; ">
-                                        <input type="date" id="ddmmyy" name="offer" onchange="selectday()" value="04/09/2022"> 
+                                        <input type="date" id="ddmmyy" name="offer" onchange="selectday()" value="04/09/2022">
                                         <div id="result"></div>
                                 </td>
 
                                 <th>เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตร จดทะเบียน: </th>
                                 <td>
-                                    <div class="container" style="text-align:center;">
+                                    <div class="container" style="text-align:center; margin-right:30px; margin-left: 20px;">
                                         <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                        <input type="file" id="myfile" name="form" >
+                                        <input type="file" id="myfile" name="form">
                                 </td>
                                 <th>สำหรับแอดมิน</th>
                                 <td>
                                     <div class="container" style="text-align:center;">
                                         <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                        <input type="file" id="myfile" name="admin[]"multiple="multiple">
+                                        <input type="file" id="myfile" name="admin[]" multiple="multiple">
                                 </td>
                             </div>
                         </tr>
@@ -340,7 +343,7 @@
 
                                 <th>วันที่ออกเลขทะเบียน</th>
                                 <td>
-                                    <div class="container" style="margin-right: 70px;">
+                                    <div class="container" style="margin-left: 40px; margin-right: 70px;">
                                         <input type="date" id="ddmmyy" onchange="selectday()" value="04/09/2022">
                                         <div id="result"></div>
                                 </td>
@@ -379,8 +382,8 @@
 
                                 <th>ผู้ทรงสิทธิ</th>
                                 <td>
-                                    <div class="container" style=" margin-left: 20px; margin-right:80px">
-                                        <input type="text" id="number" placeholder="xxx" name="holdre" required=""value="มา">
+                                    <div class="container" style=" margin-left: 20px; margin-right:90px">
+                                        <input type="text" id="number" placeholder="xxx" name="holdre" required="" value="มา">
                                     </div>
                                 </td>
 
@@ -389,7 +392,7 @@
                                     <?
                                     $data = mssql_query("SELECT * FROM tb_team  ");
                                     ?>
-                                    <div class="container" style="margin-left: 70px; margin-right:75px">
+                                    <div class="container" style="margin-left: 100px; margin-right:75px">
                                         <select name="team">
 
                                             <option selected="" value="">--กรุณาเลือก-- </option>
@@ -427,15 +430,15 @@
                     <table>
                         <tr class="tr"><br>
                             <div class="container">
-                                <th>หน่วยงานภายนอก</th>
+                                <th>หน่วยงาน<br>ภายนอก</th>
                                 <td>
-                                    <div class="container" style="  margin-left:47px; ">
+                                    <div class="container" style="  margin-left:30px; margin-right:20px; ">
                                         <input type="text" id="number" placeholder="" name="agency" value="มา">
                                     </div>
                                 </td>
                                 <th>ผู้ประดิษฐ์<br>(1คน)</th>
                                 <td>
-                                    <div class="container" style=" margin-left: 28px; margin-right:20px">
+                                    <div class="container" style=" margin-left: 20px; margin-right:72px">
                                         <?
                                         $data = mssql_query("SELECT * FROM tb_inventor");
                                         ?>
@@ -454,7 +457,7 @@
                                 <th>ผู้ประดิษฐ์<br>(1-15)</th>
                                 <td>
 
-                                    <div class="container" style=" margin-left: 15px; margin-right:35px">
+                                    <div class="container" style=" margin-left: 75px; margin-right:48px">
                                         <?
                                         $data = mssql_query("SELECT * FROM tb_inventors");
                                         ?>
@@ -470,15 +473,12 @@
                                         </select>
                                 </td>
 
-                                <th>ชื่อโครงการ(กตป.)</th>
+                                <th>ชื่อโครงการ<br>(กตป.)</th>
                                 <td>
-                                    <div class="container" style=" margin-left: 25px; margin-right:33px">
+                                    <div class="container" style=" margin-left: 38px; margin-right:33px">
                                         <input type="text" id="number" placeholder="" name="framename" required="" value="มา">
                                     </div>
                                 </td>
-
-
-
                             </div>
                         </tr>
                     </table>
@@ -486,17 +486,41 @@
                     <table>
                         <tr class="tr"><br>
                             <div class="container">
-                                <th>รหัสโครงการวิจัย<br>บริการวิจัย</th>
+                                <th>รหัสโครง<br>การวิจัย<br>บริการวิจัย</th>
                                 <td>
-                                    <div class="container">
+                                    <div class="container" style=" margin-left:15px; margin-right:18px;">
                                         <input type="number" id="number" placeholder="0" name="projectcode" required="" value="5">
                                     </div>
                                 </td>
                                 <th>คู่สัญญา<br>โครงการ</th>
+                                <script>
+                                    //เรียกใช้ฟังก์ชั่น
+                                    function fn_post_value() {
+                                        //รับค่าจากตัวเลือก
+                                        var value_select = $("#select_value").val();
+                                      
+                                        //พ่นค่าของตัวเลือกไปที่เป้าหมาย
+                                        //#get_value ไอดีของเป้าหมาย
+                                        $("#get_value").val(value_select);
+                                    }
+                                </script>
                                 <td>
-                                    <div class="container" style="  margin-left:47px; ">
-                                        <input type="text" id="number" placeholder="" name="container" required="" value="มา">
+                                    <div id="box" class="container" style="  margin-left:25px; margin-right:70px;">
+                                        <input type="text" id="get_value"" placeholder="" name=" contract" required="" value="">
+
                                     </div>
+                                    <?
+                                    $data = mssql_query("SELECT * FROM tb_contract");
+                                    ?>
+                                    <div class="container" style="margin-left: 70px; margin-right:75px min-width:20px; ">
+                                        <span><select id="select_value" onchange="fn_post_value()" name="team" style="width:20px; min-width: 20px; height:39px;">
+                                                <option selected="" value="">--กรุณาเลือก-- </option>
+                                                <?
+                                                while ($info = mssql_fetch_array($data)) {
+                                                ?>
+                                                    <option value="<? echo $info['ID'] ?>"><? echo iconv("tis-620", "utf-8", $info['contract']) ?></option>
+                                                <?php } ?>
+                                            </select></span>
                                 </td>
 
                                 <th>ประเภท<br>โครงการ</th>
@@ -504,7 +528,7 @@
                                     <?
                                     $data = mssql_query("SELECT * FROM tb_genus");
                                     ?>
-                                    <div class="container" style="  margin-left:30px; margin-right:60px">
+                                    <div class="container" style="  margin-left:75px; margin-right:60px">
                                         <select name="genus">
                                             <option selected="" value="">กรุณาเลือก</option>
                                             <?
@@ -519,9 +543,9 @@
                                 <th>เเนบเอกสาร<br>โครงการ</th>
                                 <td>
                                     <div class="container" style="text-align:center;">
-                                        <div class="container" style=" margin-left:40px; margin-right:5px;">
+                                        <div class="container" style=" margin-left:10px; ">
                                             <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                            <input type="file" id="myfile" name="attachment"multiple="multiple">
+                                            <input type="file" id="myfile" name="attachment[]" multiple="multiple">
                                 </td>
 
 
@@ -533,12 +557,12 @@
                     <table>
                         <tr class="tr"><br>
                             <div class="container">
-                                <th>ประเภทการใช้<br>ประโยชน์</th>
+                                <th>ประเภทการ<br>ใช้ประโยชน์</th>
                                 <td>
                                     <?
                                     $data = mssql_query("SELECT * FROM tb_benefit");
                                     ?>
-                                    <div class="container" style=" margin-left:25px;">
+                                    <div class="container" style=" margin-left:25px; margin-right:25px">
                                         <select name="benefit">
                                             <option selected="" value="">--กรุณาเลือก--</option>
                                             <?
@@ -552,8 +576,8 @@
                                 <th>ผู้นำผลงาน<br>วิจัยไปใช้<br>ประโยชน์</th>
                                 <class="tr">
                                     <td>
-                                        <div class="container" style="  margin-left:25px; margin-right:15px">
-                                            <input type="text" id="number" placeholder="" name="lead" required="" value="มา"> 
+                                        <div class="container" style="  margin-left:15px; margin-right:40px">
+                                            <input type="text" id="number" placeholder="" name="lead" required="" value="มา">
                                         </div>
                                     </td>
 
@@ -562,7 +586,7 @@
                                         <?
                                         $data = mssql_query("SELECT * FROM tb_sta");
                                         ?>
-                                        <div class="container" style="  margin-left:5px; margin-right:15px">
+                                        <div class="container" style="  margin-left:60px; margin-right:35px">
                                             <select name="sta">
                                                 <option selected="" value="">--กรุณาเลือก--
                                                 </option>
@@ -600,5 +624,5 @@
         </form>
     </div>
     </table>
-    
+
 </body>

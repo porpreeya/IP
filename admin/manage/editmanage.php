@@ -6,6 +6,7 @@
         text-decoration: none;
         margin-top: 10px;
         color: blue;
+        text-align: center;
     }
 
     .glow1 {
@@ -193,7 +194,7 @@
 
     .form {
         width: 1500px;
-        height: 1240px;
+        height: 1100px;
         background: #e6e6e6;
         border-radius: 8px;
         box-shadow: 0 0 40px -10px #000;
@@ -245,7 +246,7 @@
         color: #303030;
         font-size: 13px;
         font-weight: 400;
-
+        min-width: 184px;
         border-radius: 5px;
         -webkit-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
         -moz-box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.05), 1px 1px 0px rgba(255, 255, 255, 1);
@@ -278,7 +279,7 @@
         font-size: 13px;
         padding: 1em;
         line-height: 1.4;
-
+        min-width: 184px;
         background-color: #ffffff;
         border: 1px solid #e5e5e5;
         border-radius: 4px;
@@ -345,7 +346,7 @@
         ?>
             <form action="manage/updatemanage.php?ID_ip=<?php echo $info['ID_ip']; ?>" method="post" enctype="multipart/form-data">
                 <div class="form">
-                    <br>
+                    
                     <table class="center1">
                         <tbody>
                             <tr>
@@ -387,64 +388,69 @@
                     </table>
                     <table>
                         <tr class="tr">
-                            <br>
+                            
                             <div class="container">
 
-                                <style=" width: 100px;"></style>
-                                <th>เลขที่คำขอ: </th>
-                                </style>
-                                <td>
-                                    <div class="container">
-                                        <input type="number" id="number" name="numfeduest" required="" value="<?php echo $numregister; ?>">
-                                    </div>
-                                </td>
+                                <style=" width: 100px;">
+                                    </style>
+                                    <th style="width: 180px;">เลขที่คำขอ: </th>
+                                    </style>
+                                    <td>
+                                        <div class="container" style="margin-left:10px; margin-right:35px;">
+                                            <input type="number" id="number" name="numfeduest" required="" value="<?php echo $numregister; ?>">
+                                        </div>
+                                    </td>
 
-                                <th>วันที่ยื่นขอ:</th>
-                                <td>
-                                    <div class="container">
-                                        <input type="date" name="offer" value="<?php echo $offer; ?>">
-                                        <div id="result"></div>
-                                </td>
+                                    <th style="width: 220px; ">วันที่ยื่นขอ:</th>
+                                    <td>
+                                        <div class="container" style="margin-right:35px;">
+                                            <input type="date" name="offer" value="<?php echo $offer; ?>">
+                                            <div id="result"></div>
+                                    </td>
 
-                                <th>เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตร จดทะเบียน: </th>
-                                <td>
-                                    <div class="container" style=" display:inline;  margin-left:20px; color: black; margin-right:70px;">
-                                        <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                        <input type="file" id="myfile" name="form" style="width:180px;">
-                                        <a id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="-blank">เรียกดู</a>
-                                </td>
+                                    <th style="width: 360px; margin-right:25px;">เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตรจดทะเบียน: </th>
+                                    <td>
 
-                                <th>สำหรับแอดมิน</th>
-                                <td>
-                                    <div class="container" style="display:inline; text-align:center;  margin-left:40px; color: black;">
-                                        <label for="myfile">กรุณาเลือกไฟล์</label><input type="file" id="myfile" name="admin"><br>
-                                        <a id="file" class="outset1" href="../uploadpdf/<?php echo $admin ?>" target="-blank">เรียกดู</a>
-                                </td>
+                                        <div class="container" style=" display:inline;  margin-left:0px; color: black; margin-right:0px;">
+
+                                            <div class="container" style="text-align:center; margin-left:0px; color: black; ">
+
+                                                <label for="myfile">กรุณาเลือกไฟล์</label><br>
+                                                <input type="file" id="myfile" name="form" style="width:180px;">
+                                                <a id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="-blank">เรียกดู</a>
+                                    </td>
+
+                                    <th style="width: 210px; margin-right:35px;">สำหรับแอดมิน</th>
+                                    <td>
+                                        <div class="container" style="display:inline; text-align:center;  margin-left:0px; color: black;">
+                                            <label for="myfile">กรุณาเลือกไฟล์</label><input type="file" id="myfile" name="admin" style="width:180px;"><br>
+                                            <a id="file" class="outset1" style="text-align: center;" href="../uploadpdf/<?php echo $admin ?>" target="-blank">เรียกดู</a>
+                                    </td>
                             </div>
                         </tr>
                     </table>
 
                     <table>
-                        <tr class="tr"><br>
+                        <tr class="tr">
                             <div class="container">
 
-                                <th>ตัวเเทน</th>
+                                <th style="width: 85px;">ตัวเเทน</th>
                                 <td>
                                     <div class="container" style=" margin-left: 50px; margin-right:40px">
                                         <input type="text" placeholder="" name="agent" required="" value="<?php echo $agent; ?>">
                                     </div>
                                 </td>
 
-                                <th>เลขทะเบียน</th>
+                                <th style="width: 150px;">เลขทะเบียน</th>
                                 <td>
-                                    <div class="container" style=" margin-right:30px">
+                                    <div class="container" style=" margin-left:20px; margin-right:50px">
                                         <input type="number" id="number" placeholder="000000" name="numregister" required="" value="<?php echo $numregister; ?>">
                                     </div>
                                 </td>
 
-                                <th>วันที่ออกเลขทะเบียน</th>
+                                <th style="width: 170px;">วันที่ออกเลขทะเบียน</th>
                                 <td>
-                                    <div class="container" style="margin-left:30px; margin-right: 90px;">
+                                    <div class="container" style="margin-left:30px; margin-right: 40px;">
                                         <input type="date" name="datenumregister" value="<?php echo $datenumregister; ?>">
                                         <div id="result"></div>
                                 </td>
@@ -454,7 +460,7 @@
                                     <?
                                     $data = mssql_query("SELECT * FROM tb_kind");
                                     ?>
-                                    <div class="container" style="margin-left: 55px;">
+                                    <div class="container" style="margin-left: 35px;">
                                         <select name="kind"> Answer 1
                                             <option selected="" value="">--กรุณาเลือก--</option>
                                             <?
@@ -473,7 +479,7 @@
                     </table>
 
                     <table>
-                        <tr class="tr"><br>
+                        <tr class="tr">
                             <div class="container">
 
                                 <th>ชื่อเรื่อง</th>
@@ -557,11 +563,11 @@
                     </table>
 
                     <table>
-                        <tr class="tr"><br>
+                        <tr class="tr">
                             <div class="container">
                                 <th>หน่วยงานภายนอก</th>
                                 <td>
-                                    <div class="container" style="  margin-left:47px; ">
+                                    <div class="container" style="  margin-left:20px; ">
                                         <input type="text" id="number" placeholder="" name="agency" value="<?php echo $agency; ?>">
                                     </div>
                                 </td>
@@ -621,7 +627,7 @@
                     </table>
 
                     <table>
-                        <tr class="tr"><br>
+                        <tr class="tr">
                             <div class="container"">
                             <th>รหัสโครงการวิจัย<br>บริการวิจัย</th>
                                 <td>
@@ -687,7 +693,7 @@
                 </table>
 
                 <table>
-                    <tr class="tr"><br>
+                    <tr class="tr">
                         <div class="container">
                             <th>ประเภทการใช้<br>ประโยชน์</th>
                             <td>

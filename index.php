@@ -213,7 +213,7 @@ if ($mm == '') {
     <div class="shell">
       <ul>
         <li><a href="index.php" class="<? echo $class1; ?>"><span>หน้าหลัก</span></a></li>
-        <li><a href="index.php?mm=2" class="<? echo $class2; ?>"><span>ฐานข้อมูลการจดทะเบียน</span></a></li>
+        <li><a href="index.php?mm=2" class="<? echo $class2; ?>"><span class="span1">ฐานข้อมูลทรัพย์สินทางปัญญา</span></a></li>
         <li><a href="index.php?mm=3" class="<? echo $class3; ?>"><span>ข้อมูลตัวแทน</span></a></li>
         <li><a href="index.php?mm=4" class="<? echo $class4; ?>"><span class="span1">ถาม-ตอบด้านทรัพย์สินทางปัญญา</span></a></li>
       </ul>

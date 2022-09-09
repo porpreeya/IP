@@ -1,6 +1,6 @@
 <?
 // $objDB = mssql_select_db("intelle");
-$data = mssql_query("SELECT TOP 6 * from banner ORDER BY ID_ban DESC");
+$data = mssql_query("SELECT TOP 7 * from banner ORDER BY ID_ban DESC");
 
 ?>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -264,7 +264,7 @@ $data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DE
 <div id="main">
   <div class="shell">
     <div class="box">
-      <h3>ข่าวทรัพย์สินทางปัญญา</h3>
+      <h3>ข่าวประชาสัมพันธ์ด้านทรัพย์สินทางปัญญา</h3>
       <br>
 
     </div>
@@ -298,7 +298,7 @@ $data2 = mssql_query("SELECT TOP 18 * from news where status ='1' ORDER BY ID DE
 
                     </center><br>
 
-                    <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $val[1]), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil<? echo $val["ID"]; ?>"><span>อ่านต่อ </span></a></p>
+                    <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $val[1]), "", 501); ?><br><a button id="myBtn" href="#popup_flight_travlDil<? echo$val["ID"]; ?>"><span>อ่านต่อ </span></a></p>
                   </div>
                   <div id="popup_flight_travlDil<? echo $val["ID"]; ?>" class="overlay_flight_traveldil">
                     <div class="popup_flight_travlDil">
@@ -372,68 +372,73 @@ $data3 = mssql_query("SELECT TOP 9 * from tb_IP where status ='1' ORDER BY ID_ip
       <div class="slider-holder3">
         <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
           <div class="jcarousel-clip jcarousel-clip-horizontal">
+
             <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:580px; left: 0px;">
-              <?php for ($i = 0; $i < count($arrData); $i++) : ?>
-                <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
-                  <?php
-                  foreach ($arrData[$i] as $key => $val) {
-                    // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
-                  ?>
-                    <div class="box2">
+
+              <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:800px; left: 0px;">
+
+                <?php for ($i = 0; $i < count($arrData); $i++) : ?>
+                  <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
+                    <?php
+                    foreach ($arrData[$i] as $key => $val) {
+                      // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+                    ?>
+                      <div class="box2">
+                        <br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td style="width:auto;">ชื่อเรื่อง :</td>
+                              <td class="td1"> <? echo iconv("tis-620", "utf-8", $val[11]) ?></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>ผู้ทรงสิทธิ์ :</td>
+                              <td class="td1"><? echo iconv("tis-620", "utf-8", $val[12]) ?></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>ผู้ประดิษฐ์ :</td>
+                              <td class="td1"><? echo iconv("tis-620", "utf-8", $val[15]) ?></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>วันที่จดเลขทะเบียน :</td>
+                              <td class="td1"><? echo iconv("tis-620", "utf-8", $val[8]) ?></td>
+                            </tr>
+                          </tbody>
+                        </table> <br><br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>เเบบพิมพ์คำขอสิทธิบัตร :</td>
+                              <td class="td1"><a id="file" class="outset1" href="uploadpdf/<?php echo $val[20] ?>" target="-blank">
+                                  <h3>ดาวน์โหลด</h3>
+                                </a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                       <br>
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td style="width:auto;">ชื่อเรื่อง :</td>
-                            <td class="td1"> <? echo iconv("tis-620", "utf-8", $val[11]) ?></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <br>
-                      <br>
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>ผู้ทรงสิทธิ์ :</td>
-                            <td class="td1"><? echo iconv("tis-620", "utf-8", $val[12]) ?></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <br>
-                      <br>
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>ผู้ประดิษฐ์ :</td>
-                            <td class="td1"><? echo iconv("tis-620", "utf-8", $val[15]) ?></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <br>
-                      <br>
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>วันที่จดเลขทะเบียน :</td>
-                            <td class="td1"><? echo iconv("tis-620", "utf-8", $val[8]) ?></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <br><br>
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>เเบบพิมพ์คำขอสิทธิบัตร :</td>
-                            <td class="td1"><a id="file" class="outset1" href="uploadpdf/<?php echo $val[20] ?>" target="-blank" ><h3>ดาวน์โหลด</h3></a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <br>
-                  <?php } ?>
-                </li>
-              <?php endfor; ?>
-            </ul>
+                    <?php } ?>
+                  </li>
+                <?php endfor; ?>
+              </ul>
           </div>
         </div>
         <br>
