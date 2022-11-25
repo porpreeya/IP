@@ -159,7 +159,7 @@
 
 <body class="body">
 
-    <h2 class="glow">เพิ่มเเบนเนอร์</h2>
+    <h2 class="glow">เเก้ไขเเบนเนอร์</h2>
     <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=1&Submenu=showdel'; ">
         <p class="outset    ">ย้อนกลับ</p></a>
     <div class="container">

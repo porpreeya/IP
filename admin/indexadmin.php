@@ -56,6 +56,17 @@ if ($Menu == "1") {
   }
   
 } 
+else if ($Menu == "7") {
+  $selected4 = "class='selected'";
+  if ($Submenu == "showloginadd") {
+    $Fileshow = "loginadd/showloginadd.php";
+  } else if ($Submenu == "addlog") {
+    $Fileshow = "manage/addlog.php";
+  }else if ($Submenu == "editmanage") {
+    $Fileshow = "manage/editmanage.php";
+  }
+  
+} 
 else if ($Menu == "6") {
   $selected4 = "class='selected'";
   if ($Submenu == "home") {
@@ -80,9 +91,9 @@ else {
   <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
   <link rel="shortcut icon" type="image/x-icon" href="css/images/Anyt.ico" />
   <style>
     body,
@@ -153,6 +164,7 @@ else {
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=3&Submenu=showagent';"><i class='fas fa-address-card'>&nbsp</i>ข้อมูลตัวเเทน</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=4&Submenu=showqa';"><i class='fas fa-comments'>&nbsp</i>ถาม-ตอบ</a>
         <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=5&Submenu=showmanage';"><i class='fas fa-file-alt'>&nbsp</i>บริหารจัดการทรัพย์สินทางปัญญา</a>
+        <a class="sub-menu w3-bar-item w3-button" onclick="location. href='indexadmin.php?Menu=7&Submenu=showloginadd';"><i class='fas fa-address-card'></i>&nbsp</i>ข้อมูลAddmin</a>
       </div>
     </div>
   </div>

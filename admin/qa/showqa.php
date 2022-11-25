@@ -56,8 +56,8 @@ $data = mssql_query("SELECT * FROM ques ");
             padding: 0.5em 0;
             border-top: solid 3px black;
             border-bottom: solid 3px black;
-            width: 20%;
-            margin-left:600px;
+            width: 40%;
+            margin-left:450px;
             border-radius:10px ;
         }
 
@@ -106,7 +106,7 @@ $data = mssql_query("SELECT * FROM ques ");
 </head>
 
 <body>
-    <h1 class="glow">ถาม-ตอบ</h1>
+    <h1 class="glow">ถาม-ตอบ ด้านทรัพย์สินทางปัญญา</h1>
     <!-- <a href="#">
         <p class="outset">เพิ่มข้อมูลตัวเเทน</p>
     </a> -->

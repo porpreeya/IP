@@ -163,7 +163,7 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
         <div class="box3">
             <form action="question/question.php" method="post">
                 <div class="container">
-                    <h3>สอบถาม</h3><br>
+                    <h2>สอบถาม</h2><br>
                     <label for="text">อีเมล</label>
                     <input class="input1" type="mail" name="mail" placeholder="พิมพ์อีเมล...">
                     <label for="text">คำถาม</label>
@@ -252,12 +252,14 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
 </body>
 <div class="slider-navigation4 " ">
       <div class=" pagination4">
-
-    <a href="#">1</a>
+      <?php for ($i = 1; $i <= count($arrData); $i++) {
+echo '<a href="#">'.$i.'</a>';
+           } ?>
+    <!-- <a href="#">1</a>
     <a class="active4" href="#">2</a>
     <a href="#">3</a>
     <a href="#">4</a>
-    <a href="#">5</a>
+    <a href="#">5</a> -->
 
 </div>
 </div>

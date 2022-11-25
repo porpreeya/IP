@@ -135,7 +135,7 @@
             color: #494949;
             background: white;
             border-left: solid 7px #7db4e6;
-            width: 11%;
+            width: 13%;
         }
 
         .heading1 {
@@ -217,6 +217,11 @@
             </div>
             <input type="file" name="image" id="addimg" onchange="loadFile(event)">
             <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:200px; width:50;">
+            <div class="heading">
+            <h5>เเนบไฟล์เพิ่มเติม:</h5>
+            </div>
+            <label for="myfile">กรุณาเลือกไฟล์</label><br>
+            <input type="file" id="myfile" name="pdf_news">
             <div class="row">
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">

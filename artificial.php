@@ -1,4 +1,5 @@
 <?
+
 $box2 = iconv("utf-8", "tis-620", $_REQUEST["title"]);
 $box3 = iconv("utf-8", "tis-620", $_REQUEST["inventor"]);
 $box4 = iconv("utf-8", "tis-620", $_REQUEST["team"]);
@@ -11,31 +12,39 @@ $type = iconv("utf-8", "tis-620", $_REQUEST["type"]);
 
 if ($keyword == '1') {
     $key1 = "checked='true'";
-    $sql .= "SELECT * FROM tb_IP where datenumregister >='$fromDate' and datenumregister <='$toDate'";
+    $sql = "SELECT * FROM tb_IP where datenumregister >='$fromDate' and datenumregister <='$toDate'";
 } else if ($keyword == '2') {
     $key2 = "checked='true'";
-    $sql .= "SELECT * FROM tb_IP where  title like '%$box2%'";
+    $sql = "SELECT * FROM tb_IP where  title like '%$box2%'";
 } else  if ($keyword == '3') {
     $key3 = "checked='true'";
-    $sql .= "SELECT * FROM tb_IP where inventor like '%$box3%'";
+    $sql = "SELECT * FROM tb_IP where inventor like '%$box3%'";
 } else  if ($keyword == '4') {
     $key5 = "checked='true'";
-    $sql .= "SELECT * FROM tb_IP where team like '%$box4%'";
+    $sql = "SELECT * FROM tb_IP where team like '%$box4%'";
 } else  if ($search != "") {
     $key4 = "checked='true'";
-    $sql .= "SELECT * FROM tb_IP where title like '%$search%' or inventor like '%$search%'";
-} else {
-    $sql = "";
+    $sql = "SELECT * FROM tb_IP where title like '%$search%' or inventor like '%$search%'";
 }
-echo $sql;
+
 if ($type != "") {
-    $key6 = "checked='true'";
-    $sql .= "SELECT * FROM tb_IP where type like '%$type%'";
-} else {
-    $sql = "";
+    // $key6 = "checked='true'";
+    // $key7 = "checked='true'";
+    // $key8 = "checked='true'";
+    // $key9 = "checked='true'";
+    // $key10 = "checked='true'";
+    // $key11 = "checked='true'";
+    // $key12 = "checked='true'";
+    // $key13 = "checked='true'";
+    $sql = "SELECT * FROM tb_IP where type like '%$type%'";
+}
+
+if ($type == "" && $keyword == "" && count($_POST) > 0) {
+    $sql = "SELECT * FROM tb_IP ";
 }
 // $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
+// echo $sql;
 if ($sql != "") {
     $data = mssql_query($sql);
 }
@@ -51,7 +60,7 @@ if ($sql != "") {
     .body {
         /* background-image: url(../IP/img/d.jpg); */
         background-color: white;
-        min-height: 950px;
+        min-height: 1500px;
     }
 
     td,
@@ -86,7 +95,7 @@ if ($sql != "") {
 
 
     .td1 {
-        width: 600px;
+        width: 300px;
 
         /* border: 1px solid black;
         border-collapse: collapse; */
@@ -110,20 +119,19 @@ if ($sql != "") {
     }
 
     .box3 {
-        width: 75%;
-        height: 1300px;
+        width: 60%;
+        height: 350px;
         /* -webkit-backdrop-filter: blur(10px); */
         /* backdrop-filter: blur(5px);
         background-color: #e77a7a66; */
         border-radius: 0.25rem;
-        padding-left: 12%;
+        padding-left: 23%;
         align-items: center;
 
     }
 
     .box4 {
-
-        height: 175px;
+        height: 230px;
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(5px);
         background-color: #008dff4d;
@@ -132,6 +140,7 @@ if ($sql != "") {
         align-items: center;
         box-shadow: 0 7px #999;
         margin-top: 20px;
+        width: 760px;
     }
 
     .tt {
@@ -170,7 +179,7 @@ if ($sql != "") {
         transform: translateY(4px);
     }
 
-    .pagination2 a {
+    .pagination5 a {
         color: black;
         float: left;
         padding: 8px 16px;
@@ -179,12 +188,12 @@ if ($sql != "") {
 
     }
 
-    .pagination2 a.active2 {
+    .pagination5 a.active5 {
         background-color: dodgerblue;
         color: white;
     }
 
-    .pagination2 {
+    .pagination5 {
         margin-top: 100px;
         margin-left: 100%;
         width: 100%;
@@ -196,16 +205,16 @@ if ($sql != "") {
         padding: 20px;
         background: #def8e8;
         border-radius: 5px;
-        width: 20%;
+        width: 50%;
         position: relative;
         transition: all 2s ease-in-out;
         color: #000;
-        min-height: 252px;
+        min-height: 60%;
     }
 
     .popup_flight_travlDil .close_flight_travelDl {
         position: absolute;
-        top: 20px;
+
         right: 30px;
         transition: all 200ms;
         font-size: 30px;
@@ -217,7 +226,7 @@ if ($sql != "") {
     .popup_flight_travlDil .content_flightht_travel_dil {
         min-height: 170px;
         overflow: auto;
-
+        margin-top: 30px;
     }
 
     .pu {
@@ -303,6 +312,14 @@ if ($sql != "") {
         border-radius: 25px 0px 0px 25px;
     }
 
+    #main3 {
+        /* background-color: #ffebcd; */
+        margin-left: auto;
+        margin-right: auto;
+        height: 1500px;
+
+    }
+
     /* .glow1 {
         font-size: 26px;
         color: black;
@@ -318,271 +335,319 @@ if ($sql != "") {
     .th {
         font-size: 14px;
     }
+
+    .td2 {
+        width: 80px;
+    }
+    .td3{
+    width: 650px;
+    }
 </style>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+<script type="text/javascript" src="js/jquery-func.js"></script>
+<link rel="stylesheet" href="./css/style.css">
 <div class="body">
 
     <br>
-    <div class="shell"><br>
 
-        <form action="" method="POST">
 
-            <div class="box3">
+    <form action="" method="POST">
+
+        <div class="box3">
+            <div class="box">
+
+                <h3 align="left" class="tt">เงื่อนไขการเเสดงผล </h3>
                 <br>
-                <div class="box">
+            </div>
 
-                    <h3 align="left" class="tt">เงื่อนไขการเเสดงผล </h3>
+            <div class="box2">
+                <br>
+
+
+                <table>
+
+                    <table class="container" style="margin-left: 10px;">
+                        <tbody>
+                            <th class="th">
+                                <h3>ประเภทการจดทะเบียน</h3>
+                                <input <?php if ($type == 1) {
+                                            echo "checked";
+                                        } ?> style="margin-top:10px;" type="radio" id="type1" name="type" value="1">
+                                &nbsp; <label for="type1">สิทธิบัตรการประดิษฐ์</label>
+                                &nbsp; <input <?php if ($type == 2) {
+                                                    echo "checked";
+                                                } ?> type="radio" id="type2" name="type" value="2">
+                                &nbsp; <label for="type2">สิทธิบัตรการออกแบบผลิตภัณฑ์</label>
+                                <input <?php if ($type == 3) {
+                                            echo "checked";
+                                        } ?> type="radio" id="type3" name="type" value="3">
+                                &nbsp; <label for="type3">อนุสิทธิบัตร</label>
+                                <input <?php if ($type == 4) {
+                                            echo "checked";
+                                        } ?> type="radio" id="type4" name="type" value="4">
+                                <label for="type4">การจดทะเบียนเครื่องหมายการค้า</label>
+                                <br><input <?php if ($type == 5) {
+                                                echo "checked";
+                                            } ?> type="radio" id="type5" name="type" value="5">
+                                &nbsp; <label for="type5">การจดทะเบียนเครื่องหมายรับรอง</label>
+                                <input <?php if ($type == 6) {
+                                            echo "checked";
+                                        } ?> type="radio" id="type6" name="type" value="6">
+                                &nbsp; <label for="type6">การจดทะเบียนเครื่องหมายบริการ</label>
+                                <input <?php if ($type == 7) {
+                                            echo "checked";
+                                        } ?> type="radio" id="type7" name="type" value="7">
+                                &nbsp; <label for="type7">การขึ้นทะเบียนพันธุ์พืช</label>
+                                <input <?php if ($type == 8) {
+                                            echo "checked";
+                                        } ?> type="radio" id="type8" name="type" value="8">
+                                &nbsp; <label for="type8">เครื่องหมายร่วม</label>
+                            </th>
+
+                        </tbody>
+                    </table>
                     <br>
-                </div>
-
-                <div class="box2">
-                    <br>
-                    <?
-                    $data2 = mssql_query("SELECT * FROM tb_type");
-                    ?>
-
+                </table><br><br><br><br>
+                <hr><br>
+                <div class="container" style="margin-left: 35px;">
                     <table>
 
-                        <table class="container" style="margin-left: 10px;">
-                            <tbody>
-                                <th class="th">
-                                    <h3>ประเภทการจดทะเบียน</h3>
-                                    <input <?php echo $key6 ?> style="margin-top:10px;" type="radio" id="type1" name="type" value="1">
-                                    &nbsp; <label for="type1">สิทธิบัตรการประดิษฐ์</label>
-                                    &nbsp; <input <?php echo $key6 ?> type="radio" id="type2" name="type" value="2">
-                                    &nbsp; <label for="type2">สิทธิบัตรการออกแบบผลิตภัณฑ์</label>
-                                    <input <?php echo $key6 ?> type="radio" id="type3" name="type" value="3">
-                                    &nbsp; <label for="type3">อนุสิทธิบัตร</label>
-                                    <input <?php echo $key6 ?> type="radio" id="type4" name="type" value="4">
-                                    <label for="type4">การจดทะเบียนเครื่องหมายการค้า</label>
-                                    <br><input <?php echo $key6 ?> type="radio" id="type5" name="type" value="5">
-                                    &nbsp; <label for="type5">การจดทะเบียนเครื่องหมายรับรอง</label>
-                                    <input <?php echo $key6 ?> type="radio" id="type6" name="type" value="6">
-                                    &nbsp; <label for="type6">การจดทะเบียนเครื่องหมายบริการ</label>
-                                    <input <?php echo $key6 ?> type="radio" id="type7" name="type" value="7">
-                                    &nbsp; <label for="type7">การขึ้นทะเบียนพันธุ์พืช</label>
-                                    <input <?php echo $key6 ?> type="radio" id="type8" name="type" value="8">
-                                    &nbsp; <label for="type8">เครื่องหมายร่วม</label>
-                                </th>
+                        <tr>
+                            <td><input <?php echo $key1 ?> type="radio" id="html" name="keyword" value="1">
+                                <label for="html">ช่วงเวลา</label><br>
+                            </td>
+                            <td><input id="date2" type="date" name="fromDate" style="font-size:12px ;" value="<?php echo $_REQUEST["fromDate"] ?>"></td>
+                            <td>ถึง</td>
+                            <td><input id="date" type="date" name="toDate" style="font-size:12px ;" value="<?php echo $_REQUEST["toDate"] ?>"></td>
+                        </tr>
 
-                            </tbody>
-                        </table>
-                        <br>
-                    </table><br><br><br><br>
-                    <hr><br>
-                    <div class="container" style="margin-left: 35px;">
-                        <table>
+                    </table>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="radio" id="css" <?php echo $key2 ?> name="keyword" value="2">
+                                <label for="css">ค้นหาคำสงวน(Key word) </label><br>
+                            </td>
+                            <td>
+                                <div class="container">
+                                    <input type="text" id="title" name="title" value="<?php echo $_REQUEST["title"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <td><input type="radio" id="javascript" <?php echo $key3 ?> value="3" name="keyword">
+                                <label for="javascript">ค้นหาชื่อผู้ประดิษฐ์</label>
+                            </td>
+                            <td>
+                                <div class="container">
+                                    <input type="text" id="inventor" name="inventor" value="<?php echo $_REQUEST["inventor"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
 
-                            <tr>
-                                <td><input <?php echo $key1 ?> type="radio" id="html" name="keyword" value="1">
-                                      <label for="html">ช่วงเวลา</label><br></td>
-                                <td><input id="date2" type="date" name="fromDate" style="font-size:12px ;" value="<?php echo $_REQUEST["fromDate"] ?>"></td>
-                                <td>ถึง</td>
-                                <td><input id="date" type="date" name="toDate" style="font-size:12px ;" value="<?php echo $_REQUEST["toDate"] ?>"></td>
-                            </tr>
-
-                        </table>
-                        <br>
-                        <br>
-                        <table>
-                            <tr>
-                                <td>
-                                    <input type="radio" id="css" <?php echo $key2 ?> name="keyword" value="2">
-                                    <label for="css">ค้นหาคำสงวน(Key word) </label><br>
-                                </td>
-                                <td>
-                                    <div class="container">
-                                        <input type="text" id="title" name="title" value="<?php echo $_REQUEST["title"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <br>
-                        <br>
-                        <table>
-                            <tr>
-                                <td><input type="radio" id="javascript" <?php echo $key3 ?> value="3" name="keyword">
-                                    <label for="javascript">ค้นหาชื่อผู้ประดิษฐ์</label>
-                                </td>
-                                <td>
-                                    <div class="container">
-                                        <input type="text" id="inventor" name="inventor" value="<?php echo $_REQUEST["inventor"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <br>
-                        <br>
-                        <table>
-                            <tr>
-                                <td><input type="radio" id="teams" <?php echo $key5 ?> value="4" name="keyword">
-                                    <label for="team">ค้นหากลุ่มงาน/ศูนย์</label>
-                                </td>
-                                <td>
-                                    <div class="container">
-                                        <input type="text" id="team" name="team" value="<?php echo $_REQUEST["team"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <br>
-                        <br>
-                        <br><button class="button" type="submit">ค้นหา</button>
-                    </div>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <td><input type="radio" id="teams" <?php echo $key5 ?> value="4" name="keyword">
+                                <label for="team">ค้นหากลุ่มงาน/ศูนย์</label>
+                            </td>
+                            <td>
+                                <div class="container">
+                                    <input type="text" id="team" name="team" value="<?php echo $_REQUEST["team"] ?>" style="width:500px; border: 1px solid black;" placeholder="">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <br>
+                    <br><button class="button" type="submit">ค้นหา</button>
                 </div>
-        </form>
-        <br>
-
-        <br>
-        <br>
-        <?php
-        while ($info = mssql_fetch_array($data)) {
-            $form = iconv("tis-620", "utf-8", $info['form']);
-            $title = iconv("tis-620", "utf-8", $info['title']);
-            $holdre = iconv("tis-620", "utf-8", $info['holdre']);
-            $datenumregister = iconv("tis-620", "utf-8", $info['datenumregister']);
-            $attachment = iconv("tis-620", "utf-8", $info['attachment']);
-            $status = iconv("tis-620", "utf-8", $info['status']);
-            $note = iconv("tis-620", "utf-8", $info['note']);
-            $inventor = iconv("tis-620", "utf-8", $info['inventor']);
-        ?>
-            <!-- <div class="slider">
-                <div class="slider-holder2">
-                    <ul>
-                        <li> -->
-            <div class="box4">
-                <table class="table">
-
-
-                    <tr>
-                        <td>
-                            <h4>ชื่อเรื่อง :</h4>
-                        </td>
-                        <td class="td1"><?php echo $title; ?></td>
-                    </tr>
-                </table>
-                <br>
-                <br>
-
-                <table class="table">
-                    <tr>
-                        <td>
-                            <h4>ผู้ทรงสิทธิ์ :</h4>
-                        </td>
-                        <td class="td1"><?php echo $holdre; ?></td>
-                    </tr>
-                </table>
-                <br>
-                <br>
-
-                <table class="table">
-                    <tr></tr>
-                    <td>
-                        <h4 style="min-width: 120px;">วันที่จดเลขทะเบียน :</h4>
-                    </td>
-                    <td class="td1"><?php echo $datenumregister; ?></td>
-                    </tr>
-                </table>
-
-                <br><br>
-                <table class="table">
-                    <tr>
-                        <td>
-                            <h4>รายละเอียด:</h4>
-                        </td>
-                        <td class="td1"><a id="file" class="outset1" href="uploadpdf/<?php echo $form ?>" target="-blank">
-                                <h4>เรียกดู</h4>
-                            </a></td>
-                    </tr>
-                </table>
-
-                <br><br><a button id="myBtn" href="#popup_flight_travlDil<?php echo $info['ID_ip']; ?>"><span>รายละเอียดเพิ่มเติม</span></a>
-
-
-
             </div>
-            <div id="popup_flight_travlDil<?php echo $info['ID_ip']; ?>" class="overlay_flight_traveldil">
-                <div class="popup_flight_travlDil">
+        </div>
+    </form>
+    <br>
 
-                    <a class="close_flight_travelDl" href="# popup_flight_travlDil<?php echo $info['ID_ip']; ?>">&times;</a>
-                    <div class="content_flightht_travel_dil">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4>ลำดับ :
-                                    </td>
-                                    <td> <?php echo $info['ID_ip']; ?> </td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4>ชื่อเรื่อง :
-                                    </td>
-                                    <td><?php echo $title; ?></td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4>ผู้ทรงสิทธิ์ :
-                                    </td>
-                                    <td><?php echo $holdre; ?></td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4>ผู้ประดิษฐ์ :
-                                    </td>
-                                    <td><?php echo $inventor; ?></td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4>วันที่จดเลขทะเบียน :
-                                    </td>
-                                    <td><?php echo $datenumregister; ?></td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4>สถานะ :
-                                    </td>
-                                    <td><?php echo $status; ?></td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4>รายละเอียด :
-                                    </td>
-                                    <td><a id="file" class="outset1" href="uploadpdf/<?php echo $form ?>" target="-blank">
-                                            <h4>เรียกดู</h4>
-                                        </a></td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h4>หมายเหตุ :</h4>
-                                    </td>
-                                    <td><?php echo $note; ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
+    <br>
+    <br>
+
+
+    <div id="main3">
+        <div class="shell4">
+
+            <?php
+            //เริ่ม
+            $allData = array();
+            while ($info = mssql_fetch_array($data)) {
+                // $question = iconv("tis-620", "utf-8", $info['question']);
+                // $date = iconv("tis-620", "utf-8", $info['date']);
+
+                array_push($allData, $info);
+            }
+            //echo '<pre>'.var_dump($allData).'</pre>' ;
+            $arrData = array_chunk($allData, 5);
+            ?>
+
+
+            <div class="slider">
+                <div class="slider-holder5">
+                    <div class="jcarousel-container jcarousel-container-horizontal" style="/* display: block; */">
+                        <div class="jcarousel-clip jcarousel-clip-horizontal">
+                            <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:1400px; left: 0px;">
+                                <?php for ($i = 0; $i < count($arrData); $i++) : ?>
+                                    <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
+                                        <?php
+                                        foreach ($arrData[$i] as $key => $val) {
+                                            // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+                                        ?>
+                                            <div class="box4">
+                                                <table class="table">
+                                                <tr>
+                                                        <td valign="top" class="td2">
+                                                            <h4>ชื่อเรื่อง :</h4>
+                                                        </td>
+                                                        <td valign="top" class="td3"><?php echo iconv("tis-620", "utf-8", $val[10]) ?></td>
+                                                    </tr>
+                                                </table>
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td valign="top" class="td2">
+                                                            <h4>ผู้ทรงสิทธิ์ :</h4>
+                                                        </td>
+                                                        <td valign="top" class="td1"><?php echo iconv("tis-620", "utf-8", $val[11]) ?></td>
+                                                    </tr>
+                                                </table>
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <table class="table">
+                                                    <tr>
+                                                    <td valign="top" class="td2">
+                                                            <h4 style="min-width: 120px;">วันที่จดเลขทะเบียน :</h4>
+                                                        </td>
+                                                        <td class="td1"><?php echo iconv("tis-620", "utf-8", $val[8]) ?></td>
+                                                    </tr>
+                                                </table>
+                                                <br>
+                                                <br>
+                                                <br><br><a button id="myBtn" href="#popup_flight_travlDil<?php echo $val['ID_ip']; ?>"><span>รายละเอียดเพิ่มเติม</span></a>
+
+
+
+
+
+                                            </div>
+                                            <div id="popup_flight_travlDil<?php echo $val['ID_ip']; ?>" class="overlay_flight_traveldil">
+                                                <div class="popup_flight_travlDil">
+
+                                                    <a class="close_flight_travelDl" href="# popup_flight_travlDil<?php echo $val['ID_ip']; ?>">&times;</a>
+                                                    <div class="content_flightht_travel_dil">
+                                                        <table class="table">
+                                                            <tbody>
+                                                                <tr class="tr2">
+                                                                    <td>
+                                                                        <h4>ลำดับ :
+                                                                    </td>
+                                                                    <td style="width:80%;"> <?php echo $val['ID_ip']; ?> </td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h4>ชื่อเรื่อง :
+                                                                    </td>
+                                                                    <td><?php echo iconv("tis-620", "utf-8", $val[10]) ?></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h4>ผู้ทรงสิทธิ์ :
+                                                                    </td>
+                                                                    <td><?php echo iconv("tis-620", "utf-8", $val[11]) ?></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h4>ผู้ประดิษฐ์ :
+                                                                    </td>
+                                                                    <td><?php echo iconv("tis-620", "utf-8", $val[15]) ?></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h4>วันที่จดเลขทะเบียน :
+                                                                    </td>
+                                                                    <td><?php echo iconv("tis-620", "utf-8", $val[8]) ?></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h4>สถานะ :
+                                                                    </td>
+                                                                    <td><?php echo iconv("tis-620", "utf-8", $val[24]) ?></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h4>รายละเอียด :
+                                                                    </td>
+                                                                    <td><a id="file" class="outset1" href="uploadpdf/<?php echo $val[4] ?>" target="-blank">
+                                                                            <h4 style="text-decoration: underline; color:blue">เรียกดู</h4>
+                                                                        </a></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h4>หมายเหตุ :</h4>
+                                                                    </td>
+                                                                    <td><?php echo iconv("tis-620", "utf-8", $val[25]) ?></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    </li>
+                                <?php endfor; ?>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="slider-navigation5">
+                        <div class=" pagination5">
+                            <?php for ($i = 1; $i <= count($arrData); $i++) {
+                                echo '<a href="#">' . $i . '</a>';
+                            } ?>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        <?php } ?>
-        <br>
-
+        </div>
     </div>
 </div>
-<script src="js/jquery-1.4.2.min.js"></script>
+</div>
+
+
+
 <script>
     $('#html').click(function() {
         var len = $(this).val();

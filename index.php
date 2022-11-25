@@ -15,6 +15,10 @@ if ($mm == '') {
 } else if ($mm == '4') {
   $page = "qa.php";
   $class4 = "active";
+}
+else if ($mm == '5') {
+  $page = "login.php";
+  $class5 = "active";
 } else if ($mm == '6') {
   $page = "insertname.php";
   $class6 = "active";
@@ -38,7 +42,7 @@ if ($mm == '') {
   <link rel="shortcut icon" type="image/x-icon" href="../IP/css/images/Anyt.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
   <!--[if IE 6]><link rel="stylesheet" href="css/ie.css" type="text/css" media="all" /><![endif]-->
 
   <style>
@@ -182,7 +186,7 @@ if ($mm == '') {
     }
 
     .from1 {
-      padding-right: 180px;
+      padding-right: 90px;
     }
   </style>
 </head>
@@ -216,6 +220,8 @@ if ($mm == '') {
         <li><a href="index.php?mm=2" class="<? echo $class2; ?>"><span class="span1">ฐานข้อมูลทรัพย์สินทางปัญญา</span></a></li>
         <li><a href="index.php?mm=3" class="<? echo $class3; ?>"><span>ข้อมูลตัวแทน</span></a></li>
         <li><a href="index.php?mm=4" class="<? echo $class4; ?>"><span class="span1">ถาม-ตอบด้านทรัพย์สินทางปัญญา</span></a></li>
+        <li><a href="index.php?mm=5" class="<? echo $class5; ?>"><span class="span1">เข้าสู่ระบบ</span></a></li>
+
       </ul>
     </div>
   </div>

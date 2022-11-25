@@ -26,16 +26,30 @@ $lead = iconv("utf-8", "tis-620", $_POST['lead']);
 $sta = iconv("utf-8", "tis-620", $_POST['sta']);
 $note = iconv("utf-8", "tis-620", $_POST['note']);
 $status = iconv("utf-8", "tis-620", $_POST['status']);
+$con = iconv("utf-8", "tis-620", $_POST['con']);
 
 $tmp_name = $_FILES['form']['tmp_name'];
 // var_dump($tmp_name);
 $temp = explode(".", $_FILES["form"]["name"]);
 $newfilename = round(microtime(true)) . '1.' . end($temp);
+//คู่สัญญาโครงการ
+$data = mssql_query("SELECT * FROM tb_contract where contract ='$con' ");
+$cons = mssql_fetch_array($data);
+if( empty($cons['ID'])) {
+    // echo "ไม่มีข้อมูล {$con} ในตาราง aaamember";
+    $strSQLcon = mssql_query("INSERT INTO tb_contract (contract) VALUES('$con') ");
+    $data = mssql_query("SELECT * FROM tb_contract where contract ='$con' ");
+    $cons = mssql_fetch_array($data);
+    
+} else {
+    // echo "มีข้อมูล {$con} ในตารางccc member";
+}
+// print_r($con);
 
 // $objDB = mssql_select_db("intelle");
 $strSQL = "INSERT INTO tb_IP ";
 $strSQL .= "(type,offer,numfeduest,form,admin,agent,numregister,datenumregister,kind,title,holdre,team,affiliation,
-inventor,inventors,framename,projectcode,contract,genus,attachment,benefit,lead,sta,note,status,agency)";
+inventor,inventors,framename,projectcode,contract,genus,attachment,benefit,lead,sta,note,agency,status)";
 $strSQL .= "VALUES";
 
 //upload file in folder
@@ -43,10 +57,12 @@ move_uploaded_file($_FILES["form"]["tmp_name"], "../../uploadpdf/" . $newfilenam
 //move_uploaded_file($_FILES["admin"]["tmp_name"], "../../uploadpdf/" . $newfilename2);
 // move_uploaded_file($_FILES["attachment"]["tmp_name"], "../../uploadpdf/" . $newfilename3);
 
-$countfilesAdmin = count($_FILES['admin']);
+$countfilesAdmin = count($_FILES["admin"]["name"]);
+// var_dump($countfilesAdmin );
 $allFileAdmin = null;
 for ($i = 0; $i < $countfilesAdmin; $i++) {
     $tmp_name2 = $_FILES['admin']['tmp_name'][$i];
+    // var_dump($_FILES['admin']);
     $temp2 = explode(".", $_FILES["admin"]["name"][$i]);
     $newfileAdmin = round(microtime(true)) . $i . '2.' . end($temp2);
     $allFileAdmin[] = $newfileAdmin;
@@ -57,7 +73,7 @@ for ($i = 0; $i < $countfilesAdmin; $i++) {
 }
 $fileAdmin = join(',', $allFileAdmin);
 
-$countfilesAttachment = count($_FILES['attachment']);
+$countfilesAttachment = count($_FILES['attachment']["name"]);
 $allFileAttachment = null;
 for ($i = 0; $i < $countfilesAttachment; $i++) {
     $tmp_name3 = $_FILES['attachment']['tmp_name'][$i];
@@ -73,7 +89,7 @@ $fileAttachment = join(',', $allFileAttachment);
 
 $strSQL .= "('" . $type . "','" . $offer . "','" . $numfeduest . "','" . $newfilename . "','" . $fileAdmin . "','" . $agent . "','" . $numregister . "',
 '" . $datenumregister . "','" . $kind . "','" . $title . "','" . $holdre . "','" . $team . "','" . $affiliation . "',
-'" . $inventor . "','" . $inventors . "','" . $framename . "','" . $projectcode . "','" . $contract . "','" . $genus . "','" . $fileAttachment . "','" . $benefit . "','" . $lead . "',
+'" . $inventor . "','" . $inventors . "','" . $framename . "','" . $projectcode . "','" . $cons['ID'] . "','" . $genus . "','" . $fileAttachment . "','" . $benefit . "','" . $lead . "',
 '" . $sta . "','" . $note . "','" . $agency . "','1')";
 // var_dump($strSQL);
 $objQuery = mssql_query($strSQL);

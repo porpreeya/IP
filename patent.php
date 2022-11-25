@@ -1,8 +1,8 @@
 <?
 
 $box2 = iconv("utf-8", "tis-620", $_REQUEST["aname"]);
+$box2 = iconv("utf-8", "tis-620", $_REQUEST["aname"]);
 // $objDB = mssql_select_db("intelle");
-// $data = mssql_query("SELECT * FROM tb_IP ");
 $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent like '%$box2%' ");
 
 ?>
@@ -12,7 +12,7 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent
         height: 200px;
         position: absolute;
         margin-top: 20px;
-        margin-left: 515px;
+        margin-left: 565px;
         border-collapse: collapse;
         background-color: white;
 
@@ -90,7 +90,7 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent
         float: left;
         width: 80%;
         background: #f1f1f1;
-        margin-top: 520px;
+        margin-top:20px;
     }
 
     form.example .button {
@@ -115,7 +115,7 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent
 
     form.example button {
         float: left;
-        width: 11%;
+        width: 12%;
         padding: 12px;
         background: black;
         color: white;
@@ -123,7 +123,7 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent
         border: 1px solid black;
         border-left: none;
         cursor: pointer;
-        margin-top: 520px;
+        margin-top:20px;
 
     }
 
@@ -144,8 +144,14 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent
 <body>
 
     <div class="c">
+    <form class="example" action="" style="margin-left: 650px; margin:auto;max-width:300px" method="POST">
+            <input type="text" placeholder="ค้นหา" name="aname" id="aname"value="<?php echo $_REQUEST["aname"] ?>">
+            
+            <button type="submit" ><i class="fa fa-search"></i></button>
+
+        </form>   
         <div class="l">
-            <h2>ตัวแทนสิทธิบัตรวว.(Patent Agent)</h2>
+            <h2>ตัวแทนสิทธิบัตร วว. (Patent Agent)</h2>
         </div>
 
         <table class="bb">
@@ -162,8 +168,8 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent
                     $patent = iconv("tis-620", "utf-8", $info['patent']);
 
                 ?>
-                    <td style=" text-align:left ;"><?php echo $aname; ?></td>
-                    <td><?php echo $patent; ?></td>
+                    <td style=" text-align:left ;"><?php echo iconv("tis-620", "utf-8", $info['aname']); ?></td>
+                    <td><?php echo iconv("tis-620", "utf-8", $info['patent'])?></td>
 
             </tr>
 
@@ -171,12 +177,7 @@ $data = mssql_query("SELECT * FROM consider where aname like '%$box2%' or patent
         </table>
 
 
-        <form class="example" action="" style="margin:auto;max-width:300px" method="POST">
-            <input type="text" placeholder="Search.." name="aname">
-            
-            <button type="submit" ><i class="fa fa-search"></i></button>
-
-        </form>
+       
     </div>
 </body>
 

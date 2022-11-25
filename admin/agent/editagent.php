@@ -210,7 +210,7 @@ margin-left and margin-right + width = 100%*/
 }
     
 </style>
-    <h2 class="glow">ข้อมูลตัวแทน</h2><br><br>
+    <h2 class="glow">เเก้ไขข้อมูลตัวแทน</h2><br><br>
     <a href="indexadmin.php?Menu=3&Submenu=showagent" style="text-decoration: none;" ">
     <p class="outset">ย้อนกลับ</p></a>
 <div class="tb">
@@ -258,7 +258,7 @@ margin-left and margin-right + width = 100%*/
             <table>
 
                 <th><button class="button" type="submit">บันทึก</button></th>
-                <th><button class="button1" type="reset">ยกเลิก</button></th>
+                <th><input type="reset" name="cancle" value="ยกเลิก" class="button1"/></th>
 
             </table>
         </form>

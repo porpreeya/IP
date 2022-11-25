@@ -295,14 +295,14 @@
                                 <th>เลขที่คำขอ: </th>
                                 <td>
                                     <div class="container" style=" margin-right:10px; ">
-                                        <input type="number" id="number" c placeholder="000000" name="numfeduest" required="" value="2">
+                                        <input type="number" id="number" c placeholder="000000" name="numfeduest" required="" >
                                     </div>
                                 </td>
 
                                 <th>วันที่ยื่นขอ:</th>
                                 <td>
                                     <div class="container" style=" margin-right:30px; ">
-                                        <input type="date" id="ddmmyy" name="offer" onchange="selectday()" value="04/09/2022">
+                                        <input type="date" id="ddmmyy" name="offer" onchange="selectday()" >
                                         <div id="result"></div>
                                 </td>
 
@@ -330,21 +330,21 @@
                                 <th>ตัวเเทน</th>
                                 <td>
                                     <div class="container" style=" margin-left: 40px; margin-right:20px">
-                                        <input type="text" id="number" placeholder="" name="agent" required="" value="5545">
+                                        <input type="text" id="number" placeholder="" name="agent" required="" >
                                     </div>
                                 </td>
 
                                 <th>เลขทะเบียน</th>
                                 <td>
                                     <div class="container" style=" margin-right:30px">
-                                        <input type="number" id="number" placeholder="000000" name="numregister" required="" value="2">
+                                        <input type="number" id="number" placeholder="000000" name="numregister" required="" >
                                     </div>
                                 </td>
 
                                 <th>วันที่ออกเลขทะเบียน</th>
                                 <td>
                                     <div class="container" style="margin-left: 40px; margin-right: 70px;">
-                                        <input type="date" id="ddmmyy" onchange="selectday()" value="04/09/2022">
+                                    <input type="date" id="ddmmyy" name="datenumregister" onchange="selectday()" >
                                         <div id="result"></div>
                                 </td>
                                 <?
@@ -376,14 +376,14 @@
                                 <th>ชื่อเรื่อง</th>
                                 <td>
                                     <div class="container" style=" margin-left: 40px; margin-right:20px">
-                                        <input type="text" id="number" placeholder="" name="title" required="" value="มา">
+                                        <input type="text" id="number" placeholder="" name="title" required="" >
                                     </div>
                                 </td>
 
                                 <th>ผู้ทรงสิทธิ</th>
                                 <td>
                                     <div class="container" style=" margin-left: 20px; margin-right:90px">
-                                        <input type="text" id="number" placeholder="xxx" name="holdre" required="" value="มา">
+                                        <input type="text" id="number" placeholder="xxx" name="holdre" required="" >
                                     </div>
                                 </td>
 
@@ -433,7 +433,7 @@
                                 <th>หน่วยงาน<br>ภายนอก</th>
                                 <td>
                                     <div class="container" style="  margin-left:30px; margin-right:20px; ">
-                                        <input type="text" id="number" placeholder="" name="agency" value="มา">
+                                        <input type="text" id="number" placeholder="" name="agency">
                                     </div>
                                 </td>
                                 <th>ผู้ประดิษฐ์<br>(1คน)</th>
@@ -476,7 +476,7 @@
                                 <th>ชื่อโครงการ<br>(กตป.)</th>
                                 <td>
                                     <div class="container" style=" margin-left: 38px; margin-right:33px">
-                                        <input type="text" id="number" placeholder="" name="framename" required="" value="มา">
+                                        <input type="text" id="number" placeholder="" name="framename" required="" >
                                     </div>
                                 </td>
                             </div>
@@ -489,31 +489,27 @@
                                 <th>รหัสโครง<br>การวิจัย<br>บริการวิจัย</th>
                                 <td>
                                     <div class="container" style=" margin-left:15px; margin-right:18px;">
-                                        <input type="number" id="number" placeholder="0" name="projectcode" required="" value="5">
+                                        <input type="number" id="number" placeholder="0" name="projectcode" required="" >
                                     </div>
                                 </td>
                                 <th>คู่สัญญา<br>โครงการ</th>
                                 <script>
                                     //เรียกใช้ฟังก์ชั่น
                                     function fn_post_value() {
-                                        //รับค่าจากตัวเลือก
-                                        var value_select = $("#select_value").val();
-                                      
-                                        //พ่นค่าของตัวเลือกไปที่เป้าหมาย
-                                        //#get_value ไอดีของเป้าหมาย
-                                        $("#get_value").val(value_select);
+                                       
+                                        $("#get_value").val($("#select_value option:selected").text());
                                     }
                                 </script>
                                 <td>
                                     <div id="box" class="container" style="  margin-left:25px; margin-right:70px;">
-                                        <input type="text" id="get_value"" placeholder="" name=" contract" required="" value="">
+                                        <input type="text" id="get_value" name="con" required="" value="">
 
                                     </div>
                                     <?
                                     $data = mssql_query("SELECT * FROM tb_contract");
                                     ?>
                                     <div class="container" style="margin-left: 70px; margin-right:75px min-width:20px; ">
-                                        <span><select id="select_value" onchange="fn_post_value()" name="team" style="width:20px; min-width: 20px; height:39px;">
+                                        <span><select id="select_value" onchange="fn_post_value()" name="contract" style="width:20px; min-width: 20px; height:39px;">
                                                 <option selected="" value="">--กรุณาเลือก-- </option>
                                                 <?
                                                 while ($info = mssql_fetch_array($data)) {
@@ -523,30 +519,31 @@
                                             </select></span>
                                 </td>
 
-                                <th>ประเภท<br>โครงการ</th>
-                                <td>
-                                    <?
-                                    $data = mssql_query("SELECT * FROM tb_genus");
-                                    ?>
-                                    <div class="container" style="  margin-left:75px; margin-right:60px">
-                                        <select name="genus">
-                                            <option selected="" value="">กรุณาเลือก</option>
-                                            <?
-                                            while ($info = mssql_fetch_array($data)) {
+                                           
+                                    <th>ประเภท<br>โครงการ</th>
+                                    <td>
+                                        <?
+                                        $data = mssql_query("SELECT * FROM tb_genus");
+                                        ?>
+                                        <div class="container" style="  margin-left:75px; margin-right:60px">
+                                            <select name="genus" >
+                                                <option selected="" value="">กรุณาเลือก</option>
+                                                <?
+                                                while ($info = mssql_fetch_array($data)) {
 
-                                            ?>
-                                                <option value="<? echo $info['ID'] ?>"><? echo iconv("tis-620", "utf-8", $info['genus']) ?></option>
-                                            <?php } ?>
-                                        </select>
-                                </td>
+                                                ?>
+                                                    <option value="<? echo $info['ID'] ?>"><? echo iconv("tis-620", "utf-8", $info['genus']) ?></option>
+                                                <?php } ?>
+                                            </select>
+                                    </td>
 
-                                <th>เเนบเอกสาร<br>โครงการ</th>
-                                <td>
-                                    <div class="container" style="text-align:center;">
-                                        <div class="container" style=" margin-left:10px; ">
-                                            <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                            <input type="file" id="myfile" name="attachment[]" multiple="multiple">
-                                </td>
+                                    <th>เเนบเอกสาร<br>โครงการ</th>
+                                    <td>
+                                        <div class="container" style="text-align:center;">
+                                            <div class="container" style=" margin-left:10px; ">
+                                                <label for="myfile">กรุณาเลือกไฟล์</label><br>
+                                                <input type="file" id="myfile" name="attachment[]" multiple="multiple">
+                                    </td>
 
 
 
@@ -577,7 +574,7 @@
                                 <class="tr">
                                     <td>
                                         <div class="container" style="  margin-left:15px; margin-right:40px">
-                                            <input type="text" id="number" placeholder="" name="lead" required="" value="มา">
+                                            <input type="text" id="number" placeholder="" name="lead" required="" >
                                         </div>
                                     </td>
 
@@ -603,7 +600,7 @@
                                     <th>หมายเหตุ</th>
                                     <td>
                                         <div class="container" style="  margin-left:47px; ">
-                                            <input type="text" id="number" placeholder="" name="note" required="" value="มา">
+                                            <input type="text" id="number" placeholder="" name="note" required="" >
                                         </div>
                                     </td>
 
@@ -615,7 +612,7 @@
                         <tbody>
                             <tr>
                                 <th><button class="button" type="submit">บันทึก</button></th>
-                                <th><button class="button1" type="reset">ยกเลิก</button></th>
+                                <th><input type="reset" name="cancle" value="ยกเลิก" class="button1"/></th>
 
                             </tr>
                         </tbody>

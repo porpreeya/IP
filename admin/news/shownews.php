@@ -48,6 +48,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
         table.center {
             margin-left: auto;
             margin-right: auto;
+            width: 80%;
         }
 
         .glow {
@@ -59,8 +60,8 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             padding: 0.5em 0;
             border-top: solid 3px black;
             border-bottom: solid 3px black;
-            width: 20%;
-            margin-left: 600px;
+            width: 40%;
+            margin-left: 450px;
             border-radius: 10px;
         }
 
@@ -84,7 +85,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             border-style: outset;
             background: #2c15b1;
             text-align: center;
-            margin-left: 275px;
+            margin-left: 150px;
             margin-top: 2%;
             color: white;
             height: 40px;
@@ -105,7 +106,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             border-style: outset;
             background: #c32da9;
             text-align: center;
-            margin-left: 675px;
+            margin-left: 930px;
             color: white;
             height: 40px;
             padding: 10px;
@@ -127,7 +128,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
 </head>
 
 <body>
-<h1 class="glow">ข้อมูลข่าวทรัพย์ทางปัญญา </h1>
+<h1 class="glow">ข่าวประชาสัมพันธ์ด้านทรัพย์ทางปัญญา </h1>
     <a onclick="location. href='indexadmin.php';">
         <p class="outset1">ย้อนกลับ</p>
     </a>
@@ -140,6 +141,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
             <th>ลำดับ</th>
             <th class="th">ข่าว </th>
             <th>รูปข่าว</th>
+            <th>ไฟล์ PDF</th>
             <th>แก้ไขข้อมูล </th>
             <th>ลบข้อมูล </th>
 
@@ -150,6 +152,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
         while ($info = mssql_fetch_array($data)) {
             $news = iconv("tis-620", "utf-8", $info['news']);
             $image = iconv("tis-620", "utf-8", $info['image']);
+            $pdf_news = iconv("tis-620", "utf-8", $info['pdf_news']);
 
 
         ?>
@@ -157,6 +160,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
                 <td valign="top" style="text-align:center ;"><?php echo $info['ID']; ?></td>
                 <td><?php echo $news; ?></td>
                 <td valign="top"><?php echo $image; ?></td>
+                <td valign="top"><?php echo $pdf_news; ?></td>
                 <td style="text-align:center ;"><a href='indexadmin.php?Menu=2&Submenu=editnews&ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-warning">Edit</button></a> </td>
                 <td style="text-align:center ;"><a href='news/deletenews.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
 

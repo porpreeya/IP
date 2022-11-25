@@ -109,7 +109,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             border-style: outset;
             background: #2c15b1;
             text-align: center;
-            margin-left: 28px;
+            margin-left: 10px;
             margin-top: 2%;
             color: white;
             height: 40px;
@@ -130,7 +130,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             border-style: outset;
             background: #c32da9;
             text-align: center;
-            margin-left: 1180px;
+            margin-left: 1210px;
             color: white;
             height: 40px;
             padding: 10px;
@@ -148,7 +148,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
 
 <body>
 
-    <h1 class="glow">ข้อมูลทรัพย์ทางปัญญา </h1>
+    <h1 class="glow">ข้อมูลทรัพย์สินทางปัญญา </h1>
     <a onclick="location. href='indexadmin.php';">
         <p class="outset1">ย้อนกลับ</p>
     </a>
@@ -157,6 +157,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
     </a>
     <table class="center">
         <tr>
+            <th>ลำดับ</th>
             <th>ชื่อทรัพย์สินทางปัญญา</th>
             <th>ชื่อผู้ประดิษฐ์ </th>
             <th>ชื่อตัวแทน</th>
@@ -169,7 +170,7 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
         </tr>
         <?
         while ($info = mssql_fetch_array($data)) {
-            
+
             $title = iconv("tis-620", "utf-8", $info['title']);
             $inventor = iconv("tis-620", "utf-8", $info['inventor']);
             $agent = iconv("tis-620", "utf-8", $info['agent']);
@@ -179,16 +180,46 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             $affiliation = iconv("tis-620", "utf-8", $info['affiliation']);
 
 
-
         ?>
             <tr>
+                <td valign="top" style="text-align:left ;"><?php echo $info['ID_ip']; ?></td>
                 <td><?php echo $title; ?></td>
-                <td><?php echo $inventor; ?></td>
-                <td><?php echo $agent; ?></td>
+                <td> <?
+                        $result3 = mssql_query("SELECT * FROM tb_inventor where ID='$inventor'");
+                        //$result = mssql_query($data);
+                        $info3 = mssql_fetch_array($result3);
+                        echo iconv("TIS-620", "UTF-8", $info3["inventor"]);
+
+                        ?></td>
+                <td>
+
+                    <?php echo $agent; ?></td>
                 <td><?php echo $framename; ?></td>
-                <td><?php echo $genus; ?></td>
-                <td><?php echo $sta; ?></td>
-                <td><?php echo $affiliation; ?></td>
+                <td>
+                    <?
+                    $result5 = mssql_query("SELECT * FROM tb_genus where ID='$genus'");
+                    //$result = mssql_query($data);
+                    $info5 = mssql_fetch_array($result5);
+                    echo iconv("TIS-620", "UTF-8", $info5["genus"]);
+
+                    ?>
+                </td>
+
+                <td> <?
+                        $result = mssql_query("SELECT * FROM tb_sta where ID='$sta'");
+                        //$result = mssql_query($data);
+                        $info2 = mssql_fetch_array($result);
+                        echo iconv("TIS-620", "UTF-8", $info2["sta"]);
+
+                        ?></td>
+                <td><?
+                    $result4 = mssql_query("SELECT * FROM tb_affiliation where ID='$affiliation'");
+                    //$result = mssql_query($data);
+                    $info4 = mssql_fetch_array($result4);
+                    echo iconv("TIS-620", "UTF-8", $info4["affiliation"]);
+
+                    ?></td>
+                   
                 <td style="text-align:center ;"><a href='indexadmin.php?Menu=5&Submenu=editmanage&ID_ip=<?php echo $info['ID_ip']; ?>'><button type="button" class="btn btn-warning">Edit</button></a> </td>
                 <td style="text-align:center ;"><a href='manage/deletemanage.php?ID_ip=<?php echo $info['ID_ip']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
             </tr>

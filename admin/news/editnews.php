@@ -158,6 +158,7 @@ $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
         while ($info = mssql_fetch_array($data)) {
             $news = iconv("tis-620", "utf-8", $info['news']);
             $image = iconv("tis-620", "utf-8", $info['image']);
+            $pdf_news = iconv("tis-620", "utf-8", $info['pdf_news']);
 
         ?>
         
@@ -179,7 +180,11 @@ $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
                     <h5>เพิ่มไฟล์รูป:</h5>
                     <input type="file" name="image" id="addimg" onchange="loadFile(event)">
                     <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:200px; width:50;">
-                    
+                    <div class="heading">
+            <h5>เเนบไฟล์เพิ่มเติม:</h5>
+            </div>
+            <label for="myfile">กรุณาเลือกไฟล์</label><br>
+            <input type="file" id="myfile" name="pdf_news" value="<?echo $pdf_news?>">
                     <div class="row">
                         <input type="submit" value="บันทึก">
                         <input type="reset" value="ยกเลิก">

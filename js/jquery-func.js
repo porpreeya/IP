@@ -50,11 +50,23 @@ function mycarousel_itemFirstInCallback4(carousel, item, idx, state) {
     .eq(idx - 1)
     .addClass("active4");
 }
+function mycarousel_initCallback5(carousel) {
+  $(".slider-navigation5 a").bind("click", function () {
+    carousel.scroll($.jcarousel.intval($(this).text()));
+    return false;
+  });
+}
+function mycarousel_itemFirstInCallback5(carousel, item, idx, state) {
+  $(".slider-navigation5 a").removeClass("active5");
+  $(".slider-navigation5 a")
+    .eq(idx - 1)
+    .addClass("active5");
+}
 $(document).ready(function () {
   $(".slider-holder ul").jcarousel({
     scroll: 1,
     wrap: "both",
-    auto: 4,
+    // auto: 4,
     start: 1,
     itemFirstInCallback: mycarousel_itemFirstInCallback,
     initCallback: mycarousel_initCallback,
@@ -92,6 +104,17 @@ $(document).ready(function () {
     start: 1,
     itemFirstInCallback: mycarousel_itemFirstInCallback4,
     initCallback: mycarousel_initCallback4,
+    // This tells jCarousel NOT to autobuild prev/next buttons
+    buttonNextHTML: null,
+    buttonPrevHTML: null,
+  });
+  $(".slider-holder5 ul").jcarousel({
+    scroll: 1,
+    wrap: "both",
+    // auto: 4,
+    start: 1,
+    itemFirstInCallback: mycarousel_itemFirstInCallback5,
+    initCallback: mycarousel_initCallback5,
     // This tells jCarousel NOT to autobuild prev/next buttons
     buttonNextHTML: null,
     buttonPrevHTML: null,
