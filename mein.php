@@ -1,7 +1,7 @@
 <?
 // $objDB = mssql_select_db("intelle");
-$data = mssql_query("SELECT TOP 7 * from banner ORDER BY ID_ban DESC");
-
+$data = mssql_query("SELECT TOP 6 * from banner WHERE GETDATE()<= end_date ");
+//SELECT  * from banner  WHERE GETDATE()<= end_date;
 ?>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <style>
@@ -202,10 +202,11 @@ $data = mssql_query("SELECT TOP 7 * from banner ORDER BY ID_ban DESC");
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 30%;
+    width: 50%;
     position: relative;
     transition: all 2s ease-in-out;
     color: #000;
+    font-size: 15px;
   }
 
   .popup_flight_travlDil .close_flight_travelDl {
@@ -225,7 +226,9 @@ $data = mssql_query("SELECT TOP 7 * from banner ORDER BY ID_ban DESC");
   }
 
   .pu {
-    padding-left: 140px;
+    padding-left: 190px;
+    width: 100%;
+
   }
 
   .pagination3 a.active3 {
@@ -233,7 +236,11 @@ $data = mssql_query("SELECT TOP 7 * from banner ORDER BY ID_ban DESC");
     color: white;
   }
 </style>
-<!-- //สไลด์เเบนเนอร์ -->
+
+
+
+</style>
+
 <div class="shell2">
   <div class="slider">
     <div class="slider-holder">
@@ -242,6 +249,7 @@ $data = mssql_query("SELECT TOP 7 * from banner ORDER BY ID_ban DESC");
         while ($info = mssql_fetch_array($data)) {
           $image = iconv("tis-620", "utf-8", $info['image']);
 
+          
 
         ?>
           <li><img id="showimg" src="uploads/<?php echo $image ?>" style="width: 100%; height:100%"></li>
@@ -258,6 +266,9 @@ $data = mssql_query("SELECT TOP 7 * from banner ORDER BY ID_ban DESC");
           };
         </script>
       </ul>
+
+
+      
     </div>
     <div class="slider-navigation">
       <ul>
@@ -274,7 +285,7 @@ $data = mssql_query("SELECT TOP 7 * from banner ORDER BY ID_ban DESC");
 
   <div class="cl">&nbsp;</div>
 </div>
-<br>
+<br> 
 <?
 
 $data2 = mssql_query("SELECT  * from news where status ='1' ORDER BY ID DESC ");
@@ -292,11 +303,18 @@ $data2 = mssql_query("SELECT  * from news where status ='1' ORDER BY ID DESC ");
       $news = iconv("utf-8", "tis-620",  $info['news']);
       $image = iconv("utf-8", "tis-620",  $info['image']);
       $pdf_news = iconv("utf-8", "tis-620",  $info['pdf_news']);
+      $title = iconv("utf-8", "tis-620", $info['title']);
+      $datenews = iconv("utf-8", "tis-620", $info['datenews']);
+      $source = iconv("utf-8", "tis-620", $info['source']);
 
       array_push($allData, $info);
-
     }
     // echo '<pre>'.var_dump($allData).'</pre>' ;
+    // $date = iconv("tis-620", "utf-8", $info['date']);
+
+
+
+    //echo '<pre>'.var_dump($allData).'</pre>' ;
     $arrData = array_chunk($allData, 6);
     ?>
     <div class="slider">
@@ -308,42 +326,63 @@ $data2 = mssql_query("SELECT  * from news where status ='1' ORDER BY ID DESC ");
               <?php
               foreach ($arrData[$i] as $key => $val) {
                 // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+
                 // print_r($val);
+
               ?>
                 <div class="box5">
                   <br>
 
                   <div class="entry">
                     <center>
-                      <img id="showimg" src="uploads/<?php echo $val[2] ?> " height="120px">
+                      <img id="showimg" src="uploads/<?php echo $val[3] ?> " height="120px">
 
                     </center><br>
 
+                    <h4><?php echo  iconv("tis-620", "utf-8", $val[1]); ?></h4>
                     <p class="p1">
-                      <? echo substr_replace(iconv("tis-620", "utf-8", $val[1]), "", 501); ?>
+                      <? echo substr_replace(iconv("tis-620", "utf-8", $val[2]), "", 421); ?>
                     </p>
                     <br>
-
-
+                    <div style="color: #808080;">
+                      <p><i class='far fa-calendar-alt'></i>&nbsp<?php echo  iconv("tis-620", "utf-8", $val[5]); ?></p>
+                      <p style="color:darkblue;"><?php echo  iconv("tis-620", "utf-8", $val[6]); ?></p>
+                    </div>
                     <a button id="myBtn" href="#popup_flight_travlDil<? echo $val["ID"]; ?>"><span>อ่านต่อ </span></a>
                     <?
-                if (trim($val[3])!="") {
+                    if (trim($val[3]) != "") {
                     ?>
-                    <a button id="myBtn2" id="file" href="uploadpdf/<?php echo $val[3] ?>" download/Download File>
-                     เอกสารเเนบ
-                    </a>
+                      <a button id="myBtn2" id="file" href="uploadpdf/<?php echo $val[4] ?>" download/Download File>
+                        เอกสารเเนบ
+                      </a>
                     <?
-                 }
-                 ?>
+                    }
+                    ?>
                   </div>
-                  <div id="popup_flight_travlDil<? echo $val["ID"]; ?>" class="overlay_flight_traveldil">
+                </div>
+                <div id="popup_flight_travlDil<? echo $val["ID"]; ?>" class="overlay_flight_traveldil">
+                  <div class="popup_flight_travlDil">
+                    <a class="close_flight_travelDl" href="# popup_flight_travlDil<? echo $key; ?>">&times;</a>
+                    <p class="pu"><img id="showimg" src="uploads/<?php echo $val[3] ?> " width="50%"></p>
+                    <br>
+                    <h3><?php echo  iconv("tis-620", "utf-8", $val[1]); ?></h3>
+                    <p class="p1"><? echo substr_replace(iconv("tis-620", "utf-8", $val[2]), "", 500000); ?><br></p>
+                    <div style="color: #808080;margin-right:10px;">
+                      <p><i class='far fa-calendar-alt'></i>&nbsp<?php echo  iconv("tis-620", "utf-8", $val[5]); ?></p>
+                      <p style="color:darkblue;"><?php echo  iconv("tis-620", "utf-8", $val[6]); ?></p>
+                    </div>
+                  </div>
+                  <div id="popup_flight_travlDil<? echo $key; ?>" class="overlay_flight_traveldil">
                     <div class="popup_flight_travlDil">
-                      <p class="pu"><img id="showimg" src="uploads/<?php echo $val[2] ?> " width="60%"></p>
-                      <br>
-                      <a class="close_flight_travelDl" href="# popup_flight_travlDil<? echo $val["ID"]; ?>">&times;</a>
+
+                      <p class="pu"><img id="showimg" src="uploads/<?php echo $val[3] ?> " width="100%"></p>
+
+
                       <div class="content_flightht_travel_dil">
-                        <? echo iconv("tis-620", "utf-8", $val[1]) ?>
+                        <? echo iconv("tis-620", "utf-8", $val[2]) ?>
+
                       </div>
+
                     </div>
                   </div>
 
@@ -355,13 +394,16 @@ $data2 = mssql_query("SELECT  * from news where status ='1' ORDER BY ID DESC ");
 
 
       </div>
+      <br>
+      <br>
+      <br>
       <div class="slider-navigation2">
 
         <div class=" pagination2">
+
           <?php for ($i = 1; $i <= count($arrData); $i++) {
-echo '<a href="#">'.$i.'</a>';
-           } ?>
-          <!-- <a href="#">&raquo;</a> -->
+            echo '<a href="#">' . $i . '</a>';
+          } ?>
 
         </div>
       </div>
@@ -380,7 +422,11 @@ $data3 = mssql_query("SELECT * from tb_IP where status ='1' ORDER BY ID_ip DESC"
   //เริ่ม
   $allData = array();
   while ($info = mssql_fetch_array($data3)) {
+
     $form = iconv("tis-620", "utf-8", $info['form']);
+
+    // $question = iconv("tis-620", "utf-8", $info['question']);
+
     // $date = iconv("tis-620", "utf-8", $info['date']);
 
     array_push($allData, $info);
@@ -388,7 +434,11 @@ $data3 = mssql_query("SELECT * from tb_IP where status ='1' ORDER BY ID_ip DESC"
   //echo '<pre>'.var_dump($allData).'</pre>' ;
   $arrData = array_chunk($allData, 3);
 
+
   ?>
+
+
+
 
 </div>
 <!-- ทรัพย์สินที่จดใหม่ -->
@@ -477,7 +527,60 @@ $data3 = mssql_query("SELECT * from tb_IP where status ='1' ORDER BY ID_ip DESC"
                   </li>
                 <?php endfor; ?>
               </ul>
-            </ul>
+
+              <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 3900px;  height:500px; left: 0px;">
+                <?php for ($i = 0; $i < count($arrData); $i++) : ?>
+                  <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
+                    <?php
+                    foreach ($arrData[$i] as $key => $val) {
+                      // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
+                    ?>
+                      <div class="box2">
+                        <br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td style="width:auto;">ชื่อเรื่อง :</td>
+                              <td class="td1"> <? echo iconv("tis-620", "utf-8", $val[11]) ?></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>ผู้ทรงสิทธิ์ :</td>
+                              <td class="td1"><? echo iconv("tis-620", "utf-8", $val[12]) ?></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>ผู้ประดิษฐ์ :</td>
+                              <td class="td1"><? echo iconv("tis-620", "utf-8", $val[15]) ?></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>วันที่จดเลขทะเบียน :</td>
+                              <td class="td1"><? echo iconv("tis-620", "utf-8", $val[8]) ?></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <br>
+                    <?php } ?>
+                  </li>
+                <?php endfor; ?>
+              </ul>
           </div>
         </div>
         <br>
@@ -485,15 +588,11 @@ $data3 = mssql_query("SELECT * from tb_IP where status ='1' ORDER BY ID_ip DESC"
         <br>
         <div class="slider-navigation3 ">
           <div class=" pagination3">
-          <?php for ($i = 1; $i <= count($arrData); $i++) {
-echo '<a href="#">'.$i.'</a>';
-           } ?>
-            <!-- <a href="#">1</a>
-            <a class="active3" href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">6</a> -->
+
+            <?php for ($i = 1; $i <= count($arrData); $i++) {
+              echo '<a href="#">' . $i . '</a>';
+            } ?>
+
 
           </div>
         </div>

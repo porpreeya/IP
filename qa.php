@@ -1,6 +1,12 @@
 <?
-
-$data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
+$box2 = iconv("utf-8", "tis-620", $_REQUEST["hashtag"]);
+if ($box2 != "") {
+    $sql = "select * from ques where  hashtag = '".$box2."' and status ='1' " ;
+    $data = mssql_query($sql);
+}else{
+    $data = mssql_query("SELECT * FROM ques WHERE  status ='1' ");
+}
+$data2 = mssql_query("SELECT * FROM tb_hashtag ");
 ?>
 
 <head>
@@ -110,7 +116,7 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
         }
 
         .c {
-            height: 330px;
+            height: 450px;
             color: black;
             background-color: blanchedalmond;
             /* background-image: url(../IP/img/d1.jpg); */
@@ -150,6 +156,56 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
             background-color: dodgerblue;
             color: white;
         }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 1px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 10px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+
+        }
+
+        .button1 {
+            background-color: #fbf5b0d9;
+            color: black;
+            border: 1px solid #7d6c67;
+        }
+
+        .button1:hover {
+            background-color: #b3f6ff;
+            color: black;
+        }
+
+        .button2 {
+            border: none;
+            color: white;
+            padding: 1px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+
+        }
+
+        .button3 {
+            background-color: #fbf5b0d9;
+            color: black;
+            border: 1px solid #7d6c67;
+        }
+
+        .button3:hover {
+            background-color: #b3f6ff;
+            color: black;
+        }
     </style>
 </head>
 <link rel="stylesheet" href="./css/style.css">
@@ -170,26 +226,36 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
                     <input class="input1" type="text" name="question" placeholder="พิมพ์คำถาม...">
                     <input type="submit" value="ส่ง">
                 </div>
-                <br>
-                <br>
-                <br>
-                <div>
-                    <?php
-                    //เริ่ม
-                    $allData = array();
-                    while ($info = mssql_fetch_array($data)) {
-                        // $question = iconv("tis-620", "utf-8", $info['question']);
-                        // $date = iconv("tis-620", "utf-8", $info['date']);
+            </form>
+            <?
+            while ($info = mssql_fetch_array($data2)) {
+                $hashtag = iconv("tis-620", "utf-8", $info['hashtag']);
+                $ID_hashtag = iconv("tis-620", "utf-8", $info['ID']);
+            ?><form  method="post">
+                 <input class="input1" type="text" name="hashtag" value="<?php echo $ID_hashtag ?>" style="display: none;">
+                <button type ="submit" class="button button1" <?php echo $key2 ?> value="Search">
+                    <h5><?php echo $hashtag ?></h5>
+                </button></form>
+            <?php } ?>
+            <div>
+                <?php
+                //เริ่ม
+                $allData = array();
+                while ($info = mssql_fetch_array($data)) {
+                    // $question = iconv("tis-620", "utf-8", $info['question']);
+                    // $date = iconv("tis-620", "utf-8", $info['date']);
 
-                        array_push($allData, $info);
-                    }
-                    //echo '<pre>'.var_dump($allData).'</pre>' ;
-                    $arrData = array_chunk($allData, 10);
-                    ?>
+                    array_push($allData, $info);
+                }
+                //echo '<pre>'.var_dump($allData).'</pre>' ;
+                $arrData = array_chunk($allData, 10);
+                ?>
 
-                </div>
+            </div>
+
         </div>
     </div>
+
     <div id="main3">
         <br>
 
@@ -203,6 +269,7 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
                                 <?php for ($i = 0; $i < count($arrData); $i++) : ?>
                                     <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
                                         <?php
+
                                         foreach ($arrData[$i] as $key => $val) {
                                             // echo '<pre>'.var_dump(iconv("tis-620", "utf-8", $val[0])).'</pre>' ;
                                         ?>
@@ -252,14 +319,11 @@ $data = mssql_query("SELECT * FROM ques WHERE status ='1' ");
 </body>
 <div class="slider-navigation4 " ">
       <div class=" pagination4">
-      <?php for ($i = 1; $i <= count($arrData); $i++) {
-echo '<a href="#">'.$i.'</a>';
-           } ?>
-    <!-- <a href="#">1</a>
-    <a class="active4" href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a> -->
+
+    <?php for ($i = 1; $i <= count($arrData); $i++) {
+        echo '<a href="#">' . $i . '</a>';
+    } ?>
+
 
 </div>
 </div>

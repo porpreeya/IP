@@ -415,19 +415,9 @@
 
                                 <th style="width: 360px; margin-right:25px;">เเบบพิมพ์คำขอสิทธิบัตร<br>/อนุสิทธิบัตรจดทะเบียน: </th>
                                 <td>
-
-                                    <div class="container" style=" display:inline;  margin-left:0px; color: black; margin-right:0px;">
-
-                                        <div class="container" style="text-align:center; margin-left:0px; color: black; ">
-
-                                            <label for="myfile">กรุณาเลือกไฟล์</label><br>
-                                            <input type="file" id="myfile" name="form" style="width:180px;">
-                                            <?
-                                             if (trim($form["form"])!="") {
-                                                ?>
-                                            <a id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="_blank" style="text-align: center; text-decoration: underline; color:blue">เรียกดู</a> <?
-                                             }
-                                                ?>
+                                    <div class="container" style="text-align:center; margin-left:40px; color: black; margin-right:40px;">
+                                        <label for="myfile">กรุณาเลือกไฟล์</label><br>
+                                        &nbsp;<a id="file" class="outset1" href="../uploadpdf/<?php echo $form ?>" target="-blank">เรียกดู</a>
                                 </td>
 
                                 <th style="width: 210px; margin-right:35px;">สำหรับแอดมิน</th>
@@ -464,8 +454,8 @@
 
                                 <th style="width: 170px;">วันที่ออกเลขทะเบียน</th>
                                 <td>
-                                    <div class="container" style="margin-left:30px; margin-right: 40px;">
-                                        <input type="date" id="ddmmyy2"  name="datenumregister" value="<?php echo $datenumregister; ?>"  >
+                                    <div class="container" style="margin-left:30px; margin-right: 60px;">
+                                        <input type="date" name="datenumregister" value="<?php echo $datenumregister; ?>">
                                         <div id="result"></div>
                                 </td>
 
@@ -514,20 +504,18 @@
 
                                 <th>กลุ่ม</th>
                                 <td>
-                                    <div class="container" style="margin-left: 73px; margin-right:40px">
-                                        <select name="team" id="id_team" onchange="fm_ID_team(this.value)"> Answer 1
-                                            <option value="all">--กรุณาเลือก-- </option>
-                                            <?
-                                            $data3 = mssql_query("SELECT * FROM tb_team");
-
-                                            while ($info3 = mssql_fetch_array($data3)) {
-                                                $ss = "";
-                                                if ($team == $info3["ID"]) {
-                                                    $ss = "selected";
-                                                }
-
-                                                echo '<option value="' . $info3["ID"] . '"  ' . $ss . '>' . iconv("tis-620", "utf-8", $info3["team"]) . '</option>';
-                                            } ?>
+                                    <div class="container" style="margin-left: 80px; margin-right:60px">
+                                        <select name="team"> Answer 1
+                                            <option selected="" value="">--กรุณาเลือก-- </option>
+                                            <option value="1" <?php if ($team == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>อช.</option>
+                                            <option value="2" <?php if ($team == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>พช.</option>
+                                            <option value="3" <?php if ($team == 1) {
+                                                                    echo 'selected';
+                                                                } ?>>บอ.</option>
                                         </select>
                                 </td>
 
