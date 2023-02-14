@@ -1,15 +1,15 @@
 <?php
 include("../../includes/config.inc.php");
-$question = iconv("utf-8", "tis-620", $_POST['question']);
 $response = iconv("utf-8", "tis-620", $_POST['response']);
-$dateans= iconv("utf-8", "tis-620", $_POST['dateans'],GETDATE());
-$nameans = iconv("utf-8","tis-620", $_POST['nameans']);
+$dateans = iconv("utf-8", "tis-620", $_POST['dateans'], GETDATE());
+$nameans = iconv("utf-8", "tis-620", $_POST['nameans']);
+$hashtag = iconv("utf-8", "tis-620", $_POST['hashtag']);
 $dateans = date("Y-m-d");
 // $objDB = mssql_select_db("intelle");
 $strSQL = "INSERT INTO ques";
-$strSQL .= "(response,question,dateans,nameans)";
+$strSQL .= "(response,dateans,nameans,hashtag)";
 $strSQL .= "VALUES";
-$strSQL .= "('" . $response . "','" . $question . "','" . $dateans . "','" . $nameans . "')";
+$strSQL .= "('" . $response . "','" . $dateans . "','" . $nameans . "','" . $nameans . "','" . $hashtag . "')";
 $strSQL .= mssql_query($strSQL);
 
 ?>

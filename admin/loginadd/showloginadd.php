@@ -1,11 +1,7 @@
 <?
 
-
-
-// $objDB = mssql_select_db("intelle");
-// $data = mssql_query("SELECT * FROM tb_IP ");
+// $data = mssql_query("SELECT * FROM tb_login WHERE ID ");
 $data = mssql_query("SELECT * FROM tb_login  ");
-
 ?>
 
 <head>
@@ -127,7 +123,7 @@ $data = mssql_query("SELECT * FROM tb_login  ");
             border-style: outset;
             background: #2c15b1;
             text-align: center;
-            margin-left: 560px;
+            margin-left: 480px;
             margin-top: 10%;
             color: white;
             height: 40px;
@@ -151,16 +147,16 @@ $data = mssql_query("SELECT * FROM tb_login  ");
 <a onclick="location. href='indexadmin.php';">
     <p class="outset1">ย้อนกลับ</p>
 </a>
-<a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=1&Submenu=addlog'; ">
-    <p class="outset">เพิ่มเเบนเนอร์</p>
+<a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=7&Submenu=addlog'; ">
+    <p class="outset">เพิ่มข้อมูลAdmin</p>
 </a><br><br>
 <table class="center">
     <tr>
         <th>ลำดับ</th>
-        <th >Username </th>
-        <th>Password</th>
+        <th>Username </th> 
         <th>ชื่อ </th>
         <th>นามสกุล </th>
+        <th>สถานะ </th>
         <th>แก้ไขข้อมูล </th>
         <th>ลบข้อมูล </th>
 
@@ -170,19 +166,19 @@ $data = mssql_query("SELECT * FROM tb_login  ");
     <?
     while ($info = mssql_fetch_array($data)) {
         $useradd = iconv("tis-620", "utf-8", $info['useradd']);
-        $password = iconv("tis-620", "utf-8", $info['password']);
         $firstname = iconv("tis-620", "utf-8", $info['firstname']);
         $lastname = iconv("tis-620", "utf-8", $info['lastname']);
+        $status = iconv("tis-620", "utf-8", $info['status']);
 
     ?>
         <tr>
             <td valign="top" style="text-align:left ;"><?php echo $info['ID']; ?></td>
             <td valign="top"><?php echo $useradd; ?></td>
-            <td valign="top"> <?php echo $password; ?></td>
             <td valign="top"> <?php echo $firstname; ?></td>
             <td valign="top"> <?php echo $lastname; ?></td>
-            <td style="text-align:center ;"><a href='indexadmin.php?Menu=1&Submenu=editlogin&ID=<?php echo $info['ID']; ?>''><button type="button" class="btn btn-warning">Edit</button></a> </td>
-            <td style="text-align:center ;"><a href=' news/deleteban.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
+            <td valign="top"> <?php echo $status; ?></td>
+            <td style="text-align:center ;"><a href='indexadmin.php?Menu=7&Submenu=editlogin&ID=<?php echo $info['ID']; ?>''><button type="button" class="btn btn-warning">Edit</button></a> </td>
+            <td style="text-align:center ;"><a href=' loginadd/deletelog.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
 
         </tr>
     <?php } ?>

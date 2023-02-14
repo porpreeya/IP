@@ -153,6 +153,20 @@
             outline-color: red;
             border-radius: 10px;
         }
+        .heading2 {
+            color: #494949;
+            background: white;
+            border-left: solid 7px #7db4e6;
+            width: 18%;
+            height: 10%;
+        }   
+        .container2 {
+            border-radius: 5px;
+            background-color: burlywood;
+            padding: 20px;
+            padding-bottom: 20px;
+            width: 30%;
+        }
     </style>
 
 </head>
@@ -175,12 +189,26 @@
     ?> <?php
         while ($info = mssql_fetch_array($data)) {
             $image = iconv("tis-620", "utf-8", $info['image']);
-
+            $date = iconv("tis-620", "utf-8", $info['date']);
+            $end_date = iconv("tis-620", "utf-8", $info['end_date']);
         ?>
             <form action="news/updateban.php?ID_ban=<?php echo $info['ID_ban']; ?>" method="post" enctype="multipart/form-data" class="form">
                 <h5>เลือกไฟล์รูปเพื่อเเก้ไข:</h5>
                 <input type="file" name="image" id="addimg" onchange="loadFile(event)">
                 <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:150px; width:200px;  white;border:3px solid; border-radius: 25px;">
+                <div class="heading2">
+                <h5>แก้ไขวันที่เริ่มโชว์:</h5>
+            </div>
+            <div class="container2" style=" ">
+                <input type="date" id="ddmmyy" name="date"  value="<?php echo $date; ?>">
+            </div>
+            &nbsp;<div class="heading2">
+                <h5>เเก้ไขวันที่หมดอายุ:</h5>
+            </div>
+            <div class="container2" style=" ">
+                <input type="date" id="ddmmyy" name="end_date"  value="<?php echo $end_date; ?>">
+            </div>
+            <div id="result"></div>
                 <div class="row">
                     <input type="submit" value="Submit">
                     <input type="reset" value="Reset">

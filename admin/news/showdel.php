@@ -4,8 +4,9 @@
 
 // $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
-$data = mssql_query("SELECT * FROM banner where status='1' ");
-
+$data = "SELECT * FROM banner where status='1' ";
+$q = mssql_query( $data );
+$num = mssql_num_rows( $q );
 ?>
 
 <head>
@@ -80,7 +81,7 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
         }
 
         .th {
-            width: 500px;
+            width: 20%;
         }
 
        
@@ -149,28 +150,34 @@ $data = mssql_query("SELECT * FROM banner where status='1' ");
         <th>ลำดับ</th>
         <th class="th" >ชื่อรูปเเบนเนอร์ </th>
         <th>ตัวอย่าง</th>
+        <th>วันที่เริ่มโชว์</th>
+        <th>วันที่หมดอายุ</th>
         <th>แก้ไขข้อมูล </th>
-
         <th>ลบข้อมูล </th>
 
 
 
     </tr>
     <?
-    while ($info = mssql_fetch_array($data)) {
+    $i=1;
+    if ($num > 0){} 
+    while ($info = mssql_fetch_array($q)) {
         $image = iconv("tis-620", "utf-8", $info['image']);
-
+        $date = iconv("tis-620", "utf-8", $info['date']);
+        $end_date = iconv("tis-620", "utf-8", $info['end_date']);
 
     ?>
         <tr>
-            <td valign="top" style="text-align:left ;"><?php echo $info['ID_ban']; ?></td>
+            <td valign="top" style="text-align:left ;"><?php echo $i; ?></td>
             <td valign="top"><?php echo $image; ?></td>
             <td valign="top"> <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:150px; width:200px;  white;border:3px solid; border-radius: 25px;"></td>
+            <td valign="top"><?php echo $date; ?></td>
+            <td valign="top"><?php echo $end_date; ?></td>
             <td style="text-align:center ;"><a href='indexadmin.php?Menu=1&Submenu=editban&ID_ban=<?php echo $info['ID_ban']; ?>''><button type="button" class="btn btn-warning">Edit</button></a> </td>
             <td style="text-align:center ;"><a href='news/deleteban.php?ID_ban=<?php echo $info['ID_ban']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
 
         </tr>
-    <?php } ?>
+    <?php $i++; } ?>
 </table>
 <script>
     var loadFile = function(event) {

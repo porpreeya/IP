@@ -1,8 +1,9 @@
 <?
 // $objDB = mssql_select_db("intelle");
 // $data = mssql_query("SELECT * FROM tb_IP ");
-$data = mssql_query("SELECT * FROM news where status='1' ");
-
+$data = "SELECT * FROM news where status='1' ";
+$q = mssql_query( $data );
+$num = mssql_num_rows( $q );
 ?>
 
 <head>
@@ -48,7 +49,7 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
         table.center {
             margin-left: auto;
             margin-right: auto;
-            width: 80%;
+            width: 100%;
         }
 
         .glow {
@@ -133,39 +134,49 @@ $data = mssql_query("SELECT * FROM news where status='1' ");
         <p class="outset1">ย้อนกลับ</p>
     </a>
     <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=2&Submenu=addnews'; ">
-        <p class="outset">เพิ่มทรัพย์สินทางปัญญา</p><br><br>
+        <p class="outset">เพิ่มข่าวประชาสัมพันธ์ด้านทรัพย์ทางปัญญา</p><br><br>
     </a>
 
     <table class="center">
         <tr>
             <th>ลำดับ</th>
+            <th style="width: 300px;">ชื่อเรื่อง</th>
             <th class="th">ข่าว </th>
-            <th>รูปข่าว</th>
-            <th>ไฟล์ PDF</th>
-            <th>แก้ไขข้อมูล </th>
-            <th>ลบข้อมูล </th>
+            <th style="width: 100px;">รูปข่าว</th>
+            <th style="width: 100px;">ไฟล์ PDF</th>
+            <th style="width: 100px;">วันที่</th>
+            <th style="width: 100px;">ที่มา</th>
+            <th style="width: 70px;">แก้ไขข้อมูล </th>
+            <th style="width: 70px;">ลบข้อมูล </th>
 
 
 
         </tr>
         <?
-        while ($info = mssql_fetch_array($data)) {
+     $i=1;
+     if ($num > 0){} 
+     while ($info = mssql_fetch_array($q))  {
             $news = iconv("tis-620", "utf-8", $info['news']);
             $image = iconv("tis-620", "utf-8", $info['image']);
             $pdf_news = iconv("tis-620", "utf-8", $info['pdf_news']);
-
+            $title = iconv("tis-620", "utf-8", $info['title']);
+            $datenews = iconv("tis-620", "utf-8", $info['datenews']);
+            $source = iconv("tis-620", "utf-8", $info['source']);
 
         ?>
             <tr>
-                <td valign="top" style="text-align:center ;"><?php echo $info['ID']; ?></td>
+                <td valign="top" style="text-align:center ;"><?php echo $i; ?></td>
+                <td valign="top"><?php echo $title; ?></td>
                 <td><?php echo $news; ?></td>
                 <td valign="top"><?php echo $image; ?></td>
                 <td valign="top"><?php echo $pdf_news; ?></td>
+                <td valign="top"><?php echo $datenews; ?></td>
+                <td valign="top"><?php echo $source; ?></td>
                 <td style="text-align:center ;"><a href='indexadmin.php?Menu=2&Submenu=editnews&ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-warning">Edit</button></a> </td>
                 <td style="text-align:center ;"><a href='news/deletenews.php?ID=<?php echo $info['ID']; ?>'><button type="button" class="btn btn-danger">delete</button></a></td>
 
             </tr>
-        <?php } ?>
+        <?php $i++; } ?>
     </table>
 
 </body>

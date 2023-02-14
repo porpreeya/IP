@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-type" content="text/html; " />
     <link rel="stylesheet" href="css/style2.css" type="text/css" media="all" />
-    
+
 </head>
 <?php
 
@@ -21,7 +21,7 @@ $data = mssql_query("SELECT * FROM ques WHERE ID_q='$ID_q'")
 <style>
     * {
         box-sizing: border-box;
-        
+
     }
 
     input[type=text],
@@ -124,24 +124,27 @@ $data = mssql_query("SELECT * FROM ques WHERE ID_q='$ID_q'")
     .form {
         margin-left: 150px;
     }
+
     p.outset {
-            width: 130px;
-            border-style: outset;
-            background: #2615b1;
-            margin-left: 1160px;
-            text-align: center;
-            color: white;
-            height: 40px;
-            padding: 5px;
-            outline-color: red;
-            border-radius: 10px;
-        }
+        width: 130px;
+        border-style: outset;
+        background: #2615b1;
+        margin-left: 1160px;
+        text-align: center;
+        color: white;
+        height: 40px;
+        padding: 5px;
+        outline-color: red;
+        border-radius: 10px;
+    }
 </style>
+
 <body class="body">
 
-<br>
+    <br>
     <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=4&Submenu=showqa'; ">
-        <p class="outset">ย้อนกลับ</p></a>
+        <p class="outset">ย้อนกลับ</p>
+    </a>
 
     <div class="container">
         <?php
@@ -151,15 +154,15 @@ $data = mssql_query("SELECT * FROM ques WHERE ID_q='$ID_q'")
             $nameans = iconv("tis-620", "utf-8", $info['nameans']);
         ?>
             <form action="qa/updateqa.php?ID_q=<?php echo $info['ID_q']; ?>" class="form" method="POST" enctype="multipart/form-data">
-                <h5><label for="subject">คำถาม</label></h5>
+                <h6><label for="subject">คำถาม</label></h6>
                 <div class="col-25">
                 </div>
                 <div class="row">
                     <div class="col-75">
-                    <input class="w3-input w3-border" name="question" type="text" value="<?php echo $question; ?>" />
+                        <input class="w3-input w3-border" name="question" type="text" value="<?php echo $question; ?>" />
                     </div>
                 </div>
-                <h5><label for="subject">คำตอบ</label></h5>
+                <h6><label for="subject">คำตอบ</label></h6>
                 <div class="col-25">
                 </div>
                 <div class="row">
@@ -167,6 +170,20 @@ $data = mssql_query("SELECT * FROM ques WHERE ID_q='$ID_q'")
                         <textarea id="subject" name="response" placeholder="พิมพ์อะไรบางอย่าง" style="height:100px; width:750px"></textarea>
                     </div>
                 </div>
+                <h6><label for="country">เเฮชเเท็กที่เกี่ยวข้อง</label></h6>
+
+                <?
+                $data = mssql_query("SELECT * FROM tb_hashtag  ");
+                ?>
+                <select name="hashtag" style=" width: 40%; font: size 16px;">
+                    <option selected="" value="">--กรุณาเลือก--</option>
+                    <?
+                    while ($info = mssql_fetch_array($data)) {
+
+                    ?>
+                        <option value="<? echo iconv("tis-620", "utf-8", $info['ID']) ?>"><? echo iconv("tis-620", "utf-8", $info['hashtag']) ?></option>
+                    <?php } ?>
+                </select><br>
                 <label for="fname"><i class="fa fa-user"></i>ชื่อผู้ตอบ</label><br>
                 <input type="text" id="fname" name="nameans" placeholder="..." style="width:84%;">
                 <div class="row">

@@ -1,4 +1,7 @@
- <style>
+<?
+session_start();
+?>
+<style>
      .form2 {
          border: 3px solid #f1f1f1;
          width: 50%;
@@ -88,16 +91,16 @@
 
  <body>
      <div class="div1">
-         <form action="/action_page.php" method="post" class="form2">
+         <form action="./admin/loginadd/check_login.php" method="post" class="form2">
              <div class="container">
                  <label for="uname"><b style="font-size: 20px;">Username</b></label>
-                 <input type="text" placeholder="Enter Username" name="uname" required>
+                 <input type="text"  name="useradd" id="useradd" required>
 
                  <label for="psw"><b style="font-size: 20px;">Password</b></label>
-                 <input type="password" placeholder="Enter Password" name="psw" required>
+                 <input type="password"  name="password"  id="password" required>
 
-                 <button type="submit" class="bt">Login</button>
-                 <button type="button" class="cancelbtn">Cancel</button>
+                 <button type="submit" value="Login" class="bt" onclick = "myFunction ()">Login</button>
+                 <button type="reset" value="Reset" class="cancelbtn">Cancel</button>
 
              </div>
 
@@ -105,3 +108,9 @@
          </form>
      </div>
  </body>
+ <script>
+    function myFunction ()
+{
+alert ( "ยินดีต้อนรับ Admin");
+}
+ </script>

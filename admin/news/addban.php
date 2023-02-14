@@ -63,6 +63,14 @@
             padding-bottom: 20px;
         }
 
+        .container2 {
+            border-radius: 5px;
+            background-color: burlywood;
+            padding: 20px;
+            padding-bottom: 20px;
+            width: 30%;
+        }
+
         .col-25 {
             float: center;
             width: 10%;
@@ -125,15 +133,23 @@
         }
 
         .form {
-            margin-left: 150px;
+            margin-left: 110px;
         }
 
         .heading {
-            padding: 0.25em 0.9em;
             color: #494949;
             background: white;
             border-left: solid 7px #7db4e6;
             width: 12%;
+            height: 10%;
+        }
+
+        .heading2 {
+            color: #494949;
+            background: white;
+            border-left: solid 7px #7db4e6;
+            width: 18%;
+            height: 10%;
         }
 
         p.outset {
@@ -160,32 +176,47 @@
     <h2 class="glow">เพิ่มเเบนเนอร์</h2>
     <br><br>
     <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=1&Submenu=showdel'; ">
-        <p class="outset">ย้อนกลับ</p></a>
-        <div class="container">
+        <p class="outset">ย้อนกลับ</p>
+    </a>
+    <div class="container">
 
+
+
+        <form action="news/storeban.php" method="post" enctype="multipart/form-data" class="form">
             <div class="heading">
                 <h5>เพิ่มไฟล์รูป:</h5>
             </div><br>
-            <form action="news/storeban.php" method="post" enctype="multipart/form-data" class="form">
-
-                <input type="file" name="image" id="addimg" onchange="loadFile(event)">
-                <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:250px; width:100;">
-                <div class="row">
-                    <input type="submit" value="Submit">
-                    <input type="reset" value="Reset">
-                </div>
-            </form>
-        </div>
-        <script>
-            var loadFile = function(event) {
-                var reader = new FileReader();
-                reader.onload = function() {
-                    var output = document.getElementById('showimg');
-                    output.src = reader.result;
-                };
-                reader.readAsDataURL(event.target.files[0]);
+            <input type="file" name="image" id="addimg" onchange="loadFile(event)">
+            <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:250px; width:100;">
+            <div class="heading2">
+                <h5>เพิ่มวันที่เริ่มโชว์:</h5>
+            </div>
+            <div class="container2" style=" ">
+                <input type="date" id="ddmmyy" name="date" onchange="selectday()">
+            </div>
+            &nbsp;<div class="heading2">
+                <h5>เพิ่มวันที่หมดอายุ:</h5>
+            </div>
+            <div class="container2" style=" ">
+                <input type="date" id="ddmmyy" name="end_date" onchange="selectday()">
+            </div>
+            <div id="result"></div>
+            <div class="row">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+    <script>
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('showimg');
+                output.src = reader.result;
             };
-        </script>
+            reader.readAsDataURL(event.target.files[0]);
+        };
+    </script>
 </body>
 
 </html>

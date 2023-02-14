@@ -339,8 +339,9 @@ if ($sql != "") {
     .td2 {
         width: 80px;
     }
-    .td3{
-    width: 650px;
+
+    .td3 {
+        width: 650px;
     }
 </style>
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
@@ -510,7 +511,7 @@ if ($sql != "") {
                                         ?>
                                             <div class="box4">
                                                 <table class="table">
-                                                <tr>
+                                                    <tr>
                                                         <td valign="top" class="td2">
                                                             <h4>ชื่อเรื่อง :</h4>
                                                         </td>
@@ -533,7 +534,7 @@ if ($sql != "") {
                                                 <br>
                                                 <table class="table">
                                                     <tr>
-                                                    <td valign="top" class="td2">
+                                                        <td valign="top" class="td2">
                                                             <h4 style="min-width: 120px;">วันที่จดเลขทะเบียน :</h4>
                                                         </td>
                                                         <td class="td1"><?php echo iconv("tis-620", "utf-8", $val[8]) ?></td>

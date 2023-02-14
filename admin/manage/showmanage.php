@@ -124,13 +124,13 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             transform: translateY(4px);
         }
 
-        p.outset {
+        p.outset2 {
             display: inline;
             width: 130px;
             border-style: outset;
-            background: #c32da9;
+            background: #00590d;
             text-align: center;
-            margin-left: 1210px;
+            margin-left: 83%;
             color: white;
             height: 40px;
             padding: 10px;
@@ -138,8 +138,8 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
             border-radius: 10px;
         }
 
-        .outset:active {
-            background-color: #f169da;
+        .outset2:active {
+            background-color: #00590dbf;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
         }
@@ -152,8 +152,8 @@ $data = mssql_query("SELECT * FROM tb_IP where status='1' ");
     <a onclick="location. href='indexadmin.php';">
         <p class="outset1">ย้อนกลับ</p>
     </a>
-    <a onclick="location. href='indexadmin.php?Menu=5&Submenu=addmanage'; ">
-        <p class="outset">เพิ่มทรัพย์สินทางปัญญา</p><br><br>
+    <a onclick="location. href='indexadmin.php?Menu=10&Submenu=showenroll'; ">
+        <p class="outset2">คำขอยื่นจดทะเบียน</p><br><br>
     </a>
     <table class="center">
         <tr>

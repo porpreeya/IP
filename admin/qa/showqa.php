@@ -102,6 +102,25 @@ $data = mssql_query("SELECT * FROM ques ");
             box-shadow: 0 5px #666;
             transform: translateY(4px);
         }
+        .outset1:active {
+            background-color: #442bd1;
+            box-shadow: 0 4px #666;
+            transform: translateY(4px);
+        }
+
+        p.outset {
+            display: inline;
+            width: 130px;
+            border-style: outset;
+            background: #c32da9;
+            text-align: center;
+            margin-left: 83%;;
+            color: white;
+            height: 40px;
+            padding: 10px;
+            outline-color: red;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -112,6 +131,10 @@ $data = mssql_query("SELECT * FROM ques ");
     </a> -->
     <a onclick="location. href='indexadmin.php';">
         <p class="outset1">ย้อนกลับ</p>
+    </a>
+    
+        <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=4&Submenu=showhashtag'; ">
+        <p class="outset">เเฮชเเท็กคำถาม</p>
     </a><br><br>
     <table class="center">
         <tr>

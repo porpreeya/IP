@@ -3,7 +3,7 @@ session_start();
 // error_reporting(0);
 include("includes/config.inc.php");
 $mm = $_REQUEST['mm'];
-if ($mm == '') {
+if ($mm == '1') {
   $page = "mein.php";
   $class1 = "active";
 } else if ($mm == '2') {
@@ -15,12 +15,14 @@ if ($mm == '') {
 } else if ($mm == '4') {
   $page = "qa.php";
   $class4 = "active";
-}
-else if ($mm == '5') {
+} else if ($mm == '5') {
   $page = "login.php";
   $class5 = "active";
 } else if ($mm == '6') {
-  $page = "insertname.php";
+  $page = "enroll.php";
+  $class6 = "active";
+}else if ($mm == '7') {
+  $page = "searchtag.php";
   $class6 = "active";
 }
 
@@ -31,7 +33,7 @@ else if ($mm == '5') {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<head>
+<head> 
   <title>ทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทศไทย</title>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -43,13 +45,16 @@ else if ($mm == '5') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=K2D&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+ 
   <!--[if IE 6]><link rel="stylesheet" href="css/ie.css" type="text/css" media="all" /><![endif]-->
 
   <style>
-    .span1{
+    
+    .span1 {
       font-size: 11px;
-      
+
     }
+
     .collapsible {
       cursor: pointer;
       padding: 18px;
@@ -191,17 +196,18 @@ else if ($mm == '5') {
   </style>
 </head>
 
-
+<body>
+ 
   <!-- START PAGE SOURCE -->
   <div id="header">
     <div class="shell">
       <div style="float:left"> <img src="../IP/img/2.png" width="69"> </div>
       <h1 class="p">ทรัพย์สินทางปัญญาสถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีเเห่งประเทศไทย (วว.)
         <div class="search-container">
-       
-       
+
+
           <form class="from1" action="index.php?mm=2" method="POST">
-            <input type="text" placeholder="ใส่คำค้นหา.." name="search" >
+            <input type="text" placeholder="ใส่คำค้นหา.." name="search">
 
             <button type="submit">ค้นหา <i class="fa fa-search" style="font-size:16px ; color:#f1f1f1" action="index.php?mm=2"></i></button>
           </form>
@@ -216,11 +222,12 @@ else if ($mm == '5') {
   <div id="navigation">
     <div class="shell">
       <ul>
-        <li><a href="index.php" class="<? echo $class1; ?>"><span>หน้าหลัก</span></a></li>
+        <li><a href="index.php?mm=1" class="<? echo $class1; ?>"><span>หน้าหลัก</span></a></li>
         <li><a href="index.php?mm=2" class="<? echo $class2; ?>"><span class="span1">ฐานข้อมูลทรัพย์สินทางปัญญา</span></a></li>
         <li><a href="index.php?mm=3" class="<? echo $class3; ?>"><span>ข้อมูลตัวแทน</span></a></li>
         <li><a href="index.php?mm=4" class="<? echo $class4; ?>"><span class="span1">ถาม-ตอบด้านทรัพย์สินทางปัญญา</span></a></li>
-        <li><a href="index.php?mm=5" class="<? echo $class5; ?>"><span class="span1">เข้าสู่ระบบ</span></a></li>
+        <li><a href="index.php?mm=5" class="<? echo $class5; ?>"><span class="span1">เข้าสู่ระบบ(Admin)</span></a></li>
+        <li><a href="index.php?mm=6" class="<? echo $class6; ?>"><span class="span1">ยื่นคำขอจดทะเบียน</span></a></li>
 
       </ul>
     </div>
@@ -230,7 +237,8 @@ else if ($mm == '5') {
     include($page);
     ?>
   </div>
-  <footer >
+
+  <footer>
     <div class="x">
       <div class="shell">
         <p class="lf">
@@ -243,6 +251,6 @@ else if ($mm == '5') {
     </div>
     <!-- END PAGE SOURCE -->
   </footer>
-
+</body>
 
 </html>

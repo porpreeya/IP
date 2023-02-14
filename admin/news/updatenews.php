@@ -5,6 +5,10 @@ include("../../includes/config.inc.php");
 // $objDB = mssql_select_db("intelle");
 $ID = $_GET['ID'];
 $news= iconv( "utf-8", "tis-620",$_POST['news']);
+$title = iconv("utf-8", "tis-620", $_POST['title']);
+$datenews = iconv("utf-8", "tis-620", $_POST['datenews']);
+$datenews = date("Y-m-d");
+$source = iconv("utf-8", "tis-620", $_POST['source']);
 //เช็คว่ามีรูปมั้ย
 if (!empty($_FILES['image']['tmp_name'])) {
     $path = "uploads/";
@@ -30,7 +34,7 @@ if (!empty($_FILES['pdf_news']['tmp_name'])) {
     $objQuery = mssql_query($sql);
 }
 
-$sql = ("UPDATE news SET news='{$news}' WHERE ID='{$ID}'");
+$sql = ("UPDATE news SET news='{$news}',title='{$title}',datenews='{$datenews}' WHERE ID='{$ID}'");
 
 $objQuery = mssql_query($sql);
 

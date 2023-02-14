@@ -120,6 +120,7 @@
         .form {
             margin-left: 10px;
         }
+
         p.outset1 {
             display: inline;
             width: 130px;
@@ -152,19 +153,28 @@ $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
     <a onclick="location. href='indexadmin.php?Menu=2&Submenu=shownews';">
         <p class="outset1">ย้อนกลับ</p><br>
     </a>
-   
+
     <div class="container">
         <?php
         while ($info = mssql_fetch_array($data)) {
             $news = iconv("tis-620", "utf-8", $info['news']);
             $image = iconv("tis-620", "utf-8", $info['image']);
             $pdf_news = iconv("tis-620", "utf-8", $info['pdf_news']);
-
+            $title = iconv("tis-620", "utf-8",  $info['title']);
+            $source = iconv("tis-620", "utf-8", $info['source']);
         ?>
-        
+
             <form action="news/updatenews.php?ID=<?php echo $info['ID']; ?>" method="post" enctype="multipart/form-data" class="form">
+                <h5><label for="subject" class="heading2">หัวข่าว :</label></h5>
+                <div class="col-25">
+                </div>
                 <div class="row">
-                <h5><label for="subject">รายละเอียดข่าว</label></h5>
+                    <div class="col-75">
+                        <input class="w3-input w3-border" name="title" type="text" value="<? echo $title ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <h5><label for="subject">รายละเอียดข่าว</label></h5>
                     <textarea name="news" id="detail" style="width:100px;"><?php echo $news; ?></textarea>
                     <script>
                         // Replace the <textarea id="editor1"> with a CKEditor
@@ -181,14 +191,24 @@ $data = mssql_query("SELECT * FROM news WHERE ID='$ID'")
                     <input type="file" name="image" id="addimg" onchange="loadFile(event)">
                     <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:200px; width:50;">
                     <div class="heading">
-            <h5>เเนบไฟล์เพิ่มเติม:</h5>
-            </div>
-            <label for="myfile">กรุณาเลือกไฟล์</label><br>
-            <input type="file" id="myfile" name="pdf_news" value="<?echo $pdf_news?>">
+                        <h5>เเนบไฟล์เพิ่มเติม:</h5>
+                    </div>
+                    <label for="myfile">กรุณาเลือกไฟล์</label><br>
+                    <input type="file" id="myfile" name="pdf_news" value="<? echo $pdf_news ?>">
+                    <h5><label for="subject" class="heading2">ที่มา :</label></h5>
+                    <div class="col-25">
+                    </div>
+                    <div class="row">
+                        <div class="col-75">
+                            <input class="w3-input w3-border" name="source" type="text" value="<? echo $source ?>" />
+                        </div>
+                    </div>
                     <div class="row">
                         <input type="submit" value="บันทึก">
                         <input type="reset" value="ยกเลิก">
                     </div>
+
+
             </form>
         <?php } ?>
     </div>

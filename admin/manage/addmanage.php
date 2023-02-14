@@ -254,7 +254,22 @@
         <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=5&Submenu=showmanage'; ">
             <p class="outset1">ย้อนกลับ</p>
         </a><br><br><br>
-        <form action="manage/storemanage.php" method="post" enctype="multipart/form-data">
+        <?php
+        //ไอดีที่เราทำการดึงมาเพื่อนำมาแก้ไข
+        $ID_ip = $_GET['ID'];
+        // $objDB = mssql_select_db("intelle");
+        $data = mssql_query("SELECT * FROM tb_enroll WHERE ID='$ID'")
+            or die(mssql_error());
+
+        ?>
+         <?php
+        while ($info = mssql_fetch_array($data)) {
+            $name = iconv("tis-620", "utf-8",  $info['name']);
+            $lastname = iconv("tis-620", "utf-8", $info['lastname']);
+            $affiliation = iconv("tis-620", "utf-8", $info['affiliation']);
+            $type = iconv("tis-620", "utf-8", $info['type']);
+            ?>
+        <form action="manage/storemanage.php?ID_ip=<?php echo $info['ID']; ?>" method="post" enctype="multipart/form-data">
             <div class="form">
                 <br>
                 <table class="center">
@@ -263,21 +278,37 @@
                             <tr>
                                 <th align="left" width="70%" class="glow1"> &nbsp; &nbsp;ประเภทการจดทะเบียน</th>
                                 <th class="th">
-                                    <input type="radio" id="html" name="type" value="1">
+                                <input type="radio" id="html" name="type" value="1" <?php if ($type == 1) {
+                                                                                            echo 'checked';
+                                                                                        } ?>>
                                     &nbsp; <label for="html">สิทธิบัตรการประดิษฐ์</label>
-                                    &nbsp; <input type="radio" id="css" name="type" value="2">
+                                    &nbsp; <input type="radio" id="css" name="type" value="2" <?php if ($type == 2) {
+                                                                                                    echo 'checked';
+                                                                                                } ?>>
                                     &nbsp; <label for="css">สิทธิบัตรการออกแบบผลิตภัณฑ์</label>
-                                    <input type="radio" id="css" name="type" value="3">
+                                    <input type="radio" id="css" name="type" value="3" <?php if ($type == 3) {
+                                                                                            echo 'checked';
+                                                                                        } ?>>
                                     &nbsp; <label for="css">อนุสิทธิบัตร</label>
-                                    <input type="radio" id="css" name="type" value="4">
+                                    <input type="radio" id="css" name="type" value="4" <?php if ($type == 4) {
+                                                                                            echo 'checked';
+                                                                                        } ?>>
                                     <label for="css">การจดทะเบียนเครื่องหมายการค้า</label>
-                                    <br><input type="radio" id="css" name="type" value="5">
+                                    <br><input type="radio" id="css" name="type" value="5" <?php if ($type == 5) {
+                                                                                                echo 'checked';
+                                                                                            } ?>>
                                     &nbsp; <label for="css">การจดทะเบียนเครื่องหมายรับรอง</label>
-                                    <input type="radio" id="css" name="type" value="6">
+                                    <input type="radio" id="css" name="type" value="6" <?php if ($type == 6) {
+                                                                                            echo 'checked';
+                                                                                        } ?>>
                                     &nbsp; <label for="css">การจดทะเบียนเครื่องหมายบริการ</label>
-                                    <input type="radio" id="css" name="type" value="7">
+                                    <input type="radio" id="css" name="type" value="7" <?php if ($type == 7) {
+                                                                                            echo 'checked';
+                                                                                        } ?>>
                                     &nbsp; <label for="css">การขึ้นทะเบียนพันธุ์พืช</label>
-                                    <input type="radio" id="css" name="type" value="8">
+                                    <input type="radio" id="css" name="type" value="8" <?php if ($type == 8) {
+                                                                                            echo 'checked';
+                                                                                        } ?>>
                                     &nbsp; <label for="css">เครื่องหมายร่วม</label>
                                 </th>
                                 <th>
@@ -330,7 +361,7 @@
                                 <th>ตัวเเทน</th>
                                 <td>
                                     <div class="container" style=" margin-left: 40px; margin-right:20px">
-                                        <input type="text" id="number" placeholder="" name="agent" required="" >
+                                        <input type="text" id="number" placeholder="" name="agent" required="" value="<?php echo $name; ?> <?php echo $lastname; ?>">
                                     </div>
                                 </td>
 
@@ -415,11 +446,15 @@
                                             <option selected="" value="">--กรุณาเลือก--
                                             </option>
                                             <?
-                                            while ($info = mssql_fetch_array($data)) {
+                                            $data4 = mssql_query("SELECT * FROM tb_affiliation");
+                                            while ($info4 = mssql_fetch_array($data4)) {
+                                                $ss = "";
+                                                if ($affiliation == $info4["ID"]) {
+                                                    $ss = "selected";
+                                                }
 
-                                            ?>
-                                                <option value="<? echo $info['ID'] ?>"><? echo iconv("tis-620", "utf-8", $info['affiliation']) ?></option>
-                                            <?php } ?>
+                                                echo '<option value="' . $info4["ID"] . '"  ' . $ss . '>' . iconv("tis-620", "utf-8", $info4["affiliation"]) . '</option>';
+                                            } ?>
                                         </select>
                                 </td>
 
@@ -619,6 +654,7 @@
                     </table>
             </div>
         </form>
+        <?php } ?>
     </div>
     </table>
 

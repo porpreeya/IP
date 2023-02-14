@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <head>
     <title>เพิ่มข่าว</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +20,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             resize: vertical;
+            margin-left: 2px;
         }
 
         label {
@@ -135,7 +133,7 @@
             color: #494949;
             background: white;
             border-left: solid 7px #7db4e6;
-            width: 13%;
+            width: 15%;
         }
 
         .heading1 {
@@ -145,6 +143,13 @@
             border-left: solid 7px #7db4e6;
             width: 11%;
         }
+        .heading2 {
+
+color: #494949;
+background: white;
+border-left: solid 7px #7db4e6;
+width: 8%;
+}
 
         button,
         input,
@@ -155,6 +160,7 @@
             margin-left: 10%;
             margin-right: 20%;
         }
+
         p.outset1 {
             display: inline;
             width: 130px;
@@ -169,6 +175,7 @@
             outline-color: red;
             border-radius: 8px;
         }
+
         p.outset {
             width: 130px;
             border-style: outset;
@@ -193,10 +200,19 @@
     <h2 class="glow">เพิ่มข่าวทรัพย์สินทางปัญญา</h2><br>
     <br>
     <a style="text-decoration: none;" onclick="location. href='indexadmin.php?Menu=2&Submenu=shownews'; ">
-        <p class="outset ">ย้อนกลับ</p></a>
+        <p class="outset ">ย้อนกลับ</p>
+    </a>
     <div class="container">
 
         <form action="news/storenews.php" method="post" enctype="multipart/form-data" class="form">
+            <h5><label for="subject" class="heading2">หัวข่าว :</label></h5>
+            <div class="col-25">
+            </div>
+            <div class="row">
+                <div class="col-75">
+                    <input class="w3-input w3-border" name="title" type="text" value="" />
+                </div>
+            </div>
             <div class="heading1">
                 <h5>รายละเอียด:</h5>
             </div><br>
@@ -218,10 +234,19 @@
             <input type="file" name="image" id="addimg" onchange="loadFile(event)">
             <img id="showimg" src="../uploads/<?php echo $image ?>" style="height:200px; width:50;">
             <div class="heading">
-            <h5>เเนบไฟล์เพิ่มเติม:</h5>
+                <h5>เเนบไฟล์เพิ่มเติม:</h5>
             </div>
             <label for="myfile">กรุณาเลือกไฟล์</label><br>
             <input type="file" id="myfile" name="pdf_news">
+            <h5><label for="subject" class="heading2">ที่มา :</label></h5>
+            <div class="col-25">
+            </div>
+            <div class="row">
+                <div class="col-75">
+                    <input class="w3-input w3-border" name="source" type="text" value="" />
+                </div>
+            </div>
+            <br>
             <div class="row">
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">

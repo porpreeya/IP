@@ -226,8 +226,8 @@
                 </table>
                 <table style="width:80%" class="center">
                     <tr><br><br><br>
-                        <th>ชื่อตัวแทน</th>
-                        <th>พิจารณา</th>
+                        <th style="font-size:18px;">ชื่อตัวแทน</th>
+                        <th style="font-size:18px;">พิจารณา</th>
 
                     </tr>
                     <tr class="tr">
